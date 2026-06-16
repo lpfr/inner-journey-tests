@@ -3586,6 +3586,350 @@ button {
   }
 }
 
+/* Mobile layout pass: keep the visual world, but make every screen readable and scrollable. */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .app::after {
+    opacity: 0.46;
+  }
+
+  .stage,
+  .camera,
+  .scene {
+    min-height: 100%;
+  }
+
+  .camera--language,
+  .camera--home,
+  .camera--intro,
+  .camera--arrival,
+  .camera--carriage,
+  .camera--letter,
+  .camera--result,
+  .app--arrival .stage,
+  .app--carriage .stage,
+  .app--letter .stage,
+  .app--result .stage {
+    animation: none;
+  }
+
+  .scene {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding: max(1rem, env(safe-area-inset-top)) 1rem max(1.2rem, env(safe-area-inset-bottom));
+  }
+
+  .language-scene,
+  .intro-scene,
+  .arrival-scene,
+  .text-scene,
+  .result-scene,
+  .app--fog-museum .text-scene,
+  .app--fog-museum .result-scene {
+    display: block;
+    align-items: initial;
+    justify-content: initial;
+  }
+
+  .topbar {
+    position: fixed;
+    top: max(0.65rem, env(safe-area-inset-top));
+    right: 0.65rem;
+    left: 0.65rem;
+    z-index: 40;
+    justify-content: flex-end;
+    gap: 0.45rem;
+  }
+
+  .language-panel {
+    width: 100%;
+    height: auto;
+    min-height: calc(100svh - 2rem);
+    padding: 4.2rem 0.85rem 1rem;
+    border-radius: 0.85rem;
+    overflow: visible;
+    gap: 0.5rem;
+  }
+
+  .language-title-stack {
+    margin-bottom: 0.3rem;
+  }
+
+  .language-title-line {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+  }
+
+  .language-eyebrow {
+    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .language-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .language-actions {
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+    margin-top: 0.75rem;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .scene-card-button {
+    min-height: 7.4rem;
+    border-radius: 0.7rem;
+  }
+
+  .scene-card-copy {
+    min-height: 7.4rem;
+    padding: 0.68rem 0.72rem 0.62rem;
+    gap: 0.22rem;
+  }
+
+  .scene-card-title {
+    font-size: 1rem;
+    line-height: 1.16;
+  }
+
+  .scene-card-question {
+    min-height: 0;
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+
+  .intro-scene {
+    padding: max(4.4rem, env(safe-area-inset-top)) 1rem 1rem;
+  }
+
+  .intro-copy {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    background: rgba(3, 8, 16, 0.38);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .intro-title {
+    font-size: clamp(2.1rem, 12vw, 3.35rem);
+    line-height: 1.02;
+    letter-spacing: 0.02em;
+  }
+
+  .intro-line {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .intro-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-width: 0;
+    width: 100%;
+    min-height: 3.15rem;
+    border-radius: 0.75rem;
+    padding: 0.8rem 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .scene-caption,
+  .app--candy-forest .scene-caption,
+  .app--fog-museum .scene-caption {
+    width: 100%;
+    margin: 4.1rem 0 0;
+    padding: 0.9rem;
+    border-radius: 0.8rem;
+    text-align: left;
+    background: rgba(3, 8, 16, 0.42);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .scene-heading {
+    font-size: clamp(1.9rem, 11vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: 0.02em;
+  }
+
+  .scene-subheading,
+  .subtitle-line {
+    font-size: 0.96rem;
+    line-height: 1.58;
+    letter-spacing: 0.02em;
+  }
+
+  .choice-panel,
+  .app--candy-forest .choice-panel,
+  .app--fog-museum .choice-panel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin: 0.75rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 0;
+  }
+
+  .choice-card,
+  .app--fog-museum .choice-card,
+  .app--candy-forest .choice-card {
+    min-height: auto;
+    padding: 0.82rem 0.9rem;
+    border-radius: 0.78rem;
+    background: rgba(5, 12, 24, 0.48);
+    border: 1px solid rgba(234, 244, 255, 0.16);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .choice-card-title,
+  .app--fog-museum .choice-card-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+  }
+
+  .choice-card-subtitle,
+  .app--fog-museum .choice-card-subtitle {
+    margin-top: 0.22rem;
+    font-size: 0.88rem;
+    line-height: 1.42;
+    letter-spacing: 0.01em;
+  }
+
+  .result-scene,
+  .app--fog-museum .result-scene,
+  .app--candy-forest .result-scene {
+    padding: max(4.2rem, env(safe-area-inset-top)) 1rem max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .subtitle-stack,
+  .subtitle-stack--broadcast,
+  .subtitle-stack--result,
+  .app--fog-museum .subtitle-stack--result,
+  .app--candy-forest .subtitle-stack--result {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  .result-card,
+  .app--fog-museum .result-card,
+  .app--candy-forest .result-card {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    background: rgba(3, 8, 16, 0.48);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .result-title,
+  .app--candy-forest .result-card .result-title {
+    font-size: clamp(1.75rem, 9vw, 2.6rem);
+    line-height: 1.06;
+    letter-spacing: 0.02em;
+  }
+
+  .result-subtitle,
+  .result-desc,
+  .result-cue,
+  .result-note,
+  .app--candy-forest .result-card .result-desc,
+  .app--candy-forest .result-card .result-note,
+  .app--candy-forest .result-card .result-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.58;
+    letter-spacing: 0.01em;
+  }
+
+  .background-image {
+    object-position: center;
+  }
+
+  .app--candy-forest .candy-effects {
+    opacity: 0.72;
+  }
+
+  .app--fog-museum .fog-text-layer {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 420px) {
+  .scene {
+    padding-inline: 0.75rem;
+  }
+
+  .language-panel {
+    padding-inline: 0.7rem;
+  }
+
+  .language-title-line {
+    font-size: clamp(1.85rem, 11vw, 2.6rem);
+  }
+
+  .scene-card-button {
+    min-height: 7rem;
+  }
+
+  .scene-card-copy {
+    min-height: 7rem;
+  }
+
+  .choice-card,
+  .app--fog-museum .choice-card,
+  .app--candy-forest .choice-card {
+    padding: 0.74rem 0.78rem;
+  }
+}
+
 
 
 
