@@ -1,0 +1,65 @@
+.dbg-panel {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 500;
+  font-family: monospace;
+  font-size: 11px;
+  pointer-events: auto;
+}
+
+.dbg-toggle {
+  background: rgba(0,0,0,.78);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #aaa;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 11px;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.dbg-warn .dbg-toggle { border-color: rgba(255,80,80,.5); color: #ff9090; }
+.dbg-ok   .dbg-toggle { border-color: rgba(80,200,80,.4); color: #90d890; }
+.dbg-toggle:hover { background: rgba(0,0,0,.9); }
+
+.dbg-list {
+  margin-top: 4px;
+  background: rgba(0,0,0,.88);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 3px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 340px;
+}
+
+.dbg-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.dbg-icon   { font-size: 12px; width: 14px; flex-shrink: 0; }
+.dbg-path   { color: #888; font-size: 10px; word-break: break-all; }
+
+.dbg-ok      .dbg-icon { color: #6dba6d; }
+.dbg-missing .dbg-icon { color: #e05555; }
+.dbg-missing .dbg-path { color: #e08080; }
+.dbg-loading .dbg-icon { color: #888; }
+
+.dbg-hint {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #666;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.dbg-hint code {
+  color: #aaa;
+  background: rgba(255,255,255,.06);
+  padding: 1px 4px;
+  border-radius: 2px;
+}
