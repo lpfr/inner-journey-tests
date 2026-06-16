@@ -1,0 +1,20 @@
+雨夜车站完整包使用说明
+
+打开方式：
+1. 解压这个 zip。
+2. 进入 rain-night-station 文件夹。
+3. Windows 用户双击 run_windows.bat。
+4. 等终端出现 Local: http://localhost:5173/
+5. 用浏览器打开这个地址。
+
+检查图片：
+打开 http://localhost:5173/img/station_intro.png
+如果能看到图片，说明 public/img 路径正常。
+
+检查音频：
+打开 http://localhost:5173/audio/rain_loop.mp3
+如果能播放或下载，说明 public/audio 路径正常。
+
+说明：
+这个包是用 rns-v4-readable(2).zip 作为最后代码版本，
+并从 rain-night-station.zip 合并图片。

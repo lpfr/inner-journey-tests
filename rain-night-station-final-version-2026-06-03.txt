@@ -1,0 +1,30 @@
+rain-night-station final version
+date: 2026-06-03
+
+project:
+D:\Antigravity\rain-night-station-complete-v4\rain-night-station
+
+status:
+- production build passed
+- preview available at http://localhost:4174/
+
+current focus:
+- immersive night-rain atmosphere
+- layered rain with dark/light tones and varied lengths
+- reduced webpage chrome
+- slow camera-like motion and scene breathing
+
+notable files:
+- D:\Antigravity\rain-night-station-complete-v4\rain-night-station\src\App.jsx
+- D:\Antigravity\rain-night-station-complete-v4\rain-night-station\src\styles.css
+- D:\Antigravity\rain-night-station-complete-v4\rain-night-station\src\hooks\useAudio.js
+- D:\Antigravity\rain-night-station-complete-v4\rain-night-station\src\i18n\translations.js
+
+reference direction:
+- The Boat | SBS
+- The sound and vision of The Boat | SBS What's On
+- The Boat | Communication Arts
+
+notes:
+- The latest version emphasizes atmospheric motion and layered rain instead of UI-heavy presentation.
+- Rain was adjusted to feel denser, with dark and light strands and mixed lengths.
