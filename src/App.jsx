@@ -48,13 +48,13 @@ const HOME_CARDS = {
   "fog-museum": {
     status: "Disponible",
     title: "Exploration intérieure",
-    question: "Qu’est-ce qui t’appelle vraiment ?",
+    question: "Qu’est-ce qui t’attire en silence ?",
     world: "Le musée dans la brume",
   },
   "candy-forest": {
     status: "Disponible",
     title: "Maîtrise de soi",
-    question: "Pourquoi n’y arrives-tu pas ?",
+    question: "Qu’est-ce qui t’éloigne de ton intention ?",
     world: "La Forêt des Bonbons",
   },
   "sinking-city": {
@@ -540,6 +540,17 @@ function App() {
     setSelectedChoiceId(null);
   }
 
+  function returnHome() {
+    playClick();
+    setActiveSceneId(null);
+    setStepIndex(0);
+    setScores({ rest: 0, release: 0, connection: 0, direction: 0 });
+    setResultKey(null);
+    setSelectedChoiceId(null);
+    setIsEnteringMuseum(false);
+    setIsStepTransitioning(false);
+  }
+
   const hasActiveScene = Boolean(activeScene);
 
   return (
@@ -606,6 +617,7 @@ function App() {
                   resultKey={resultKey}
                   phase={phase}
                   onRestart={restartScene}
+                  onHome={returnHome}
                 />
               )}
             </div>

@@ -73,17 +73,25 @@ function ArrivalQuestion({ step, phase, selectedChoiceId, onChooseChoice }) {
 }
 
 function ChoiceQuestion({ step, phase, selectedChoiceId, onChooseChoice }) {
+  const showDetails = phase >= 1;
+  const showChoices = phase >= 2;
+
   return (
     <section className={`scene text-scene text-scene--${step.id}`}>
       <div className="scene-caption">
         <p className="scene-heading">{step.copy.heading}</p>
         <p className="subtitle-line subtitle-line--strong">{step.copy.line1}</p>
-        {phase >= 1 && <p className="subtitle-line">{step.copy.line2}</p>}
+        <p className={`subtitle-line${showDetails ? "" : " subtitle-line--pending"}`}>
+          {step.copy.line2}
+        </p>
       </div>
 
-      {phase >= 2 && (
-        <div className="choice-panel glass-panel">
-          {step.choices.map((choice, index) => {
+      <div
+        className={`choice-panel glass-panel${showChoices ? "" : " choice-panel--pending"}`}
+        aria-hidden={!showChoices}
+      >
+        {showChoices &&
+          step.choices.map((choice, index) => {
             const isSelected = selectedChoiceId === choice.id;
             return (
               <button
@@ -104,8 +112,7 @@ function ChoiceQuestion({ step, phase, selectedChoiceId, onChooseChoice }) {
               </button>
             );
           })}
-        </div>
-      )}
+      </div>
     </section>
   );
 }

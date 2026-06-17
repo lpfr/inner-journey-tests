@@ -1,4 +1,4 @@
-export default function SceneResult({ scene, resultKey, phase, onRestart }) {
+export default function SceneResult({ scene, resultKey, phase, onRestart, onHome }) {
   const result = scene.results[resultKey];
   const description = result.description || result.desc || "";
   const reflection = result.reflection || "";
@@ -39,9 +39,14 @@ export default function SceneResult({ scene, resultKey, phase, onRestart }) {
           </div>
           {shareText && <p className="result-note">{shareText}</p>}
           <p className="result-note">{scene.disclaimer}</p>
-          <button className="primary-button primary-button--wide" onClick={onRestart}>
-            {scene.steps.find(step => step.id === "result")?.restartLabel || "Recommencer"}
-          </button>
+          <div className="result-actions">
+            <button className="primary-button primary-button--wide" onClick={onRestart}>
+              {scene.steps.find(step => step.id === "result")?.restartLabel || "Recommencer"}
+            </button>
+            <button className="secondary-button secondary-button--wide" onClick={onHome}>
+              Retour aux expériences
+            </button>
+          </div>
         </div>
       )}
     </section>

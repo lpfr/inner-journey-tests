@@ -847,6 +847,10 @@ button {
   width: 100%;
 }
 
+.secondary-button--wide {
+  width: 100%;
+}
+
 .secondary-button {
   padding: 0.85rem 1.15rem;
   min-width: 10.8rem;
@@ -854,6 +858,13 @@ button {
   letter-spacing: 0.12em;
   background: linear-gradient(180deg, rgba(16, 28, 50, 0.76), rgba(7, 14, 27, 0.86));
   color: var(--ink-soft);
+}
+
+.result-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .intro-scene {
@@ -1073,6 +1084,15 @@ button {
   font-size: clamp(1.06rem, 2.6vw, 1.62rem);
 }
 
+.subtitle-line--pending {
+  visibility: hidden;
+}
+
+.choice-panel--pending {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .ticket-card {
   left: 50%;
   bottom: 4%;
@@ -1280,11 +1300,21 @@ button {
 .app--candy-forest .choice-card {
   background: linear-gradient(180deg, rgba(18, 10, 30, 0.62), rgba(8, 8, 16, 0.48));
   border: 1px solid rgba(255, 224, 178, 0.18);
-  padding: 0.9rem 1rem;
+  padding: 1rem 1.1rem;
   border-radius: 1rem;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04) inset,
     0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.app--candy-forest .choice-card-title {
+  font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.app--candy-forest .choice-card-subtitle:empty {
+  display: none;
 }
 
 .app--candy-forest .choice-card:hover,
@@ -2394,6 +2424,10 @@ button {
   line-height: 1.45;
 }
 
+.app--fog-museum .choice-card-subtitle:empty {
+  display: none;
+}
+
 .app--fog-museum .choice-card:hover,
 .app--fog-museum .choice-card:focus-visible {
   border-color: rgba(240, 214, 160, 0.42);
@@ -2466,6 +2500,10 @@ button {
   gap: 0.75rem;
   padding: 0;
   margin-top: 0.25rem;
+}
+
+.app--fog-museum .choice-panel--pending {
+  min-height: 13rem;
 }
 
 .app--fog-museum .subtitle-stack--result {
@@ -4588,6 +4626,10 @@ button {
     gap: 0.65rem;
   }
 
+  .app--rain-station .choice-panel--pending {
+    min-height: 20rem;
+  }
+
   .app--rain-station .choice-card {
     padding: 0.9rem;
     background: rgba(5, 12, 24, 0.6);
@@ -4602,6 +4644,237 @@ button {
   .app--rain-station .choice-card-subtitle {
     font-size: 0.98rem;
     line-height: 1.42;
+  }
+}
+
+.app--candy-forest .text-scene {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(1rem, 2.8vh, 1.8rem);
+  padding: max(4.4rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.app--candy-forest .scene-caption {
+  width: min(92vw, 48rem);
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.app--candy-forest .scene-heading {
+  font-size: clamp(2.2rem, 5.2vw, 4.25rem);
+  line-height: 1.02;
+}
+
+.app--candy-forest .subtitle-line {
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.5;
+}
+
+.app--candy-forest .choice-panel {
+  width: min(92vw, 48rem);
+  max-height: none;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.6vw, 1rem);
+  padding: 0;
+  align-self: auto;
+}
+
+.app--candy-forest .choice-panel--pending {
+  min-height: 13rem;
+}
+
+.app--rain-station .choice-panel--pending {
+  min-height: 13rem;
+}
+
+.app--candy-forest .choice-card {
+  min-height: clamp(5.6rem, 10vh, 7rem);
+  display: grid;
+  align-content: center;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.app--candy-forest .choice-card-title {
+  font-size: clamp(1.18rem, 2.1vw, 1.45rem);
+  line-height: 1.32;
+}
+
+@media (max-width: 720px) {
+  .result-actions {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .app--candy-forest .text-scene {
+    align-content: center;
+    gap: 0.9rem;
+    padding: max(4rem, env(safe-area-inset-top)) 0.95rem
+      max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .app--candy-forest .scene-caption {
+    width: min(94vw, 34rem);
+    padding: 0.95rem;
+  }
+
+  .app--candy-forest .scene-heading {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .app--candy-forest .subtitle-line {
+    font-size: clamp(1.08rem, 4.8vw, 1.28rem);
+    line-height: 1.45;
+  }
+
+  .app--candy-forest .choice-panel {
+    width: min(94vw, 34rem);
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+  }
+
+  .app--fog-museum .choice-panel--pending,
+  .app--candy-forest .choice-panel--pending {
+    min-height: 21rem;
+  }
+
+  .app--candy-forest .choice-card {
+    min-height: 4.7rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .app--candy-forest .choice-card-title {
+    font-size: clamp(1.12rem, 5vw, 1.32rem);
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  .app--candy-forest .text-scene {
+    gap: 1.2rem;
+  }
+
+  .app--candy-forest .scene-caption,
+  .app--candy-forest .choice-panel {
+    width: min(88vw, 46rem);
+  }
+
+  .app--candy-forest .choice-card {
+    min-height: 6.2rem;
+  }
+}
+
+.intro-scene,
+.app--candy-forest .intro-scene,
+.app--fog-museum .intro-scene,
+.app--rain-station .intro-scene {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(3.6rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2.5rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.intro-copy,
+.app--fog-museum .intro-copy,
+.app--candy-forest .intro-copy,
+.app--rain-station .intro-copy {
+  width: min(92vw, 54rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-time,
+.app--fog-museum .intro-time,
+.app--candy-forest .intro-time,
+.app--rain-station .intro-time {
+  font-size: clamp(0.98rem, 1.4vw, 1.16rem);
+  line-height: 1.35;
+}
+
+.intro-title,
+.app--fog-museum .intro-title,
+.app--candy-forest .intro-title,
+.app--rain-station .intro-title {
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  line-height: 0.98;
+}
+
+.intro-line,
+.app--fog-museum .intro-line,
+.app--candy-forest .intro-line,
+.app--rain-station .intro-line {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.22rem, 2.4vw, 1.72rem);
+  line-height: 1.72;
+}
+
+.intro-actions,
+.app--fog-museum .intro-actions,
+.app--candy-forest .intro-actions,
+.app--rain-station .intro-actions {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .intro-scene,
+  .app--candy-forest .intro-scene,
+  .app--fog-museum .intro-scene,
+  .app--rain-station .intro-scene {
+    padding: max(4rem, env(safe-area-inset-top)) 0.95rem
+      max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .intro-copy,
+  .app--fog-museum .intro-copy,
+  .app--candy-forest .intro-copy,
+  .app--rain-station .intro-copy {
+    width: min(94vw, 34rem);
+  }
+
+  .intro-time,
+  .app--fog-museum .intro-time,
+  .app--candy-forest .intro-time,
+  .app--rain-station .intro-time {
+    font-size: 0.98rem;
+  }
+
+  .intro-title,
+  .app--fog-museum .intro-title,
+  .app--candy-forest .intro-title,
+  .app--rain-station .intro-title {
+    font-size: clamp(2.45rem, 12vw, 3.8rem);
+    line-height: 1.02;
+  }
+
+  .intro-line,
+  .app--fog-museum .intro-line,
+  .app--candy-forest .intro-line,
+  .app--rain-station .intro-line {
+    font-size: clamp(1.08rem, 5vw, 1.3rem);
+    line-height: 1.55;
+  }
+
+  .intro-actions,
+  .app--fog-museum .intro-actions,
+  .app--candy-forest .intro-actions,
+  .app--rain-station .intro-actions {
+    justify-items: center;
+  }
+
+  .intro-actions .primary-button,
+  .intro-actions .secondary-button {
+    font-size: 1rem;
   }
 }
 
