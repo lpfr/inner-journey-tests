@@ -4325,6 +4325,88 @@ button {
   }
 }
 
+/* Mobile scroll fix: the content layer must be taller than the viewport when needed. */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  .stage,
+  .camera {
+    position: relative;
+    inset: auto;
+    min-height: 100dvh;
+    height: auto;
+    transform: none;
+    transform-style: flat;
+  }
+
+  .background,
+  .atmosphere,
+  .candy-effects,
+  .museum-dream-particles {
+    position: fixed;
+    inset: 0;
+  }
+
+  .scene {
+    position: relative;
+    inset: auto;
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .language-panel,
+  .intro-copy,
+  .scene-caption,
+  .choice-panel,
+  .result-card,
+  .subtitle-stack {
+    max-width: 100%;
+  }
+
+  .fog-text-layer,
+  .app--fog-museum .fog-text-layer {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .language-scene {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .text-scene,
+  .arrival-scene,
+  .result-scene,
+  .app--fog-museum .text-scene,
+  .app--fog-museum .result-scene {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .result-card,
+  .app--fog-museum .result-card,
+  .app--candy-forest .result-card {
+    margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+}
+
 
 
 
