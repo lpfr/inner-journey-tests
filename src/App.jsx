@@ -453,6 +453,7 @@ function App() {
   function openScene(sceneId) {
     const scene = getSceneById(sceneId);
     if (!scene.steps.length) return;
+    stopAll();
     setActiveSceneId(scene.id);
     setStepIndex(0);
     setScores({ rest: 0, release: 0, connection: 0, direction: 0 });
@@ -533,6 +534,7 @@ function App() {
 
   function restartScene() {
     if (!activeScene) return;
+    stopAll();
     playClick();
     setStepIndex(0);
     setScores({ rest: 0, release: 0, connection: 0, direction: 0 });
@@ -541,6 +543,7 @@ function App() {
   }
 
   function returnHome() {
+    stopAll();
     playClick();
     setActiveSceneId(null);
     setStepIndex(0);

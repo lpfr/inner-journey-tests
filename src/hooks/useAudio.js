@@ -123,11 +123,23 @@ export function useAudio() {
       }
 
       try {
+        const key = `scene:${path}`;
+        const existing = nodesRef.current[key];
+        if (existing) {
+          existing.pause();
+          existing.currentTime = 0;
+        }
         const audio = new Audio(path);
         audio.preload = "auto";
         audio.playsInline = true;
         audio.loop = loop;
         audio.volume = vol;
+        nodesRef.current[key] = audio;
+        audio.addEventListener("ended", () => {
+          if (nodesRef.current[key] === audio) {
+            delete nodesRef.current[key];
+          }
+        });
         const attempt = audio.play();
         if (attempt && typeof attempt.then === "function") {
           attempt.then(() => res(true)).catch(() => res(false));
