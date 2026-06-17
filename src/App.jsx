@@ -7,6 +7,7 @@ import SceneIntro from "./components/SceneIntro.jsx";
 import SceneQuestion from "./components/SceneQuestion.jsx";
 import SceneResult from "./components/SceneResult.jsx";
 import SceneEffects from "./components/SceneEffects.jsx";
+import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
@@ -58,7 +59,7 @@ const HOME_CARDS = {
     world: "La Forêt des Bonbons",
   },
   "sinking-city": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Instabilité intérieure",
     question: "Que faire quand tout vacille ?",
     world: "La ville qui s’effondre",
@@ -296,6 +297,7 @@ function RainCanvas({ variant = "global" }) {
 function Background({ scene, step, resultKey }) {
   const src = useMemo(() => {
     if (!scene) return scenes[0].coverImage;
+    if (scene.visualOnly) return null;
     if (step?.id === "intro") return scene.introImage || scene.background || scene.coverImage || "/img/station_intro.png";
     if (step?.image) return step.image;
     if (step?.id === "carriage") return "/img/train_interior.png";
@@ -306,7 +308,7 @@ function Background({ scene, step, resultKey }) {
 
   return (
     <div className={"background background--" + (step?.id || "home")}>
-      <img src={src} alt="" className="background-image" />
+      {src && <img src={src} alt="" className="background-image" />}
       <div className="background-drape" />
     </div>
   );
@@ -318,6 +320,19 @@ function Atmosphere({ step, sceneId }) {
     <div className={"atmosphere atmosphere--" + (step?.id || "home")}>
       {showRain && <RainCanvas variant={step.rainVariant || "global"} />}
       {sceneId === "fog-museum" && <div className="fog-overlay" />}
+      {sceneId === "sinking-city" && (
+        <div className="city-collapse" aria-hidden="true">
+          <span className="city-skyline city-skyline--back" />
+          <span className="city-skyline city-skyline--front" />
+          <span className="city-crack city-crack--one" />
+          <span className="city-crack city-crack--two" />
+          <span className="city-neon city-neon--one" />
+          <span className="city-neon city-neon--two" />
+          <span className="city-fragment city-fragment--one" />
+          <span className="city-fragment city-fragment--two" />
+          <span className="city-fragment city-fragment--three" />
+        </div>
+      )}
       <div className="mist mist--left" />
       <div className="mist mist--right" />
     </div>
@@ -481,7 +496,8 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          playSceneClip(activeScene.audio.ambience, true, 0.12);
+          const ambienceVolume = activeScene.id === "sinking-city" ? 0.16 : 0.12;
+          playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
           playTrainArrival();
@@ -498,7 +514,11 @@ function App() {
     if (selectedChoiceId) return;
     playClick();
     if (activeScene?.audio?.choice) {
-      playSceneClip(activeScene.audio.choice, false, 0.14);
+      const choiceVolume = activeScene.id === "sinking-city" ? 0.3 : 0.14;
+      playSceneClip(activeScene.audio.choice, false, choiceVolume);
+    }
+    if (activeScene?.id === "sinking-city" && activeScene?.audio?.rumble) {
+      playSceneClip(activeScene.audio.rumble, false, 0.2);
     }
     if (activeScene?.id === "candy-forest" && activeScene?.audio?.temptation) {
       playSceneClip(activeScene.audio.temptation, false, 0.14);
@@ -522,6 +542,8 @@ function App() {
         if (activeScene?.id === "fog-museum" && activeScene?.audio?.reveal) {
           playSceneClip(activeScene.audio.reveal, false, 0.16);
         } else if (activeScene?.id === "candy-forest" && activeScene?.audio?.ending) {
+          playSceneClip(activeScene.audio.ending, false, 0.16);
+        } else if (activeScene?.id === "sinking-city" && activeScene?.audio?.ending) {
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {
           playEnding(nextResult);
@@ -566,6 +588,12 @@ function App() {
           <Background scene={activeScene} step={currentStep} resultKey={resultKey} />
           <Atmosphere step={currentStep} sceneId={activeScene?.id || null} />
           <SceneEffects
+            sceneId={activeScene?.id || null}
+            stepId={currentStep?.id || null}
+            resultKey={resultKey}
+            selectedChoiceId={selectedChoiceId}
+          />
+          <SceneEffectsCity
             sceneId={activeScene?.id || null}
             stepId={currentStep?.id || null}
             resultKey={resultKey}

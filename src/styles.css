@@ -4927,6 +4927,665 @@ button {
   }
 }
 
+.app--sinking-city .background {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(102, 230, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 76% 18%, rgba(255, 92, 180, 0.12), transparent 22%),
+    linear-gradient(180deg, #080914 0%, #121426 46%, #070911 100%);
+  animation: cityImageBreath 12s ease-in-out infinite alternate;
+}
+
+.app--sinking-city .background::before,
+.app--sinking-city .background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.app--sinking-city .background::before {
+  background:
+    linear-gradient(88deg, transparent 0 46%, rgba(125, 236, 255, 0.16) 46.4% 46.8%, transparent 47.2%),
+    linear-gradient(132deg, transparent 0 58%, rgba(255, 148, 92, 0.1) 58.2% 58.5%, transparent 58.8%),
+    radial-gradient(circle at 44% 78%, rgba(255, 246, 190, 0.12), transparent 20%);
+  opacity: 0.62;
+  animation: cityLowPulse 7s ease-in-out infinite alternate;
+}
+
+.app--sinking-city .background::after {
+  background:
+    linear-gradient(180deg, rgba(4, 5, 12, 0.1), rgba(2, 3, 8, 0.72)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 12px);
+  mix-blend-mode: screen;
+}
+
+.app--sinking-city .background-drape {
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(5, 6, 12, 0.1), rgba(4, 5, 10, 0.72));
+}
+
+.app--sinking-city .city-collapse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.app--sinking-city .intro-scene,
+.app--sinking-city .text-scene,
+.app--sinking-city .result-scene {
+  position: absolute;
+  z-index: 12;
+}
+
+.city-skyline,
+.city-crack,
+.city-neon,
+.city-fragment {
+  position: absolute;
+  display: block;
+}
+
+.city-skyline {
+  left: 50%;
+  bottom: 0;
+  width: 120vw;
+  height: 44vh;
+  translate: -50% 0;
+  opacity: 0.62;
+  background:
+    linear-gradient(90deg, transparent 0 4%, rgba(17, 22, 42, 0.88) 4% 11%, transparent 11% 14%, rgba(20, 22, 45, 0.84) 14% 23%, transparent 23% 27%, rgba(12, 18, 35, 0.9) 27% 37%, transparent 37% 42%, rgba(21, 24, 46, 0.86) 42% 55%, transparent 55% 59%, rgba(13, 17, 34, 0.9) 59% 70%, transparent 70% 74%, rgba(20, 23, 45, 0.82) 74% 86%, transparent 86%),
+    linear-gradient(180deg, transparent, rgba(4, 5, 12, 0.92));
+  clip-path: polygon(0 74%, 7% 50%, 11% 61%, 18% 32%, 24% 58%, 31% 40%, 36% 66%, 44% 28%, 52% 58%, 59% 34%, 67% 63%, 75% 38%, 83% 68%, 91% 44%, 100% 72%, 100% 100%, 0 100%);
+  animation: citySway 8s ease-in-out infinite alternate;
+}
+
+.city-skyline--back {
+  bottom: 7vh;
+  opacity: 0.34;
+  filter: blur(2px);
+  animation-duration: 11s;
+}
+
+.city-crack {
+  width: 34vw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 243, 188, 0.52), transparent);
+  box-shadow: 0 0 18px rgba(255, 222, 122, 0.22);
+  transform-origin: left center;
+}
+
+.city-crack--one {
+  left: 20%;
+  top: 61%;
+  rotate: 9deg;
+}
+
+.city-crack--two {
+  right: 16%;
+  top: 48%;
+  rotate: -14deg;
+  width: 24vw;
+  opacity: 0.7;
+}
+
+.city-neon {
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  filter: blur(28px);
+  opacity: 0.24;
+  animation: cityNeonBlink 5.8s ease-in-out infinite;
+}
+
+.city-neon--one {
+  left: 12%;
+  top: 18%;
+  background: #57e6ff;
+}
+
+.city-neon--two {
+  right: 10%;
+  top: 28%;
+  background: #ff5aa8;
+  animation-delay: 1.6s;
+}
+
+.city-fragment {
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 1px solid rgba(230, 245, 255, 0.24);
+  background: rgba(230, 245, 255, 0.08);
+  rotate: 18deg;
+  animation: cityFragmentFloat 9s ease-in-out infinite alternate;
+}
+
+.city-fragment--one {
+  left: 22%;
+  top: 31%;
+}
+
+.city-fragment--two {
+  right: 27%;
+  top: 58%;
+  width: 1.25rem;
+  height: 1.25rem;
+  animation-delay: 1.4s;
+}
+
+.city-fragment--three {
+  left: 63%;
+  top: 23%;
+  width: 0.65rem;
+  height: 0.65rem;
+  animation-delay: 2.3s;
+}
+
+.app--sinking-city .intro-copy,
+.app--sinking-city .scene-caption,
+.app--sinking-city .choice-panel,
+.app--sinking-city .result-card,
+.app--sinking-city .subtitle-stack--result {
+  background: linear-gradient(180deg, rgba(8, 10, 22, 0.66), rgba(5, 7, 16, 0.78));
+  border-color: rgba(135, 230, 255, 0.14);
+  box-shadow:
+    0 16px 46px rgba(0, 0, 0, 0.3),
+    0 0 28px rgba(111, 220, 255, 0.08);
+}
+
+.app--sinking-city .text-scene {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(0.9rem, 2vh, 1.35rem);
+  padding: max(4rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.app--sinking-city .scene-caption,
+.app--sinking-city .choice-panel {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+  width: min(92vw, 50rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app--sinking-city .choice-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.app--sinking-city .choice-card {
+  min-height: 5.4rem;
+  display: grid;
+  align-content: center;
+  padding: 1rem;
+  background: rgba(7, 10, 22, 0.58);
+  border: 1px solid rgba(135, 230, 255, 0.16);
+  border-radius: 0.95rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+.app--sinking-city .choice-card-title {
+  font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+  line-height: 1.34;
+}
+
+.app--sinking-city .intro-title {
+  font-size: clamp(2.55rem, 6.2vw, 5.1rem);
+  line-height: 0.96;
+}
+
+.app--sinking-city .scene-heading {
+  font-size: clamp(1.78rem, 3.15vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.96),
+    0 0 24px rgba(136, 220, 255, 0.18);
+}
+
+.app--sinking-city .scene-caption .subtitle-line {
+  font-size: clamp(1.08rem, 1.75vw, 1.34rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.app--sinking-city .scene-caption .subtitle-line--strong {
+  font-size: clamp(1.16rem, 2vw, 1.48rem);
+  font-weight: 500;
+  color: rgba(236, 248, 255, 0.96);
+}
+
+.app--sinking-city .result-title {
+  font-size: clamp(1.25rem, 2.45vw, 1.95rem);
+  line-height: 1.14;
+}
+
+.app--sinking-city .choice-card-subtitle:empty {
+  display: none;
+}
+
+.app--sinking-city .choice-panel--pending {
+  min-height: 12rem;
+}
+
+.city-effects {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.city-effects--foreground {
+  z-index: 14;
+  isolation: auto;
+}
+
+.city-effects--frontmost {
+  z-index: 16;
+  isolation: auto;
+}
+
+.city-effects span {
+  pointer-events: none;
+}
+
+.city-effects__vibration,
+.city-effects__neon,
+.city-effects__fog,
+.city-effects__reflection,
+.city-effects__crack,
+.city-effects__path-light,
+.city-effects__support-light,
+.city-effects__choice-flash,
+.city-effects__dust-layer,
+.city-effects__debris-layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.city-effects__vibration {
+  opacity: 0.42;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 24px, rgba(160, 220, 255, 0.035) 25px, transparent 27px),
+    radial-gradient(circle at 28% 58%, rgba(109, 225, 255, 0.16), transparent 20%),
+    radial-gradient(circle at 70% 42%, rgba(255, 94, 165, 0.12), transparent 24%);
+  mix-blend-mode: screen;
+  animation: cityMicroVibration 5.8s ease-in-out infinite alternate;
+}
+
+.city-effects__neon {
+  width: 28rem;
+  height: 28rem;
+  border-radius: 50%;
+  filter: blur(46px);
+  opacity: 0.2;
+  mix-blend-mode: screen;
+  animation: citySoftFlicker 7.2s ease-in-out infinite;
+}
+
+.city-effects__neon--cyan {
+  left: 6%;
+  top: 24%;
+  background: rgba(74, 224, 255, 0.72);
+}
+
+.city-effects__neon--violet {
+  right: 12%;
+  top: 18%;
+  background: rgba(154, 106, 255, 0.64);
+  animation-delay: 1.7s;
+}
+
+.city-effects__neon--red {
+  right: 4%;
+  bottom: 18%;
+  background: rgba(255, 82, 112, 0.46);
+  animation-delay: 3.1s;
+}
+
+.city-effects__fog {
+  opacity: 0.58;
+  filter: blur(11px);
+  mix-blend-mode: screen;
+}
+
+.city-effects__fog--ground {
+  top: 38%;
+  background:
+    radial-gradient(ellipse at 50% 86%, rgba(210, 228, 255, 0.46), transparent 42%),
+    radial-gradient(ellipse at 28% 70%, rgba(168, 196, 255, 0.24), transparent 32%),
+    linear-gradient(180deg, transparent 0%, rgba(205, 218, 255, 0.16) 48%, rgba(148, 174, 222, 0.28) 100%);
+  animation: cityFogDrift 12s ease-in-out infinite alternate;
+}
+
+.city-effects__fog--distance {
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(176, 206, 255, 0.34), transparent 44%),
+    radial-gradient(ellipse at 74% 54%, rgba(183, 133, 255, 0.2), transparent 34%),
+    linear-gradient(90deg, transparent 0 10%, rgba(185, 205, 255, 0.12) 28%, transparent 62%);
+  animation: cityFogDrift 16s ease-in-out infinite alternate-reverse;
+}
+
+.city-effects__reflection {
+  top: 54%;
+  opacity: 0.24;
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgba(77, 218, 255, 0.16) 18%, transparent 28%),
+    linear-gradient(90deg, transparent 34%, rgba(166, 98, 255, 0.16) 44%, transparent 56%),
+    linear-gradient(90deg, transparent 66%, rgba(255, 90, 116, 0.14) 74%, transparent 88%),
+    repeating-linear-gradient(180deg, transparent 0 14px, rgba(255, 255, 255, 0.035) 15px, transparent 17px);
+  filter: blur(3px);
+  transform: perspective(24rem) rotateX(58deg) translateY(12%);
+  transform-origin: bottom;
+  animation: cityReflectionRipple 11s ease-in-out infinite alternate;
+}
+
+.city-effects__crack {
+  opacity: 0.22;
+  background: linear-gradient(90deg, transparent, rgba(156, 212, 255, 0.72), rgba(183, 112, 255, 0.5), transparent);
+  height: 2px;
+  filter: blur(0.4px);
+  box-shadow: 0 0 18px rgba(140, 207, 255, 0.22);
+}
+
+.city-effects__crack--main {
+  left: 26%;
+  top: 72%;
+  width: 44%;
+  rotate: -4deg;
+}
+
+.city-effects__crack--side {
+  left: 54%;
+  top: 62%;
+  width: 18%;
+  rotate: 24deg;
+}
+
+.city-effects__path-light {
+  opacity: 0;
+  background:
+    linear-gradient(112deg, transparent 0 38%, rgba(178, 126, 255, 0.36) 43%, rgba(116, 227, 255, 0.2) 47%, transparent 56%);
+  filter: blur(5px);
+}
+
+.city-effects__support-light {
+  opacity: 0;
+  background: radial-gradient(circle at 24% 62%, rgba(255, 196, 120, 0.32), transparent 24%);
+  filter: blur(6px);
+}
+
+.city-effects__dust,
+.city-effects__debris {
+  position: absolute;
+  display: block;
+  opacity: 0.24;
+  will-change: transform, opacity;
+}
+
+.city-effects__dust {
+  border-radius: 50%;
+  background: rgba(226, 236, 246, 0.42);
+  box-shadow:
+    0 0 10px rgba(176, 225, 255, 0.18),
+    0 0 20px rgba(142, 102, 255, 0.06);
+  filter: blur(1.25px);
+  mix-blend-mode: screen;
+  animation: cityDustDrift linear infinite;
+}
+
+.city-effects__dust--foreground {
+  opacity: 0.16;
+  background: rgba(235, 242, 250, 0.34);
+  box-shadow: 0 0 14px rgba(190, 225, 255, 0.16);
+  filter: blur(2.4px);
+}
+
+.city-effects__dust--frontmost {
+  opacity: 0.28;
+  background: rgba(240, 246, 252, 0.38);
+  box-shadow:
+    0 0 16px rgba(198, 228, 255, 0.18),
+    0 0 26px rgba(165, 130, 255, 0.08);
+  filter: blur(2.8px);
+  animation-name: cityFrontDustDrift;
+}
+
+.city-effects__debris {
+  border: 1px solid rgba(190, 210, 230, 0.24);
+  background: linear-gradient(135deg, rgba(220, 230, 240, 0.18), rgba(110, 140, 180, 0.06));
+  box-shadow: 0 0 12px rgba(125, 212, 255, 0.08);
+  animation: cityDebrisFloat ease-in-out infinite alternate;
+}
+
+.city-effects__choice-flash {
+  opacity: 0;
+  background: radial-gradient(circle at 50% 55%, rgba(120, 226, 255, 0.22), transparent 34%);
+  animation: cityChoiceFlash 680ms ease-out;
+}
+
+.city-effects--fissure .city-effects__crack,
+.city-effects--crack-high .city-effects__crack {
+  opacity: 0.48;
+  box-shadow:
+    0 0 18px rgba(119, 216, 255, 0.28),
+    0 0 34px rgba(154, 91, 255, 0.16);
+}
+
+.city-effects--immeubles .city-effects__vibration,
+.city-effects--pont .city-effects__vibration,
+.city-effects--alarmes .city-effects__vibration {
+  opacity: 0.32;
+}
+
+.city-effects--alarmes .city-effects__neon--red {
+  opacity: 0.34;
+  animation-duration: 5.8s;
+}
+
+.city-effects--lampadaire .city-effects__neon--red,
+.city-effects--result-ancrage .city-effects__neon--red,
+.city-effects--result-abri .city-effects__neon--red {
+  opacity: 0.08;
+}
+
+.city-effects--lampadaire .city-effects__support-light,
+.city-effects--result-ancrage .city-effects__support-light,
+.city-effects--result-appui .city-effects__support-light {
+  opacity: 0.72;
+}
+
+.city-effects--result-mouvement .city-effects__path-light,
+.city-effects--reflection-path .city-effects__path-light {
+  opacity: 0.62;
+}
+
+.city-effects--fog-dense .city-effects__fog {
+  opacity: 0.5;
+}
+
+.city-effects--fog-inside .city-effects__fog,
+.city-effects--fog-soft .city-effects__fog {
+  opacity: 0.28;
+}
+
+.city-effects--reflection-high .city-effects__reflection {
+  opacity: 0.36;
+}
+
+.city-effects--reflection-warm .city-effects__reflection {
+  opacity: 0.28;
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 190, 104, 0.22) 28%, transparent 42%),
+    linear-gradient(90deg, transparent 54%, rgba(126, 220, 255, 0.12) 64%, transparent 76%),
+    repeating-linear-gradient(180deg, transparent 0 14px, rgba(255, 255, 255, 0.03) 15px, transparent 17px);
+}
+
+@keyframes cityLowPulse {
+  from { opacity: 0.45; transform: translate3d(-0.2%, 0.2%, 0); }
+  to { opacity: 0.76; transform: translate3d(0.3%, -0.2%, 0); }
+}
+
+@keyframes citySway {
+  from { transform: skewX(-0.6deg) translate3d(-0.3%, 0, 0); }
+  to { transform: skewX(0.8deg) translate3d(0.4%, -0.4%, 0); }
+}
+
+@keyframes cityNeonBlink {
+  0%, 100% { opacity: 0.16; }
+  42% { opacity: 0.3; }
+  48% { opacity: 0.08; }
+  56% { opacity: 0.28; }
+}
+
+@keyframes cityFragmentFloat {
+  from { translate: 0 0; opacity: 0.24; }
+  to { translate: 0.7rem -1rem; opacity: 0.5; }
+}
+
+@keyframes cityImageBreath {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  45% { transform: translate3d(0.18%, -0.12%, 0) scale(1.003); }
+  68% { transform: translate3d(-0.16%, 0.1%, 0) scale(1.005); }
+}
+
+@keyframes cityMicroVibration {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  28% { transform: translate3d(0.42%, -0.16%, 0); }
+  45% { transform: translate3d(-0.32%, 0.14%, 0); }
+  62% { transform: translate3d(0.26%, 0.18%, 0); }
+}
+
+@keyframes citySoftFlicker {
+  0%, 100% { opacity: 0.16; }
+  37% { opacity: 0.24; }
+  43% { opacity: 0.12; }
+  51% { opacity: 0.22; }
+  76% { opacity: 0.18; }
+}
+
+@keyframes cityFogDrift {
+  from { transform: translate3d(-3.2%, 0.6%, 0) scale(1.03); }
+  to { transform: translate3d(3.4%, -1.2%, 0) scale(1.08); }
+}
+
+@keyframes cityReflectionRipple {
+  from { opacity: 0.2; transform: perspective(24rem) rotateX(58deg) translateY(12%) translateX(-0.4%); }
+  to { opacity: 0.32; transform: perspective(24rem) rotateX(58deg) translateY(11%) translateX(0.5%); }
+}
+
+@keyframes cityDustDrift {
+  from { transform: translate3d(0, 18px, 0); opacity: 0.08; }
+  35% { opacity: 0.26; }
+  78% { opacity: 0.18; }
+  to { transform: translate3d(var(--drift-x), -70px, 0); opacity: 0.06; }
+}
+
+@keyframes cityFrontDustDrift {
+  from { transform: translate3d(0, 20px, 0) scale(1); opacity: 0.12; }
+  34% { opacity: 0.38; }
+  70% { opacity: 0.26; }
+  to { transform: translate3d(var(--drift-x), -64px, 0) scale(1.08); opacity: 0.1; }
+}
+
+@keyframes cityDebrisFloat {
+  from { transform: translate3d(0, 0, 0) rotate(-4deg); opacity: 0.16; }
+  to { transform: translate3d(12px, -20px, 0) rotate(9deg); opacity: 0.32; }
+}
+
+@keyframes cityChoiceFlash {
+  0% { opacity: 0; transform: scale(0.98); }
+  30% { opacity: 0.5; }
+  100% { opacity: 0; transform: scale(1.08); }
+}
+
+@media (max-width: 720px) {
+  .app--sinking-city .text-scene {
+    align-content: start;
+    gap: 0.7rem;
+    padding: max(4rem, env(safe-area-inset-top)) 0.95rem
+      max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .app--sinking-city .scene-caption,
+  .app--sinking-city .choice-panel {
+    width: min(94vw, 34rem);
+  }
+
+  .app--sinking-city .choice-panel {
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+  }
+
+  .app--sinking-city .choice-panel--pending {
+    min-height: 20rem;
+  }
+
+  .app--sinking-city .choice-card {
+    min-height: 4.55rem;
+  }
+
+  .city-effects__neon {
+    width: 18rem;
+    height: 18rem;
+    filter: blur(34px);
+  }
+
+  .city-effects__debris:nth-child(n + 4),
+  .city-effects__dust:nth-child(n + 22) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app--sinking-city .background,
+  .app--sinking-city .background::before,
+  .app--sinking-city .city-skyline,
+  .app--sinking-city .city-neon,
+  .app--sinking-city .city-fragment {
+    animation: none;
+  }
+
+  .app--sinking-city .city-neon {
+    opacity: 0.14;
+  }
+
+  .city-effects__vibration,
+  .city-effects__neon,
+  .city-effects__fog,
+  .city-effects__reflection,
+  .city-effects__dust,
+  .city-effects__debris,
+  .city-effects__choice-flash {
+    animation: none;
+  }
+
+  .city-effects__dust:nth-child(n + 8),
+  .city-effects__debris:nth-child(n + 2) {
+    display: none;
+  }
+
+  .city-effects__vibration {
+    opacity: 0.08;
+  }
+}
+
 
 
 
