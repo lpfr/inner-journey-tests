@@ -161,10 +161,14 @@ export function useAudio() {
     return true;
   }, [tryPlay]);
 
-  const enableSound = useCallback(async () => {
+  const enableSound = useCallback(async (playBaseAmbience = true) => {
     if (!soundOnRef.current) {
       soundOnRef.current = true;
       setSoundOn(true);
+    }
+
+    if (!playBaseAmbience) {
+      return true;
     }
 
     if (readyRef.current) {
@@ -198,7 +202,7 @@ export function useAudio() {
     setSoundOn(next);
     if (next) {
       soundOnRef.current = true;
-      await enableSound();
+      await enableSound(true);
     } else {
       soundOnRef.current = false;
       stopAll();

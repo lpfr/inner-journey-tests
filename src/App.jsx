@@ -468,8 +468,8 @@ function App() {
       setIsEnteringMuseum(true);
     }
     if (withSound) {
-      await enableSound();
       if (activeScene?.id === "fog-museum") {
+        enableSound(false);
         stopAll();
         if (activeScene?.audio?.ambience) {
           playSceneClip(activeScene.audio.ambience, true, 0.16);
@@ -479,8 +479,11 @@ function App() {
         }
       } else {
         if (activeScene?.audio?.ambience) {
-          await playSceneClip(activeScene.audio.ambience, true, 0.12);
+          enableSound(false);
+          stopAll();
+          playSceneClip(activeScene.audio.ambience, true, 0.12);
         } else if (activeScene?.id === "rain-station") {
+          await enableSound(true);
           playTrainArrival();
         }
       }
