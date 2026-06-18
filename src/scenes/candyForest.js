@@ -16,7 +16,7 @@ export const candyForestScene = {
   tieBreakOrder: ["emotion", "structure", "satisfaction", "controle"],
   choices: [],
   disclaimer:
-    "Ce résultat n’est pas un diagnostic. Il propose seulement une piste pour mieux observer ce qui t’éloigne parfois de ton intention.",
+    "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
   audio: {
     ambience: "/scenes/candy-forest/audio/candy_forest_loop.mp3",
     choice: "/scenes/candy-forest/audio/choice_chime.mp3",
@@ -262,7 +262,7 @@ export const candyForestScene = {
       type: "result",
       phaseDelays: [700, 1800],
       note:
-        "Ce résultat n’est pas un diagnostic. Il propose seulement une piste pour mieux observer ce qui t’éloigne parfois de ton intention.",
+        "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
       restartLabel: "Recommencer",
     },
   ],
@@ -312,26 +312,28 @@ export const candyForestScene = {
         "Les douceurs ne sont pas l’ennemi, mais elles prennent beaucoup de place quand elles sont toujours à portée.",
       ],
       title: "Besoin de soulagement rapide",
-      subtitle: "Ton attention répond peut-être vite à ce qui apaise tout de suite.",
+      subtitle: "Une part de toi cherche peut-être un soulagement simple et immédiat.",
       description:
-        "Ce n’est pas forcément une question de volonté : ton environnement propose peut-être trop de sorties immédiates.",
+        "Quand la fatigue est là, ce qui apaise vite peut devenir très attirant.",
+      reflection: "Ce n’est pas une question de force : c’est peut-être ce qui cherche du soutien en toi.",
       suggestions: [
         "Éloigne une tentation pendant 25 minutes.",
         "Puis commence par une action de 5 minutes seulement.",
       ],
-      shareText: "Un petit début vaut mieux qu'un grand plan jamais commencé.",
+      shareText: "Un petit début vaut mieux qu’un grand plan jamais commencé.",
     },
     controle: {
       image: "/scenes/candy-forest/ending_control.png",
       ending: "Tu quittes la forêt sans toucher aux bonbons.",
       story: ["Mais tu sens que résister à tout demande beaucoup d’espace intérieur."],
       title: "Besoin de tenir bon",
-      subtitle: "Tu sais tenir, parfois avec beaucoup d’effort.",
+      subtitle: "Une part de toi essaie peut-être de tenir en gardant beaucoup de contrôle.",
       description:
-        "Mais une règle trop dure peut finir par fatiguer ce qu’elle voulait protéger.",
+        "Cette force peut protéger ton intention, mais elle a aussi besoin d’air pour durer.",
+      reflection: "Ce n’est pas une rigidité à corriger : c’est peut-être une manière de chercher de la sécurité.",
       suggestions: [
         "Prévois une petite pause autorisée.",
-        "Courte, claire, choisie à l’avance.",
+        "Rends-la courte, claire, choisie à l’avance.",
       ],
       shareText: "Tenir dans la durée demande aussi un peu d’air.",
     },
@@ -340,12 +342,13 @@ export const candyForestScene = {
       ending: "La carte s’éclaire et les chemins cessent de bouger.",
       story: ["Les tentations restent là, mais elles prennent moins de place."],
       title: "Besoin de structure",
-      subtitle: "Tu avances peut-être mieux quand le chemin est préparé.",
+      subtitle: "Une part de toi avance peut-être mieux quand le chemin est préparé.",
       description:
-        "Le cadre ne limite pas forcément ta liberté : il peut protéger ton énergie.",
+        "Un cadre simple peut protéger ton énergie et réduire les décisions à prendre.",
+      reflection: "Ce n’est pas un besoin de tout contrôler : c’est peut-être un besoin de repères.",
       suggestions: [
         "Choisis une seule tâche.",
-        "Écris l’heure, le lieu, la durée et la première action.",
+        "Écris l’heure, le lieu et la première action.",
       ],
       shareText: "Quand le chemin est clair, l’effort devient plus léger.",
     },
@@ -356,11 +359,11 @@ export const candyForestScene = {
       title: "Émotion en premier plan",
       subtitle: "L’envie arrive parfois quand quelque chose en toi cherche du calme.",
       description:
-        "Ce n’est pas seulement une question d’effort : une émotion demande peut-être à être entendue.",
+        "Ce qui détourne ton attention peut aussi montrer une fatigue, une tension ou un besoin resté discret.",
+      reflection: "Ce n’est pas seulement une question d’effort : une émotion demande peut-être à être entendue.",
       suggestions: [
-        "Avant d’agir, écris trois phrases :",
+        "Avant d’agir, écris trois phrases.",
         "« Je ressens… »",
-        "« J’ai besoin de… »",
         "« Le plus petit pas possible est… »",
       ],
       shareText: "Nommer ce qui se passe change déjà la scène.",

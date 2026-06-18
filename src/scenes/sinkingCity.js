@@ -17,7 +17,7 @@ export const sinkingCityScene = {
   tieBreakOrder: ["ancrage", "abri", "appui", "mouvement"],
   choices: [],
   disclaimer:
-    "Ce résultat n’est pas un diagnostic. Il propose seulement une piste douce pour observer ce qui peut te soutenir quand tout vacille.",
+    "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
   audio: {
     ambience: "/scenes/collapsing-city/audio/city_ambience.mp3",
     rumble: "/scenes/collapsing-city/audio/soft_rumble.mp3",
@@ -176,7 +176,7 @@ export const sinkingCityScene = {
       type: "result",
       phaseDelays: [900, 2100],
       note:
-        "Ce résultat n’est pas un diagnostic. Il propose seulement une piste douce pour observer ce qui peut te soutenir quand tout vacille.",
+        "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
       restartLabel: "Recommencer la traversée",
     },
   ],
@@ -221,8 +221,9 @@ export const sinkingCityScene = {
         "Tu n’as pas besoin de calmer tout le ciel pour retrouver un point d’appui.",
       ],
       title: "Besoin d’ancrage",
-      subtitle: "Quand tout vacille, tu as peut-être besoin de revenir au concret.",
-      desc: "Ton corps, ta respiration, une lumière, un objet, un geste simple.",
+      subtitle: "Quand tout vacille, une part de toi cherche peut-être un point fixe.",
+      desc: "Le concret peut t’aider à revenir ici : ton corps, ta respiration, une lumière, un objet.",
+      reflection: "Ce n’est pas un manque de calme : c’est peut-être ton système intérieur qui cherche un appui.",
       cues: [
         "Choisis un ancrage très simple.",
         "Regarde une chose stable.",
@@ -240,7 +241,8 @@ export const sinkingCityScene = {
       ],
       title: "Besoin d’abri",
       subtitle: "Tu as peut-être besoin de réduire le bruit autour de toi.",
-      desc: "Te protéger, ce n’est pas disparaître. C’est reprendre un peu d’espace.",
+      desc: "Un espace plus doux peut t’aider à entendre ce qui compte vraiment.",
+      reflection: "Ce n’est pas forcément une fuite : te protéger, c’est parfois reprendre un peu d’espace.",
       cues: [
         "Ferme une source de stimulation.",
         "Réduis une demande.",
@@ -258,8 +260,9 @@ export const sinkingCityScene = {
       title: "Besoin de mouvement",
       subtitle:
         "Quand tout paraît trop grand, une petite action concrète peut redonner un peu de stabilité.",
-      desc: "Pas tout résoudre : juste commencer quelque part.",
-      cues: ["Choisis une seule action.", "Très petite.", "Visible.", "Faisable maintenant."],
+      desc: "Le mouvement peut devenir un repère quand il reste simple et faisable.",
+      reflection: "Ce n’est pas un retard de ne pas tout résoudre : il suffit parfois de commencer quelque part.",
+      cues: ["Choisis une seule action.", "Très petite.", "Visible et faisable maintenant."],
       shareText: "Un petit geste peut rouvrir la rue.",
     },
     appui: {
@@ -269,10 +272,11 @@ export const sinkingCityScene = {
       title: "Besoin d’appui",
       subtitle: "Tu n’as peut-être pas besoin de porter l’instabilité seul.",
       desc: "Un lien sûr peut devenir un point fixe quand tout bouge.",
+      reflection: "Ce n’est pas une faiblesse : parfois, la présence de quelqu’un aide simplement à tenir.",
       cues: [
         "Envoie un message simple.",
         "Dis ce qui se passe sans tout expliquer.",
-        "Laisse quelqu’un rester près de toi.",
+        "Laisse quelqu’un rester près de toi, même en silence.",
       ],
       shareText: "Parfois, le soutien est la première structure qui tient.",
     },

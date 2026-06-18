@@ -15,7 +15,7 @@ export const rainStationScene = {
   choices: [],
 
   disclaimer:
-    "Ce résultat n’est pas un diagnostic. Il propose seulement une forme de soutien qui pourrait t’aider en ce moment.",
+    "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
   audio: {
     arrival: "train_arrival",
     endingPrefix: "ending_",
@@ -176,7 +176,7 @@ export const rainStationScene = {
       type: "result",
       phaseDelays: [1500, 4200],
       note:
-        "Ce résultat n’est pas un diagnostic. Il propose seulement une forme de soutien qui pourrait t’aider en ce moment.",
+        "Ce résultat n’est pas un diagnostic. C’est seulement une piste pour mieux t’écouter.",
       restartLabel: "Revoir le train de nuit",
     },
   ],
@@ -208,13 +208,14 @@ export const rainStationScene = {
         "Pour une fois, tu n'as rien à résoudre tout de suite.",
       ],
       title: "Besoin de repos",
-      subtitle: "Ce dont tu as besoin ressemble peut-être à une vraie pause.",
+      subtitle: "Une part de toi a peut-être besoin d’une vraie pause avant de repartir.",
       desc:
-        "Pas une fuite : un espace où ton corps et ton esprit peuvent relâcher la pression.",
+        "Quand tout pèse, le repos peut devenir un repère, pas une façon d’abandonner.",
+      reflection: "Ce n’est pas de la paresse : c’est peut-être ton corps qui demande à relâcher la pression.",
       cues: [
         "Allège ta soirée.",
         "Réduis les demandes.",
-        "Laisse une décision attendre demain.",
+        "Laisse une décision attendre demain si elle le peut.",
       ],
       shareText: "Repose-toi d’abord. La clarté reviendra mieux après.",
     },
@@ -225,8 +226,9 @@ export const rainStationScene = {
         "Tu n'as pas besoin de tout ranger maintenant.",
       ],
       title: "Besoin de relâcher",
-      subtitle: "Tu portes peut-être une émotion qui demande une sortie.",
-      desc: "La laisser exister peut déjà rendre la nuit moins lourde.",
+      subtitle: "Une émotion cherche peut-être une sortie douce, sans devoir tout expliquer.",
+      desc: "La laisser exister peut rendre la nuit moins lourde et ouvrir un peu d’espace.",
+      reflection: "Ce n’est pas trop ressentir : c’est peut-être quelque chose en toi qui demande de l’attention.",
       cues: [
         "Écris ce qui pèse.",
         "Pleure si cela vient.",
@@ -242,7 +244,8 @@ export const rainStationScene = {
       ],
       title: "Besoin de lien",
       subtitle: "Tu n’as peut-être pas besoin d’une réponse parfaite.",
-      desc: "Tu as peut-être besoin d’être rejoint, écouté, accompagné.",
+      desc: "Tu as peut-être surtout besoin d’être rejoint, écouté, accompagné.",
+      reflection: "Ce n’est pas une faiblesse : le lien peut devenir un appui quand la nuit paraît trop grande.",
       cues: [
         "Envoie un message simple.",
         "Choisis une personne sûre.",
@@ -259,12 +262,13 @@ export const rainStationScene = {
       title: "Besoin de direction",
       subtitle: "Tu n’es peut-être pas bloqué.",
       desc: "Tu as peut-être seulement besoin d’un prochain repère, petit et concret.",
+      reflection: "Ce n’est pas un retard : parfois, une direction commence par un seul geste.",
       cues: [
         "Choisis une seule chose à faire.",
         "Pas toute la route.",
         "Seulement le prochain geste.",
       ],
-      shareText: "Tu n'as pas besoin de toute la carte pour avancer.",
+      shareText: "Tu n’as pas besoin de toute la carte pour avancer.",
     },
   },
 };
