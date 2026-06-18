@@ -44,7 +44,7 @@ const HOME_CARDS = {
     status: "Disponible",
     title: "Période difficile",
     question: "De quel soutien as-tu besoin ?",
-    world: "La Gare sous la Pluie",
+    world: "La Gare sous la pluie",
   },
   "fog-museum": {
     status: "Disponible",
@@ -54,14 +54,14 @@ const HOME_CARDS = {
   },
   "candy-forest": {
     status: "Disponible",
-    title: "Maîtrise de soi",
+    title: "Attention et envies",
     question: "Qu’est-ce qui t’éloigne de ton intention ?",
-    world: "La Forêt des Bonbons",
+    world: "La Forêt des bonbons",
   },
   "sinking-city": {
     status: "Disponible",
     title: "Instabilité intérieure",
-    question: "Que faire quand tout vacille ?",
+    question: "Qu’est-ce qui peut te soutenir ?",
     world: "La ville qui s’effondre",
   },
   "glass-greenhouse": {
@@ -620,7 +620,7 @@ function App() {
 
           <div className="topbar">
             <button className={`sound-chip${soundOn ? " is-on" : ""}`} onClick={toggleSound}>
-              {soundOn ? "Son activé" : "Son coupé"}
+              {soundOn ? "Son activé" : "Son désactivé"}
             </button>
           </div>
 

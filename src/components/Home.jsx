@@ -5,13 +5,15 @@ export default function Home({ scenes, onSelectScene }) {
     <section className="scene language-scene">
       <div className="language-panel glass-panel">
         <div className="language-title-stack">
-          <span className="language-title-line">Que veux-tu explorer aujourd’hui ?</span>
+          <span className="language-title-line">Des tests doux pour mieux te comprendre</span>
         </div>
         <p className="language-eyebrow">
-          Choisis ce qui te ressemble en ce moment.
+          Choisis une expérience selon ce que tu traverses en ce moment.
         </p>
         <p className="language-subtitle">
           Ce n’est pas un diagnostic.
+          <br />
+          Seulement une manière sensible d’explorer ce qui se passe en toi.
         </p>
         <div className="language-actions">
           {scenes.map(scene => (

@@ -14,7 +14,7 @@ export const translations = {
     },
     audio: {
       on: "Son activé",
-      off: "Son coupé",
+      off: "Son désactivé",
     },
     common: {
       loading: "Préparation du récit…",
@@ -25,7 +25,7 @@ export const translations = {
     },
     languagePicker: {
       eyebrow: "Choisis la langue de ton voyage",
-      titleLines: ["Rain Night Station", "La Gare sous la Pluie"],
+      titleLines: ["Rain Night Station", "La Gare sous la pluie"],
       subtitle: "Choose the language of your journey.",
       buttons: {
         fr: "Français",
@@ -33,14 +33,14 @@ export const translations = {
     },
     intro: {
       time: "2 h 47 · Quai désert",
-      title: "La Gare sous la Pluie",
+      title: "La Gare sous la pluie",
       line1: "Tu ne te souviens pas pourquoi tu es ici.",
       line2: "Mais la voix du haut-parleur vient de prononcer ton nom.",
     },
     arrival: {
       broadcastLines: [
         "« Veuillez vous rendre au quai numéro sept. »",
-        "« Ce soir, les trains ne vont que là où tu as vraiment besoin de te rendre. »",
+        "« Ce soir, les trains vont là où tu as le plus besoin de soutien. »",
       ],
       ticketLines: [
         "Tu baisses les yeux et trouves un billet trempé par la pluie à tes pieds.",
@@ -131,7 +131,7 @@ export const translations = {
       ],
     },
     results: {
-      note: "Ce résultat n’est pas un diagnostic psychologique. Il s’agit seulement d’une manière douce d’observer le type de soutien dont tu pourrais avoir besoin dans une période difficile.",
+      note: "Ce résultat n’est pas un diagnostic. Il propose seulement une forme de soutien qui pourrait t’aider en ce moment.",
       restart: "Revoir le train de nuit",
       rest: {
         ending: "La pluie ralentit enfin.",
@@ -182,7 +182,7 @@ export const translations = {
         ending: "Les rails s’étirent encore devant toi sous la pluie.",
         story: [
           "Tu fais un pas, même sans savoir exactement où il mène.",
-          "Être perdu n’est pas un échec. C’est seulement le signe que tu te recalibres.",
+          "Se sentir perdu peut simplement signaler qu’un nouveau repère est en train de se chercher.",
           "Avance d’abord. La clarté pourra venir ensuite.",
         ],
         title: "Tu as besoin de direction",

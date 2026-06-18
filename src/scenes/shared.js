@@ -1,5 +1,5 @@
 export const SCENE_DISCLAIMER =
-  "Cette expérience n’est pas un outil médical ni un diagnostic psychologique. Elle sert uniquement à l’introspection et au bien-être personnel.";
+  "Cette expérience n’est pas un diagnostic. Elle propose seulement une piste pour mieux t’écouter.";
 
 export function createPlaceholderScene({
   id,

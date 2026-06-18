@@ -5,6 +5,6 @@ export const roomForTwoScene = createPlaceholderScene({
   title: "La chambre à deux",
   subtitle: "Une pièce intime où la présence compte autant que les mots.",
   theme: "intime",
-  targetAudience: "Personnes qui cherchent un lien discret et rassurant.",
-  psychologyFrame: "Explorer la proximité, la retenue et le consentement émotionnel.",
+  targetAudience: "Pour les moments où tu cherches ta place dans le lien à l’autre.",
+  psychologyFrame: "Explorer la proximité, la retenue et les limites avec douceur.",
 });

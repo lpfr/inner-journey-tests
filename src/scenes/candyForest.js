@@ -1,12 +1,12 @@
 export const candyForestScene = {
   id: "candy-forest",
-  title: "La Forêt des Bonbons",
-  description: "Une traversée courte sur l'envie, la fatigue et les petits détours.",
-  subtitle: "Qu'est-ce qui t'éloigne de ton intention ?",
+  title: "La Forêt des bonbons",
+  description: "Une courte traversée autour de l’envie, de la fatigue et des petits détours.",
+  subtitle: "Qu’est-ce qui t’éloigne de ton intention ?",
   theme: "attention",
   targetAudience: "Personnes qui veulent observer leur attention avec douceur.",
   psychologyFrame:
-    "Envie, fatigue, attention et petites pauses. Cette expérience n'est pas un diagnostic.",
+    "Envie, fatigue, attention et petites pauses. Cette expérience n’est pas un diagnostic.",
   coverImage: "/scenes/candy-forest/candy_forest_home.png",
   cover: "/scenes/candy-forest/candy_forest_home.png",
   background: "/scenes/candy-forest/candy_forest_home.png",
@@ -16,7 +16,7 @@ export const candyForestScene = {
   tieBreakOrder: ["emotion", "structure", "satisfaction", "controle"],
   choices: [],
   disclaimer:
-    "Ce résultat n'est pas un diagnostic. Il propose seulement une piste pour mieux observer ton rapport à l'envie, à la fatigue et à l'attention.",
+    "Ce résultat n’est pas un diagnostic. Il propose seulement une piste pour mieux observer ce qui t’éloigne parfois de ton intention.",
   audio: {
     ambience: "/scenes/candy-forest/audio/candy_forest_loop.mp3",
     choice: "/scenes/candy-forest/audio/choice_chime.mp3",
@@ -25,17 +25,17 @@ export const candyForestScene = {
   },
   opening: {
     eyebrow: "Pause intérieure",
-    title: "La Forêt des Bonbons",
-    subtitle: "Une traversée courte sur l'envie, la fatigue et les petits détours.",
+    title: "La Forêt des bonbons",
+    subtitle: "Une courte traversée autour de l’envie, de la fatigue et des petits détours.",
     enterLabel: "Entrer dans la forêt",
     silentLabel: "Entrer sans le son",
   },
   intro: {
     time: "21 h 48 · Lisière sucrée",
-    title: "La Forêt des Bonbons",
+    title: "La Forêt des bonbons",
     line1: "Tu arrives devant une forêt douce et brillante. Chaque sentier promet un petit soulagement.",
     line2:
-      "Tu n'es pas là pour te juger. Seulement pour voir ce qui t'attire quand ton intention devient fragile.",
+      "Tu n’es pas là pour te juger. Seulement pour observer ce qui t’attire quand ton intention devient fragile.",
     enter: "Entrer dans la forêt",
     silentEnter: "Entrer sans le son",
   },
@@ -50,7 +50,7 @@ export const candyForestScene = {
       copy: {
         heading: "Le bonbon lumineux",
         line1: "Un bonbon lumineux roule à tes pieds.",
-        line2: "Il pulse doucement, comme s'il connaissait déjà ton envie.",
+        line2: "Il pulse doucement, comme s’il connaissait déjà ton envie.",
       },
       choices: [
         {
@@ -60,7 +60,7 @@ export const candyForestScene = {
         },
         {
           id: "eloigne-sans-discuter",
-          text: "Tu t'éloignes sans discuter.",
+          text: "Tu t’éloignes sans discuter.",
           score: { controle: 1 },
         },
         {
@@ -70,7 +70,7 @@ export const candyForestScene = {
         },
         {
           id: "sentir-ce-qu-il-reveille",
-          text: "Tu prends un instant pour sentir ce qu'il réveille.",
+          text: "Tu prends un instant pour sentir ce qu’il réveille.",
           score: { emotion: 1 },
         },
       ],
@@ -156,14 +156,14 @@ export const candyForestScene = {
       image: "/scenes/candy-forest/marshmallow_tree.png",
       rain: false,
       copy: {
-        heading: "L'arbre de guimauve",
-        line1: "Un arbre moelleux t'offre un endroit où t'allonger.",
+        heading: "L’arbre de guimauve",
+        line1: "Un arbre moelleux t’offre un endroit où t’allonger.",
         line2: "« Juste cinq minutes », murmure-t-il.",
       },
       choices: [
         {
           id: "installes-aussitot",
-          text: "Tu t'installes aussitôt.",
+          text: "Tu t’installes aussitôt.",
           score: { satisfaction: 1 },
         },
         {
@@ -230,7 +230,7 @@ export const candyForestScene = {
       copy: {
         heading: "La porte en sucre",
         line1: "Une porte translucide bloque le sentier.",
-        line2: "Elle ne s'ouvre que si tu attends un peu.",
+        line2: "Elle ne s’ouvre que si tu attends un peu.",
       },
       choices: [
         {
@@ -240,7 +240,7 @@ export const candyForestScene = {
         },
         {
           id: "refuses-approcher",
-          text: "Tu refuses d'approcher.",
+          text: "Tu refuses d’approcher.",
           score: { controle: 1 },
         },
         {
@@ -250,7 +250,7 @@ export const candyForestScene = {
         },
         {
           id: "observes-attente",
-          text: "Tu observes ce que l'attente fait monter.",
+          text: "Tu observes ce que l’attente fait monter.",
           score: { emotion: 1 },
         },
       ],
@@ -262,7 +262,7 @@ export const candyForestScene = {
       type: "result",
       phaseDelays: [700, 1800],
       note:
-        "Ce résultat n'est pas un diagnostic. Il propose seulement une piste pour mieux observer ton rapport à l'envie, à la fatigue et à l'attention.",
+        "Ce résultat n’est pas un diagnostic. Il propose seulement une piste pour mieux observer ce qui t’éloigne parfois de ton intention.",
       restartLabel: "Recommencer",
     },
   ],
@@ -309,12 +309,12 @@ export const candyForestScene = {
       image: "/scenes/candy-forest/ending_satisfaction.png",
       ending: "La clairière brille de mille couleurs.",
       story: [
-        "Les douceurs ne sont pas l'ennemi, mais elles deviennent très fortes quand elles sont toujours à portée.",
+        "Les douceurs ne sont pas l’ennemi, mais elles prennent beaucoup de place quand elles sont toujours à portée.",
       ],
-      title: "Recherche de soulagement rapide",
-      subtitle: "Ton attention semble répondre vite à ce qui soulage maintenant.",
+      title: "Besoin de soulagement rapide",
+      subtitle: "Ton attention répond peut-être vite à ce qui apaise tout de suite.",
       description:
-        "Ce n'est pas forcément un manque de volonté : ton environnement propose peut-être trop de récompenses faciles.",
+        "Ce n’est pas forcément une question de volonté : ton environnement propose peut-être trop de sorties immédiates.",
       suggestions: [
         "Éloigne une tentation pendant 25 minutes.",
         "Puis commence par une action de 5 minutes seulement.",
@@ -324,44 +324,44 @@ export const candyForestScene = {
     controle: {
       image: "/scenes/candy-forest/ending_control.png",
       ending: "Tu quittes la forêt sans toucher aux bonbons.",
-      story: ["Mais tu sens que résister à tout demande beaucoup d'espace intérieur."],
-      title: "Contrôle sous tension",
-      subtitle: "Tu sais tenir, parfois très fort.",
+      story: ["Mais tu sens que résister à tout demande beaucoup d’espace intérieur."],
+      title: "Besoin de tenir bon",
+      subtitle: "Tu sais tenir, parfois avec beaucoup d’effort.",
       description:
-        "Mais une règle trop dure peut finir par fatiguer ce qu'elle voulait protéger.",
+        "Mais une règle trop dure peut finir par fatiguer ce qu’elle voulait protéger.",
       suggestions: [
         "Prévois une petite pause autorisée.",
-        "Courte, claire, choisie à l'avance.",
+        "Courte, claire, choisie à l’avance.",
       ],
-      shareText: "Une maîtrise durable a besoin d'un peu d'air.",
+      shareText: "Tenir dans la durée demande aussi un peu d’air.",
     },
     structure: {
       image: "/scenes/candy-forest/ending_structure.png",
-      ending: "La carte s'éclaire et les chemins cessent de bouger.",
-      story: ["Les tentations restent là, mais elles ne décident plus pour toi."],
+      ending: "La carte s’éclaire et les chemins cessent de bouger.",
+      story: ["Les tentations restent là, mais elles prennent moins de place."],
       title: "Besoin de structure",
-      subtitle: "Tu avances mieux quand le chemin est préparé.",
+      subtitle: "Tu avances peut-être mieux quand le chemin est préparé.",
       description:
         "Le cadre ne limite pas forcément ta liberté : il peut protéger ton énergie.",
       suggestions: [
         "Choisis une seule tâche.",
-        "Écris l'heure, le lieu, la durée et la première action.",
+        "Écris l’heure, le lieu, la durée et la première action.",
       ],
-      shareText: "Quand le chemin est clair, l'effort devient plus léger.",
+      shareText: "Quand le chemin est clair, l’effort devient plus léger.",
     },
     emotion: {
       image: "/scenes/candy-forest/ending_emotion.png",
-      ending: "Tu t'assois au bord du sentier.",
+      ending: "Tu t’assois au bord du sentier.",
       story: ["La forêt devient moins bruyante quand tu cesses de courir."],
       title: "Émotion en premier plan",
-      subtitle: "L'envie semble parfois arriver quand quelque chose en toi cherche du calme.",
+      subtitle: "L’envie arrive parfois quand quelque chose en toi cherche du calme.",
       description:
-        "Ce n'est pas seulement une question d'effort : une émotion demande peut-être à être entendue.",
+        "Ce n’est pas seulement une question d’effort : une émotion demande peut-être à être entendue.",
       suggestions: [
-        "Avant d'agir, écris trois phrases :",
-        "« Je ressens... »",
-        "« J'ai besoin de... »",
-        "« Le plus petit pas possible est... »",
+        "Avant d’agir, écris trois phrases :",
+        "« Je ressens… »",
+        "« J’ai besoin de… »",
+        "« Le plus petit pas possible est… »",
       ],
       shareText: "Nommer ce qui se passe change déjà la scène.",
     },

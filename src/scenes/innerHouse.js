@@ -3,8 +3,8 @@ import { createPlaceholderScene } from "./shared.js";
 export const innerHouseScene = createPlaceholderScene({
   id: "inner-house",
   title: "Les quatre voix dans la maison",
-  subtitle: "Des pièces intérieures où plusieurs parts de soi se répondent.",
+  subtitle: "Une maison intérieure où plusieurs parts de toi prennent la parole.",
   theme: "introspection",
-  targetAudience: "Personnes qui veulent écouter leurs contradictions avec douceur.",
-  psychologyFrame: "Rencontrer ses voix intérieures sans les faire taire.",
+  targetAudience: "Pour les moments où plusieurs voix intérieures se répondent.",
+  psychologyFrame: "Écouter ses parts intérieures sans les faire taire.",
 });

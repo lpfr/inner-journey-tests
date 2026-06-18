@@ -1,12 +1,12 @@
 export const rainStationScene = {
   id: "rain-station",
-  title: "La Gare sous la Pluie",
-  description: "Une nuit de pluie pour découvrir le soutien dont tu as peut-être besoin.",
+  title: "La Gare sous la pluie",
+  description: "Une nuit de pluie pour sentir le soutien dont tu pourrais avoir besoin.",
   subtitle: "De quel soutien as-tu besoin ?",
   theme: "pluie",
   targetAudience: "Pour les moments où tout semble lourd, flou ou difficile à porter seul.",
   psychologyFrame:
-    "Repos, émotion, lien ou direction : quatre manières de traverser une période basse.",
+    "Repos, émotion, lien ou direction : quatre manières de traverser un moment difficile.",
   coverImage: "/img/station_intro.png",
   cover: "/img/station_intro.png",
   background: "/img/station_intro.png",
@@ -15,20 +15,20 @@ export const rainStationScene = {
   choices: [],
 
   disclaimer:
-    "Ce résultat n'est pas un diagnostic. Il indique seulement une forme de soutien qui pourrait t'aider en ce moment.",
+    "Ce résultat n’est pas un diagnostic. Il propose seulement une forme de soutien qui pourrait t’aider en ce moment.",
   audio: {
     arrival: "train_arrival",
     endingPrefix: "ending_",
   },
   opening: {
-    title: "La Gare sous la Pluie",
-    subtitle: "Une nuit pour ralentir et écouter ce qui demande du soin.",
+    title: "La Gare sous la pluie",
+    subtitle: "Une nuit pour ralentir et écouter ce qui demande de l’attention.",
     description:
       "Tu arrives sur un quai vide. La pluie tombe doucement, comme si elle connaissait déjà ton silence.",
   },
   intro: {
     time: "2 h 47 · Quai désert",
-    title: "La Gare sous la Pluie",
+    title: "La Gare sous la pluie",
     line1:
       "Tu arrives sur un quai vide. La pluie tombe doucement, comme si elle connaissait déjà ton silence.",
     line2:
@@ -47,7 +47,7 @@ export const rainStationScene = {
       copy: {
         broadcastLines: [
           "« Veuillez vous rendre au quai numéro sept. »",
-          "« Ce soir, les trains ne vont que là où tu as vraiment besoin de soutien. »",
+          "« Ce soir, les trains vont là où tu as le plus besoin de soutien. »",
         ],
         ticketLines: [
           "Un billet mouillé repose à tes pieds.",
@@ -57,21 +57,21 @@ export const rainStationScene = {
         platformLabel: "Quai numéro sept",
       },
       gallery: {
-        heading: "Quel train t'appelle ce soir ?",
+        heading: "Quel train t’appelle ce soir ?",
         subheading: "Quatre trains attendent sous la pluie.",
       },
       choices: [
         {
           id: "rest",
           name: "Le Train Blanc",
-          desc: "Un lieu calme où tu pourrais enfin souffler.",
+          desc: "Un lieu calme où tu pourrais souffler un peu.",
           image: "/img/train_rest.png",
           score: { rest: 4, release: 0, connection: 1, direction: 0 },
         },
         {
           id: "release",
           name: "Le Vieux Train",
-          desc: "Une pluie ancienne attend d'être laissée passer.",
+          desc: "Une pluie ancienne attend de pouvoir passer.",
           image: "/img/train_release.png",
           score: { rest: 0, release: 4, connection: 0, direction: 1 },
         },
@@ -85,7 +85,7 @@ export const rainStationScene = {
         {
           id: "direction",
           name: "Le Train Sans Nom",
-          desc: "Les rails continuent, même sans destination claire.",
+          desc: "Les rails continuent, même quand la destination reste floue.",
           image: "/img/train_direction.png",
           score: { rest: 0, release: 0, connection: 1, direction: 4 },
         },
@@ -100,7 +100,7 @@ export const rainStationScene = {
       rain: false,
       copy: {
         heading: "Dans le wagon",
-        line1: "Où t'assois-tu ?",
+        line1: "Où t’assois-tu ?",
         line2: "Tu montes dans le train. La pluie glisse sur la vitre.",
       },
       choices: [
@@ -113,12 +113,12 @@ export const rainStationScene = {
         {
           id: "quiet",
           text: "Dans le coin le plus calme",
-          sub: "Tu gardes une part de toi à l'abri.",
+          sub: "Tu gardes une part de toi à l’abri.",
           score: { rest: 2, release: 0, connection: 0, direction: 1 },
         },
         {
           id: "near",
-          text: "Près d'un autre passager",
+          text: "Près d’un autre passager",
           sub: "Tu n'as pas besoin de parler pour ne plus être seul.",
           score: { rest: 0, release: 0, connection: 3, direction: 1 },
         },
@@ -140,30 +140,30 @@ export const rainStationScene = {
       copy: {
         heading: "La lettre",
         line1: "Que fais-tu de la lettre ?",
-        line2: "Le contrôleur s'arrête devant toi. Il te tend une enveloppe portant ton nom.",
+        line2: "Le contrôleur s’arrête devant toi. Il te tend une enveloppe portant ton nom.",
       },
       choices: [
         {
           id: "open",
-          text: "Tu l'ouvres doucement",
+          text: "Tu l’ouvres doucement",
           sub: "Quelque chose peut enfin sortir.",
           score: { rest: 1, release: 3, connection: 1, direction: 0 },
         },
         {
           id: "keep",
           text: "Tu la gardes dans ta poche",
-          sub: "Tu peux attendre d'être prêt.",
+          sub: "Tu peux attendre de te sentir prêt.",
           score: { rest: 2, release: 0, connection: 0, direction: 1 },
         },
         {
           id: "ask",
-          text: "Tu demandes qui l'a écrite",
-          sub: "Tu veux savoir d'où vient cette présence.",
+          text: "Tu demandes qui l’a écrite",
+          sub: "Tu veux savoir d’où vient cette présence.",
           score: { rest: 0, release: 1, connection: 3, direction: 0 },
         },
         {
           id: "look",
-          text: "Tu regardes d'abord par la fenêtre",
+          text: "Tu regardes d’abord par la fenêtre",
           sub: "Tu cherches un signe dans le mouvement.",
           score: { rest: 0, release: 0, connection: 1, direction: 3 },
         },
@@ -176,7 +176,7 @@ export const rainStationScene = {
       type: "result",
       phaseDelays: [1500, 4200],
       note:
-        "Ce résultat n'est pas un diagnostic. Il indique seulement une forme de soutien qui pourrait t'aider en ce moment.",
+        "Ce résultat n’est pas un diagnostic. Il propose seulement une forme de soutien qui pourrait t’aider en ce moment.",
       restartLabel: "Revoir le train de nuit",
     },
   ],
@@ -204,19 +204,19 @@ export const rainStationScene = {
     rest: {
       ending: "La pluie ralentit.",
       story: [
-        "Le train s'arrête dans une lumière calme.",
+        "Le train s’arrête dans une lumière calme.",
         "Pour une fois, tu n'as rien à résoudre tout de suite.",
       ],
       title: "Besoin de repos",
       subtitle: "Ce dont tu as besoin ressemble peut-être à une vraie pause.",
       desc:
-        "Pas une fuite. Un endroit où ton corps et ton esprit peuvent relâcher la pression.",
+        "Pas une fuite : un espace où ton corps et ton esprit peuvent relâcher la pression.",
       cues: [
         "Allège ta soirée.",
         "Réduis les demandes.",
         "Laisse une décision attendre demain.",
       ],
-      shareText: "Repose-toi d'abord. La clarté reviendra mieux après.",
+      shareText: "Repose-toi d’abord. La clarté reviendra mieux après.",
     },
     release: {
       ending: "La vitre se couvre de pluie.",
@@ -232,7 +232,7 @@ export const rainStationScene = {
         "Pleure si cela vient.",
         "Parle à voix basse, même seulement pour toi.",
       ],
-      shareText: "Ce qui traverse n'a pas besoin de rester bloqué.",
+      shareText: "Ce qui te traverse n’a pas besoin de rester bloqué.",
     },
     connection: {
       ending: "Une lumière apparaît dans le wagon.",
@@ -241,14 +241,14 @@ export const rainStationScene = {
         "La présence suffit à rendre la nuit moins froide.",
       ],
       title: "Besoin de lien",
-      subtitle: "Tu n'as peut-être pas besoin d'une réponse parfaite.",
-      desc: "Tu as peut-être besoin d'être rejoint, écouté, accompagné.",
+      subtitle: "Tu n’as peut-être pas besoin d’une réponse parfaite.",
+      desc: "Tu as peut-être besoin d’être rejoint, écouté, accompagné.",
       cues: [
         "Envoie un message simple.",
         "Choisis une personne sûre.",
-        "Dis seulement : « Ce soir, ce n'est pas très facile. »",
+        "Dis simplement : « Ce soir, ce n’est pas très facile. »",
       ],
-      shareText: "Tu n'as pas besoin d'aller bien pour demander du soutien.",
+      shareText: "Tu n’as pas besoin d’aller bien pour demander du soutien.",
     },
     direction: {
       ending: "Les rails continuent sous la pluie.",
@@ -257,8 +257,8 @@ export const rainStationScene = {
         "Mais un petit pas devient possible.",
       ],
       title: "Besoin de direction",
-      subtitle: "Tu n'es peut-être pas bloqué.",
-      desc: "Tu as peut-être seulement besoin d'un prochain repère, petit et concret.",
+      subtitle: "Tu n’es peut-être pas bloqué.",
+      desc: "Tu as peut-être seulement besoin d’un prochain repère, petit et concret.",
       cues: [
         "Choisis une seule chose à faire.",
         "Pas toute la route.",

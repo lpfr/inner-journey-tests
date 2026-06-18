@@ -2,12 +2,12 @@ export const fogMuseumScene = {
   id: "fog-museum",
   title: "Le musée dans la brume",
   description:
-    "Une visite silencieuse parmi les élans, les désirs et les liens qui cherchent une forme.",
-  subtitle: "Qu'est-ce qui t'attire en silence ?",
+    "Une visite silencieuse parmi les élans, les désirs et les liens qui cherchent leur forme.",
+  subtitle: "Qu’est-ce qui t’attire en silence ?",
   theme: "identité",
   targetAudience: "Personnes qui veulent écouter ce qui les attire intérieurement.",
   psychologyFrame:
-    "Exploration douce du soi, des élans et des liens. Cette expérience n'est pas un diagnostic.",
+    "Exploration douce de soi, des élans et des liens. Cette expérience n’est pas un diagnostic.",
   coverImage: "/scenes/fog-museum/cover.png",
   cover: "/scenes/fog-museum/cover.png",
   background: "/scenes/fog-museum/background.png",
@@ -17,7 +17,7 @@ export const fogMuseumScene = {
   tieBreakOrder: ["explorer", "creator", "guardian", "relater"],
   choices: [],
   disclaimer:
-    "Ce résultat n'est pas un diagnostic. C'est seulement une piste douce pour observer ce qui t'appelle en ce moment.",
+    "Ce résultat n’est pas un diagnostic. C’est seulement une piste douce pour observer ce qui t’appelle en ce moment.",
   audio: {
     ambience: "/scenes/fog-museum/audio/ambience.mp3",
     enter: "/scenes/fog-museum/audio/enter.mp3",
@@ -29,15 +29,15 @@ export const fogMuseumScene = {
     eyebrow: "Exploration intérieure",
     title: "Le musée dans la brume",
     subtitle:
-      "Une visite silencieuse parmi les élans, les désirs et les liens qui cherchent une forme.",
+      "Une visite silencieuse parmi les élans, les désirs et les liens qui cherchent leur forme.",
     enterLabel: "Entrer dans le musée",
     silentLabel: "Entrer en silence",
   },
   intro: {
     time: "23 h 17 · Hall désert",
     title: "Le musée dans la brume",
-    line1: "La porte s'ouvre sans bruit. Dans la brume, chaque salle garde une part de toi.",
-    line2: "Tu n'as rien à prouver ici. Seulement à remarquer ce qui t'attire.",
+    line1: "La porte s’ouvre sans bruit. Dans la brume, chaque salle garde une part de toi.",
+    line2: "Tu n’as rien à prouver ici. Seulement à remarquer ce qui t’attire.",
     enter: "Entrer dans le musée",
     silentEnter: "Entrer en silence",
   },
@@ -51,9 +51,9 @@ export const fogMuseumScene = {
       rain: false,
       copy: {
         heading: "La carte du hall",
-        line1: "Quelle salle t'attire en premier ?",
+        line1: "Quelle salle t’attire en premier ?",
         line2:
-          "Sur le comptoir, une carte ancienne indique quatre salles. Aucune ne semble vraiment appartenir au présent.",
+          "Sur le comptoir, une carte ancienne indique quatre salles. Aucune ne paraît vraiment appartenir au présent.",
       },
       choices: [
         {
@@ -89,7 +89,7 @@ export const fogMuseumScene = {
       copy: {
         heading: "La vitrine éclairée",
         line1: "Quel objet gardes-tu du regard ?",
-        line2: "Dans une vitrine dorée, quatre objets attendent. L'un d'eux semble te reconnaître.",
+        line2: "Dans une vitrine dorée, quatre objets attendent. L’un d’eux paraît te reconnaître.",
       },
       choices: [
         {
@@ -131,12 +131,12 @@ export const fogMuseumScene = {
       choices: [
         {
           id: "elsewhere",
-          text: "J'ai encore envie de découvrir.",
+          text: "J’ai encore envie de découvrir.",
           score: { explorer: 3 },
         },
         {
           id: "stable-ground",
-          text: "J'ai besoin d'un sol plus calme.",
+          text: "J’ai besoin d’un sol plus calme.",
           score: { guardian: 3 },
         },
         {
@@ -173,17 +173,17 @@ export const fogMuseumScene = {
         },
         {
           id: "quiet-house",
-          text: "La porte d'une maison calme",
+          text: "La porte d’une maison calme",
           score: { guardian: 4 },
         },
         {
           id: "lit-atelier",
-          text: "La porte d'un atelier encore allumé",
+          text: "La porte d’un atelier encore allumé",
           score: { creator: 4 },
         },
         {
           id: "waiting-room",
-          text: "La porte d'une pièce où quelqu'un attend",
+          text: "La porte d’une pièce où quelqu’un attend",
           score: { relater: 4 },
         },
       ],
@@ -195,7 +195,7 @@ export const fogMuseumScene = {
       type: "result",
       phaseDelays: [1400, 3800],
       note:
-        "Ce résultat n'est pas un diagnostic. C'est seulement une piste douce pour observer ce qui t'appelle en ce moment.",
+        "Ce résultat n’est pas un diagnostic. C’est seulement une piste douce pour observer ce qui t’appelle en ce moment.",
       restartLabel: "Recommencer la visite",
     },
   ],
@@ -228,34 +228,34 @@ export const fogMuseumScene = {
   results: {
     explorer: {
       image: "/scenes/fog-museum/result-explorer.png",
-      ending: "La brume s'ouvre sur un passage que tu n'avais pas vu.",
+      ending: "La brume s’ouvre sur un passage que tu n’avais pas vu.",
       story: [
         "Le musée ne te donne pas de réponse.",
-        "Il te rappelle seulement qu'une part de toi veut encore de l'espace.",
+        "Il te rappelle seulement qu’une part de toi cherche encore de l’espace.",
       ],
-      title: "L'explorateur intérieur",
-      subtitle: "Quelque chose en toi semble chercher du mouvement, de l'air, des possibles.",
+      title: "L’explorateur intérieur",
+      subtitle: "Quelque chose en toi cherche peut-être du mouvement, de l’air, des possibles.",
       description:
-        "Ce n'est pas forcément une fuite. C'est peut-être un élan qui demande à respirer.",
+        "Ce n’est pas forcément une fuite. C’est peut-être un élan qui demande à respirer.",
       suggestions: [
         "Essaie une chose nouvelle, même petite.",
-        "Pas pour réussir. Pour sentir si quelque chose s'ouvre.",
+        "Pas pour réussir : pour sentir si quelque chose s’ouvre.",
         "Cette semaine, note une expérience que tu aimerais tenter sans obligation.",
       ],
-      shareText: "Parfois, un petit détour suffit à réveiller l'élan.",
+      shareText: "Parfois, un petit détour suffit à réveiller l’élan.",
     },
     guardian: {
       image: "/scenes/fog-museum/result-guardian.png",
       ending: "Dans une salle calme, la lumière devient plus stable.",
       story: [
-        "Tu comprends qu'un refuge n'est pas une prison.",
-        "C'est parfois l'endroit où l'on reprend souffle.",
+        "Tu comprends qu’un refuge n’est pas une prison.",
+        "C’est parfois l’endroit où l’on reprend souffle.",
       ],
       title: "Le gardien intérieur",
       subtitle: "Une part de toi cherche peut-être plus de sécurité, de repères ou de douceur.",
-      description: "Tu n'as pas besoin d'aller plus vite que ton besoin de stabilité.",
+      description: "Tu n’as pas besoin d’aller plus vite que ton besoin de stabilité.",
       suggestions: [
-        "Allège une décision inutile.",
+        "Allège une décision qui peut attendre.",
         "Crée un petit rituel qui te rassure.",
         "Choisis une chose simple qui peut rendre ta semaine un peu plus stable.",
       ],
@@ -269,27 +269,27 @@ export const fogMuseumScene = {
         "Mais quelque chose attend que tu oses commencer.",
       ],
       title: "Le créateur intérieur",
-      subtitle: "Tu sembles attiré par ce qui veut prendre forme.",
+      subtitle: "Une part de toi est peut-être attirée par ce qui veut prendre forme.",
       description:
-        "Une idée, une émotion, une phrase ou une image cherche peut-être une sortie.",
+        "Une idée, une émotion, une phrase ou une image cherche peut-être un passage.",
       suggestions: [
-        "Ne cherche pas l'oeuvre parfaite.",
+        "Ne cherche pas l’œuvre parfaite.",
         "Commence par une trace sincère.",
         "Écris, dessine ou assemble quelque chose pendant cinq minutes, sans corriger.",
       ],
-      shareText: "Ce qui est vrai n'a pas besoin d'être parfait pour exister.",
+      shareText: "Ce qui est vrai n’a pas besoin d’être parfait pour exister.",
     },
     relater: {
       image: "/scenes/fog-museum/result-relater.png",
       ending: "Derrière une vitre claire, une présence demeure.",
-      story: ["Elle ne demande rien.", "Elle semble seulement te reconnaître."],
+      story: ["Elle ne demande rien.", "Elle paraît seulement te reconnaître."],
       title: "Le lien intérieur",
       subtitle: "Une part de toi cherche peut-être un lien plus simple, plus vrai, plus vivant.",
-      description: "Avoir besoin de présence n'est pas une faiblesse.",
+      description: "Avoir besoin de présence n’est pas une faiblesse.",
       suggestions: [
-        "Rapproche-toi d'un lien sûr.",
+        "Rapproche-toi d’un lien sûr.",
         "Pas avec un grand discours, seulement avec un geste vrai.",
-        "Envoie un message simple à quelqu'un auprès de qui tu peux être un peu plus toi-même.",
+        "Envoie un message simple à quelqu’un auprès de qui tu peux être un peu plus toi-même.",
       ],
       shareText: "Certains liens ne nous enferment pas. Ils nous rendent plus présents.",
     },
