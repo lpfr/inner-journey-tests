@@ -7122,7 +7122,38 @@ button {
   }
 }
 
-
+/* --- 第六章特效强度临时提升，用于确认效果可见 --- */
+@keyframes roomLampBreathe {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.75; }
+}
+@keyframes roomSharedBreathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+@keyframes roomNightAirDrift {
+  from { opacity: 0.45; transform: translateX(0); }
+  to { opacity: 0.7; transform: translateX(-4%); }
+}
+@keyframes roomDustFloat {
+  0% { transform: translate3d(0, 0, 0); opacity: 0.3; }
+  50% { opacity: 0.6; }
+  100% { transform: translate3d(8px, -22px, 0); opacity: 0.3; }
+}
+@keyframes roomThreadPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.85; }
+}
+.room-effects__curtain {
+  opacity: 0.85;
+}
+.room-effects__dust-mote {
+  width: 7px !important;
+  height: 7px !important;
+}
+.room-effects__lamp-glow {
+  filter: blur(2px) brightness(1.4);
+}
 
 
 
