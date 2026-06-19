@@ -6578,26 +6578,26 @@ button {
 }
 
 .room-effects__lamp-glow--medium {
-  --lamp-low: 0.16;
-  --lamp-high: 0.3;
+  --lamp-low: 0.22;
+  --lamp-high: 0.42;
   animation-duration: 16s;
 }
 
 .room-effects__lamp-glow--low {
-  --lamp-low: 0.1;
-  --lamp-high: 0.2;
+  --lamp-low: 0.15;
+  --lamp-high: 0.28;
   animation-duration: 19s;
 }
 
 .room-effects__lamp-glow--stable {
-  --lamp-low: 0.18;
-  --lamp-high: 0.24;
+  --lamp-low: 0.22;
+  --lamp-high: 0.3;
   animation-duration: 21s;
 }
 
 .room-effects__lamp-glow--soft {
-  --lamp-low: 0.12;
-  --lamp-high: 0.22;
+  --lamp-low: 0.17;
+  --lamp-high: 0.3;
   animation-duration: 23s;
 }
 
@@ -6605,8 +6605,8 @@ button {
   background:
     radial-gradient(circle at 30% 42%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 32%),
     radial-gradient(circle at 70% 42%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 32%);
-  --lamp-low: 0.14;
-  --lamp-high: 0.26;
+  --lamp-low: 0.2;
+  --lamp-high: 0.36;
   animation-duration: 17s;
 }
 
@@ -6629,10 +6629,10 @@ button {
 @keyframes roomSharedBreathe {
   0%,
   100% {
-    opacity: 0.22;
+    opacity: 0.3;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.52;
   }
 }
 
@@ -6641,9 +6641,9 @@ button {
   top: -4%;
   bottom: -4%;
   width: 16%;
-  background: linear-gradient(180deg, rgba(8, 10, 18, 0) 0%, rgba(10, 12, 22, 0.26) 45%, rgba(8, 10, 18, 0) 100%);
+  background: linear-gradient(180deg, rgba(8, 10, 18, 0) 0%, rgba(10, 12, 22, 0.34) 45%, rgba(8, 10, 18, 0) 100%);
   filter: blur(6px);
-  opacity: 0.55;
+  opacity: 0.68;
 }
 
 .room-effects__curtain--left {
@@ -6691,12 +6691,12 @@ button {
 
 @keyframes roomNightAirDrift {
   from {
-    opacity: 0.3;
+    opacity: 0.38;
     transform: translateX(0);
   }
   to {
-    opacity: 0.5;
-    transform: translateX(-3%);
+    opacity: 0.6;
+    transform: translateX(-4%);
   }
 }
 
@@ -6706,11 +6706,11 @@ button {
 
 @keyframes roomNightAirDriftSoft {
   from {
-    opacity: 0.16;
+    opacity: 0.22;
     transform: translateX(0);
   }
   to {
-    opacity: 0.28;
+    opacity: 0.36;
     transform: translateX(-1.5%);
   }
 }
@@ -6757,10 +6757,10 @@ button {
     opacity: 0;
   }
   18% {
-    opacity: 0.26;
+    opacity: 0.34;
   }
   65% {
-    opacity: 0.12;
+    opacity: 0.16;
   }
   100% {
     transform: translateY(-64px) scaleY(1.5);
@@ -6779,10 +6779,10 @@ button {
     transform: translateY(0) scaleY(1);
   }
   15% {
-    opacity: 0.14;
+    opacity: 0.2;
   }
   70% {
-    opacity: 0.05;
+    opacity: 0.07;
   }
   100% {
     opacity: 0;
@@ -6799,10 +6799,10 @@ button {
     opacity: 0;
   }
   20% {
-    opacity: 0.1;
+    opacity: 0.16;
   }
   70% {
-    opacity: 0.04;
+    opacity: 0.06;
   }
   100% {
     opacity: 0;
@@ -6824,10 +6824,10 @@ button {
 @keyframes roomThreadPulse {
   0%,
   100% {
-    opacity: 0.28;
+    opacity: 0.36;
   }
   50% {
-    opacity: 0.6;
+    opacity: 0.68;
   }
 }
 
@@ -6839,10 +6839,10 @@ button {
 @keyframes roomThreadPulseSubtle {
   0%,
   100% {
-    opacity: 0.12;
+    opacity: 0.18;
   }
   50% {
-    opacity: 0.3;
+    opacity: 0.38;
   }
 }
 
@@ -6855,22 +6855,22 @@ button {
 .room-effects__dust-mote {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 232, 198, 0.55), transparent 72%);
-  opacity: 0.08;
+  background: radial-gradient(circle, rgba(255, 232, 198, 0.65), transparent 72%);
+  opacity: 0.14;
   animation: roomDustFloat 20s ease-in-out infinite;
 }
 
 @keyframes roomDustFloat {
   0% {
     transform: translate3d(0, 0, 0);
-    opacity: 0.08;
+    opacity: 0.14;
   }
   50% {
-    opacity: 0.24;
+    opacity: 0.36;
   }
   100% {
     transform: translate3d(5px, -16px, 0);
-    opacity: 0.08;
+    opacity: 0.14;
   }
 }
 
@@ -6901,28 +6901,28 @@ button {
   }
 
   .room-effects__lamp-glow {
-    opacity: 0.18;
+    opacity: 0.26;
   }
 
   .room-effects__shared-light {
-    opacity: 0.3;
+    opacity: 0.38;
   }
 
   .room-effects__curtain {
-    opacity: 0.28;
+    opacity: 0.4;
     transform: none;
   }
 
   .room-effects__night-air {
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   .room-effects__steam {
-    opacity: 0.08;
+    opacity: 0.12;
   }
 
   .room-effects__thread-glow {
-    opacity: 0.22;
+    opacity: 0.3;
   }
 
   .room-effects__dust-mote:nth-child(n + 3) {
@@ -7121,59 +7121,3 @@ button {
     line-height: 1.05;
   }
 }
-
-/* --- 第六章特效强度临时提升，用于确认效果可见 --- */
-@keyframes roomLampBreathe {
-  0%, 100% { opacity: 0.45; }
-  50% { opacity: 0.75; }
-}
-@keyframes roomSharedBreathe {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
-}
-@keyframes roomNightAirDrift {
-  from { opacity: 0.45; transform: translateX(0); }
-  to { opacity: 0.7; transform: translateX(-4%); }
-}
-@keyframes roomDustFloat {
-  0% { transform: translate3d(0, 0, 0); opacity: 0.3; }
-  50% { opacity: 0.6; }
-  100% { transform: translate3d(8px, -22px, 0); opacity: 0.3; }
-}
-@keyframes roomThreadPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.85; }
-}
-.room-effects__curtain {
-  opacity: 0.85;
-}
-.room-effects__dust-mote {
-  width: 7px !important;
-  height: 7px !important;
-}
-.room-effects__lamp-glow {
-  filter: blur(2px) brightness(1.4);
-}
-
-
-
-.room-effects__lamp-glow {
-  background: red !important;
-  opacity: 1 !important;
-  mix-blend-mode: normal !important;
-  filter: none !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
