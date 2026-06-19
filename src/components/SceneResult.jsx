@@ -2,7 +2,12 @@ export default function SceneResult({ scene, resultKey, phase, onRestart, onHome
   const result = scene.results[resultKey];
   const description = result.description || result.desc || "";
   const reflection = result.reflection || "";
-  const suggestions = result.suggestions || result.cues || [];
+  const rawSuggestions = result.suggestions || result.cues || [];
+  const observations = rawSuggestions.filter(item => item.includes("Demande-toi"));
+  const observationLines = observations.length
+    ? observations
+    : ["Observe ce qui résonne en toi, sans chercher à conclure trop vite."];
+  const suggestions = rawSuggestions.filter(item => !item.includes("Demande-toi"));
   const shareText = result.shareText || "";
   const narrative = [result.ending, ...(result.story || [])].filter(Boolean);
   const meaning = [result.subtitle, description, reflection].filter(Boolean);
@@ -26,6 +31,7 @@ export default function SceneResult({ scene, resultKey, phase, onRestart, onHome
           {meaning.length > 0 && (
             <>
               <div className="unified-result-rule" />
+              <p className="unified-result-section-title">Ce que ce résultat peut indiquer</p>
               <div className="unified-result-meaning">
                 {meaning.map((line, index) => (
                   <p key={`${line}-${index}`}>{line}</p>
@@ -44,6 +50,15 @@ export default function SceneResult({ scene, resultKey, phase, onRestart, onHome
               </div>
             </section>
           )}
+
+          <section className="unified-result-observe" aria-label="À observer">
+            <p className="unified-result-advice-title">À observer</p>
+            <div className="unified-result-advice-list">
+              {observationLines.map(item => (
+                <p key={item}>{item}</p>
+              ))}
+            </div>
+          </section>
 
           {shareText && <p className="unified-result-final">{shareText}</p>}
           <p className="unified-result-disclaimer">{scene.disclaimer}</p>

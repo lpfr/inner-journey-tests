@@ -202,6 +202,7 @@ export const rainStationScene = {
   },
   results: {
     rest: {
+      image: "/img/ending_rest.png",
       ending: "La pluie ralentit.",
       story: [
         "Le train s’arrête dans une lumière calme.",
@@ -220,6 +221,7 @@ export const rainStationScene = {
       shareText: "Repose-toi d’abord. La clarté reviendra mieux après.",
     },
     release: {
+      image: "/img/ending_release.png",
       ending: "La vitre se couvre de pluie.",
       story: [
         "Quelque chose en toi cesse de se retenir.",
@@ -237,6 +239,7 @@ export const rainStationScene = {
       shareText: "Ce qui te traverse n’a pas besoin de rester bloqué.",
     },
     connection: {
+      image: "/img/ending_connection.png",
       ending: "Une lumière apparaît dans le wagon.",
       story: [
         "Quelqu'un reste là, sans te presser.",
@@ -254,6 +257,7 @@ export const rainStationScene = {
       shareText: "Tu n’as pas besoin d’aller bien pour demander du soutien.",
     },
     direction: {
+      image: "/img/ending_direction.png",
       ending: "Les rails continuent sous la pluie.",
       story: [
         "Tu ne vois pas encore la destination.",

@@ -47,6 +47,17 @@ const PRELOAD_IMAGES = [
   "/scenes/glass-greenhouse/ending_limites.png",
   "/scenes/glass-greenhouse/ending_douceur.png",
   "/scenes/glass-greenhouse/ending_filtrage.png",
+  "/scenes/two-person-room/two_person_room_home.png",
+  "/scenes/two-person-room/room_intro.png",
+  "/scenes/two-person-room/second_chair.png",
+  "/scenes/two-person-room/thread_between_cups.png",
+  "/scenes/two-person-room/cooling_cup.png",
+  "/scenes/two-person-room/open_window.png",
+  "/scenes/two-person-room/shared_light.png",
+  "/scenes/two-person-room/ending_securite.png",
+  "/scenes/two-person-room/ending_espace.png",
+  "/scenes/two-person-room/ending_reciprocite.png",
+  "/scenes/two-person-room/ending_authenticite.png",
 ];
 
 const HOME_CARDS = {
@@ -54,24 +65,24 @@ const HOME_CARDS = {
     status: "Disponible",
     title: "Période difficile",
     question: "De quel soutien as-tu besoin ?",
-    world: "La Gare sous la pluie",
+    world: "La Gare sous la Pluie",
   },
   "fog-museum": {
     status: "Disponible",
     title: "Exploration intérieure",
-    question: "Qu’est-ce qui t’attire en silence ?",
+    question: "Qu’est-ce qui t’appelle vraiment ?",
     world: "Le musée dans la brume",
   },
   "candy-forest": {
     status: "Disponible",
-    title: "Attention et envies",
+    title: "Maîtrise de soi",
     question: "Qu’est-ce qui t’éloigne de ton intention ?",
-    world: "La Forêt des bonbons",
+    world: "La Forêt des Bonbons",
   },
   "sinking-city": {
     status: "Disponible",
     title: "Instabilité intérieure",
-    question: "Qu’est-ce qui peut te soutenir ?",
+    question: "Que faire quand tout vacille ?",
     world: "La ville qui s’effondre",
   },
   "glass-greenhouse": {
@@ -81,7 +92,7 @@ const HOME_CARDS = {
     world: "La serre de verre",
   },
   "room-for-two": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Lien à l’autre",
     question: "Que cherches-tu dans la relation ?",
     world: "La chambre à deux",
@@ -510,7 +521,7 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          const ambienceVolume = ["sinking-city", "glass-greenhouse"].includes(activeScene.id) ? 0.16 : 0.12;
+          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.16 : 0.12;
           playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
@@ -528,7 +539,7 @@ function App() {
     if (selectedChoiceId) return;
     playClick();
     if (activeScene?.audio?.choice) {
-      const choiceVolume = ["sinking-city", "glass-greenhouse"].includes(activeScene.id) ? 0.3 : 0.14;
+      const choiceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.3 : 0.14;
       playSceneClip(activeScene.audio.choice, false, choiceVolume);
     }
     if (activeScene?.id === "sinking-city" && activeScene?.audio?.rumble) {
@@ -542,6 +553,9 @@ function App() {
     }
     if (activeScene?.id === "glass-greenhouse" && activeScene?.audio?.step) {
       playSceneClip(activeScene.audio.step, false, 0.2);
+    }
+    if (activeScene?.id === "room-for-two" && activeScene?.audio?.step) {
+      playSceneClip(activeScene.audio.step, false, 0.18);
     }
     setSelectedChoiceId(choice.id);
     if (activeScene?.id === "fog-museum") {
@@ -563,6 +577,9 @@ function App() {
         } else if (activeScene?.id === "sinking-city" && activeScene?.audio?.ending) {
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (activeScene?.id === "glass-greenhouse" && activeScene?.audio?.ending) {
+          stopAll();
+          playSceneClip(activeScene.audio.ending, false, 0.16);
+        } else if (activeScene?.id === "room-for-two" && activeScene?.audio?.ending) {
           stopAll();
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {

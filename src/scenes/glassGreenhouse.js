@@ -284,6 +284,7 @@ export const glassGreenhouseScene = {
       shareText: "Filtrer, ce n’est pas ignorer le monde. C’est choisir comment le rencontrer.",
     },
     ouverture: {
+      image: "/scenes/glass-greenhouse/greenhouse_door.png",
       ending: "La porte s’entrouvre.",
       story: [
         "L’air entre doucement, sans tout renverser.",
