@@ -8,7 +8,6 @@ import SceneQuestion from "./components/SceneQuestion.jsx";
 import SceneResult from "./components/SceneResult.jsx";
 import SceneEffects from "./components/SceneEffects.jsx";
 import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
-import GreenhouseSceneEffects from "./components/effects/GreenhouseSceneEffects.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
@@ -620,12 +619,6 @@ function App() {
             resultKey={resultKey}
             selectedChoiceId={selectedChoiceId}
           />
-          <GreenhouseSceneEffects
-            sceneId={activeScene?.id || null}
-            stepId={currentStep?.id || null}
-            resultKey={resultKey}
-          />
-
           {activeScene?.id === "fog-museum" && (
             <MuseumParticles />
           )}
