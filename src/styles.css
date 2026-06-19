@@ -7157,7 +7157,12 @@ button {
 
 
 
-
+.room-effects__lamp-glow {
+  background: red !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+}
 
 
 
