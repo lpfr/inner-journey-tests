@@ -8,6 +8,7 @@ import SceneQuestion from "./components/SceneQuestion.jsx";
 import SceneResult from "./components/SceneResult.jsx";
 import SceneEffects from "./components/SceneEffects.jsx";
 import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
+import RoomSceneEffects from "./components/effects/RoomSceneEffects.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
@@ -635,6 +636,11 @@ function App() {
             stepId={currentStep?.id || null}
             resultKey={resultKey}
             selectedChoiceId={selectedChoiceId}
+          />
+          <RoomSceneEffects
+            sceneId={activeScene?.id || null}
+            stepId={currentStep?.id || null}
+            resultKey={resultKey}
           />
           {activeScene?.id === "fog-museum" && (
             <MuseumParticles />
