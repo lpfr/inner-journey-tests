@@ -8,6 +8,7 @@ import SceneQuestion from "./components/SceneQuestion.jsx";
 import SceneResult from "./components/SceneResult.jsx";
 import SceneEffects from "./components/SceneEffects.jsx";
 import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
+import GreenhouseSceneEffects from "./components/effects/GreenhouseSceneEffects.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
@@ -37,6 +38,16 @@ const PRELOAD_IMAGES = [
   "/scenes/candy-forest/ending_control.png",
   "/scenes/candy-forest/ending_structure.png",
   "/scenes/candy-forest/ending_emotion.png",
+  "/scenes/glass-greenhouse/glass_greenhouse_home.png",
+  "/scenes/glass-greenhouse/greenhouse_intro.png",
+  "/scenes/glass-greenhouse/fogged_glass.png",
+  "/scenes/glass-greenhouse/exposed_plant.png",
+  "/scenes/glass-greenhouse/rain_on_glass.png",
+  "/scenes/glass-greenhouse/cracked_flower.png",
+  "/scenes/glass-greenhouse/greenhouse_door.png",
+  "/scenes/glass-greenhouse/ending_limites.png",
+  "/scenes/glass-greenhouse/ending_douceur.png",
+  "/scenes/glass-greenhouse/ending_filtrage.png",
 ];
 
 const HOME_CARDS = {
@@ -65,7 +76,7 @@ const HOME_CARDS = {
     world: "La ville qui s’effondre",
   },
   "glass-greenhouse": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Grande sensibilité",
     question: "Comment te protéger sans te fermer ?",
     world: "La serre de verre",
@@ -302,7 +313,11 @@ function Background({ scene, step, resultKey }) {
     if (step?.image) return step.image;
     if (step?.id === "carriage") return "/img/train_interior.png";
     if (step?.id === "letter") return "/img/conductor_letter.png";
-    if (step?.id === "result") return scene.results?.[resultKey]?.image || "/img/ending_" + (resultKey || "rest") + ".png";
+    if (step?.id === "result") {
+      if (scene.results?.[resultKey]?.image) return scene.results[resultKey].image;
+      if (scene.id === "glass-greenhouse") return scene.background || scene.coverImage || null;
+      return "/img/ending_" + (resultKey || "rest") + ".png";
+    }
     return scene.coverImage || scene.background || "/img/station_intro.png";
   }, [scene, step, resultKey]);
 
@@ -496,7 +511,7 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          const ambienceVolume = activeScene.id === "sinking-city" ? 0.16 : 0.12;
+          const ambienceVolume = ["sinking-city", "glass-greenhouse"].includes(activeScene.id) ? 0.16 : 0.12;
           playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
@@ -514,7 +529,7 @@ function App() {
     if (selectedChoiceId) return;
     playClick();
     if (activeScene?.audio?.choice) {
-      const choiceVolume = activeScene.id === "sinking-city" ? 0.3 : 0.14;
+      const choiceVolume = ["sinking-city", "glass-greenhouse"].includes(activeScene.id) ? 0.3 : 0.14;
       playSceneClip(activeScene.audio.choice, false, choiceVolume);
     }
     if (activeScene?.id === "sinking-city" && activeScene?.audio?.rumble) {
@@ -525,6 +540,9 @@ function App() {
     }
     if (activeScene?.id === "fog-museum" && activeScene?.audio?.step) {
       playSceneClip(activeScene.audio.step, false, 0.12);
+    }
+    if (activeScene?.id === "glass-greenhouse" && activeScene?.audio?.step) {
+      playSceneClip(activeScene.audio.step, false, 0.2);
     }
     setSelectedChoiceId(choice.id);
     if (activeScene?.id === "fog-museum") {
@@ -544,6 +562,9 @@ function App() {
         } else if (activeScene?.id === "candy-forest" && activeScene?.audio?.ending) {
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (activeScene?.id === "sinking-city" && activeScene?.audio?.ending) {
+          playSceneClip(activeScene.audio.ending, false, 0.16);
+        } else if (activeScene?.id === "glass-greenhouse" && activeScene?.audio?.ending) {
+          stopAll();
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {
           playEnding(nextResult);
@@ -598,6 +619,11 @@ function App() {
             stepId={currentStep?.id || null}
             resultKey={resultKey}
             selectedChoiceId={selectedChoiceId}
+          />
+          <GreenhouseSceneEffects
+            sceneId={activeScene?.id || null}
+            stepId={currentStep?.id || null}
+            resultKey={resultKey}
           />
 
           {activeScene?.id === "fog-museum" && (

@@ -9,7 +9,7 @@ export default function SceneCard({ scene, onSelect }) {
 
   return (
     <button
-      className="language-button scene-card-button"
+      className={`language-button scene-card-button scene-card-button--${scene.id}`}
       onClick={() => isAvailable && onSelect(scene.id)}
       disabled={!isAvailable}
     >
