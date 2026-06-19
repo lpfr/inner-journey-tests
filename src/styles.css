@@ -7123,16 +7123,6 @@ button {
 }
 
 
-.room-effects {
-  background: red !important;
-  opacity: 1 !important;
-  animation: roomTestFlash 1s infinite !important;
-}
-@keyframes roomTestFlash {
-  0%, 100% { background: red; }
-  50% { background: yellow; }
-}
-
 
 
 
