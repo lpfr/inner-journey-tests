@@ -47,12 +47,11 @@ function makeFallingLeaves(count, seed) {
   return Array.from({ length: count }, (_, index) => {
     const n = seed.length * 23 + index * 41;
     return {
-      left: 6 + ((n * 17) % 88),
-      size: 16 + ((n * 5) % 11),
+      left: 4 + ((n * 17) % 90),
+      size: 13 + ((n * 5) % 9),
       sway: 10 + ((n * 7) % 16),
-      delay: ((n * 13) % 280) / 10,
-      duration: 22 + ((n * 9) % 14),
-      variant: index % 3,
+      delay: (index * 1.8 + ((n * 13) % 40)) / 10,
+      duration: 20 + ((n * 9) % 12),
     };
   });
 }
@@ -65,7 +64,7 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
     [profile.droplets, sceneType],
   );
   const fallingLeaves = useMemo(
-    () => makeFallingLeaves(6, `greenhouse-leaves-${sceneType}`),
+    () => makeFallingLeaves(11, `greenhouse-leaves-${sceneType}`),
     [sceneType],
   );
 
@@ -121,7 +120,7 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
         {fallingLeaves.map((leaf, index) => (
           <span
             key={`falling-leaf-${index}`}
-            className={`greenhouse-effects__falling-leaf greenhouse-effects__falling-leaf--${leaf.variant}`}
+            className="greenhouse-effects__falling-leaf"
             style={{
               left: `${leaf.left}%`,
               width: `${leaf.size}px`,
