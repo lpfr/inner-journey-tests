@@ -6543,7 +6543,7 @@ button {
   --result-accent: var(--room-accent);
 }
 
-/* Chapter 6 — "La chambre à deux" ambience layer (simplified, v2) */
+/* Chapter 6 — "La chambre à deux" ambience layer (v3, per-scene variation) */
 .room-effects {
   position: absolute;
   inset: 0;
@@ -6555,8 +6555,26 @@ button {
 .room-effects__glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 40%, rgba(255, 178, 110, 0.55) 0%, rgba(255, 178, 110, 0) 45%);
   animation: roomGlowPulse 9s ease-in-out infinite;
+}
+
+.room-effects__glow--warm {
+  background: radial-gradient(circle at 50% 40%, rgba(255, 178, 110, 0.55) 0%, rgba(255, 178, 110, 0) 45%);
+}
+
+.room-effects__glow--cool {
+  background: radial-gradient(circle at 55% 38%, rgba(140, 175, 220, 0.5) 0%, rgba(140, 175, 220, 0) 48%);
+}
+
+.room-effects__glow--soft {
+  background: radial-gradient(circle at 50% 42%, rgba(255, 205, 165, 0.42) 0%, rgba(255, 205, 165, 0) 42%);
+  animation-duration: 12s;
+}
+
+.room-effects__glow--shared {
+  background:
+    radial-gradient(circle at 32% 42%, rgba(255, 178, 110, 0.5) 0%, rgba(255, 178, 110, 0) 34%),
+    radial-gradient(circle at 68% 42%, rgba(255, 178, 110, 0.5) 0%, rgba(255, 178, 110, 0) 34%);
 }
 
 @keyframes roomGlowPulse {
@@ -6569,6 +6587,55 @@ button {
   }
 }
 
+.room-effects__curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14%;
+  background: linear-gradient(180deg, rgba(10, 12, 20, 0) 0%, rgba(10, 12, 20, 0.42) 45%, rgba(10, 12, 20, 0) 100%);
+  opacity: 0.6;
+  animation: roomCurtainSway 20s ease-in-out infinite alternate;
+}
+
+.room-effects__curtain--left {
+  left: 0;
+}
+
+.room-effects__curtain--right {
+  right: 0;
+  animation-delay: 2s;
+}
+
+@keyframes roomCurtainSway {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(6px);
+  }
+}
+
+.room-effects__thread {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 55%;
+  height: 3px;
+  background: rgba(255, 210, 150, 0.7);
+  box-shadow: 0 0 10px 3px rgba(255, 196, 132, 0.55);
+  animation: roomThreadPulse 7s ease-in-out infinite;
+}
+
+@keyframes roomThreadPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
 .room-effects__dot {
   position: absolute;
   width: 10px;
@@ -6577,30 +6644,6 @@ button {
   background: rgba(255, 225, 180, 0.85);
   box-shadow: 0 0 14px 5px rgba(255, 196, 132, 0.65);
   animation: roomDotFloat 8s ease-in-out infinite;
-}
-
-.room-effects__dot--1 {
-  left: 18%;
-  top: 30%;
-  animation-delay: 0s;
-}
-
-.room-effects__dot--2 {
-  left: 72%;
-  top: 24%;
-  animation-delay: 1.4s;
-}
-
-.room-effects__dot--3 {
-  left: 36%;
-  top: 62%;
-  animation-delay: 2.8s;
-}
-
-.room-effects__dot--4 {
-  left: 64%;
-  top: 70%;
-  animation-delay: 4.2s;
 }
 
 @keyframes roomDotFloat {
@@ -6615,20 +6658,24 @@ button {
   }
 }
 
-@media (max-width: 720px) {
-  .room-effects__dot--3,
-  .room-effects__dot--4 {
-    display: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .room-effects__glow,
+  .room-effects__curtain,
+  .room-effects__thread,
   .room-effects__dot {
     animation: none;
   }
 
   .room-effects__glow {
+    opacity: 0.5;
+  }
+
+  .room-effects__curtain {
+    opacity: 0.45;
+    transform: none;
+  }
+
+  .room-effects__thread {
     opacity: 0.5;
   }
 
