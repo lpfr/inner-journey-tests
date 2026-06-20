@@ -889,9 +889,3 @@
     line-height: 1.05;
   }
 }
-
-/* --- 临时测试: 温室特效是否真的在渲染, 测试完会删除 --- */
-.greenhouse-effects {
-  background: red !important;
-  opacity: 1 !important;
-}
