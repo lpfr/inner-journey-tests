@@ -53,7 +53,7 @@
 
 .greenhouse-effects__reflection {
   inset: -18%;
-  opacity: 0.24;
+  opacity: 0.34;
   animation: greenhouseReflectionDrift 24s ease-in-out infinite alternate;
 }
 
@@ -88,8 +88,8 @@
 }
 
 .greenhouse-effects__mist {
-  opacity: 0.3;
-  filter: blur(46px);
+  opacity: 0.42;
+  filter: blur(24px);
   animation: greenhouseMistDrift 12s ease-in-out infinite alternate;
 }
 
@@ -165,7 +165,7 @@
 }
 
 .greenhouse-effects__leaf {
-  opacity: 0.22;
+  opacity: 0.34;
   filter: blur(1.2px);
   transform-origin: center bottom;
   animation: greenhouseLeafBreath 16s ease-in-out infinite alternate;
@@ -289,8 +289,8 @@
   z-index: 18;
   height: 48vh;
   pointer-events: none;
-  opacity: 0.4;
-  filter: blur(42px);
+  opacity: 0.52;
+  filter: blur(24px);
   background:
     radial-gradient(ellipse at 20% 66%, rgba(190, 255, 215, 0.4), transparent 44%),
     radial-gradient(ellipse at 54% 46%, rgba(255, 226, 130, 0.36), transparent 52%),
@@ -302,8 +302,8 @@
   top: 1%;
   bottom: auto;
   height: 42vh;
-  opacity: 0.32;
-  filter: blur(54px);
+  opacity: 0.42;
+  filter: blur(30px);
   background:
     radial-gradient(ellipse at 24% 44%, rgba(255, 232, 165, 0.3), transparent 44%),
     radial-gradient(ellipse at 62% 34%, rgba(180, 255, 220, 0.24), transparent 52%),

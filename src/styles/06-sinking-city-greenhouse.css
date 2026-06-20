@@ -1005,7 +1005,7 @@
 
 .greenhouse-effects__bloom {
   border-radius: 999px;
-  filter: blur(34px);
-  opacity: 0.42;
+  filter: blur(18px);
+  opacity: 0.58;
   animation: greenhouseBloom 22s ease-in-out infinite alternate;
 }
