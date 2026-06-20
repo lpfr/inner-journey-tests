@@ -1,0 +1,1013 @@
+/* ====================================================================
+ * 04-candy-forest-fog-museum-extra.css
+ * Part 4 of 7 — split from the original single styles.css file.
+ *
+ * IMPORTANT: this file is part of an ORDER-PRESERVING split. The original
+ * styles.css grew organically and chapter-specific rules are interleaved
+ * throughout (NOT cleanly grouped per chapter) — so this file is named by
+ * its position in the original file, not by a single chapter. The comment
+ * below lists what's predominantly in this range.
+ *
+ * These 7 files MUST be imported in numeric order (01 -> 07) for the CSS
+ * cascade to behave identically to the original single file. Do not
+ * reorder the imports in main.jsx.
+ *
+ * Content: More candy-forest + fog-museum rules (added later, not contiguous with their main blocks)
+ * ==================================================================== */
+
+
+@keyframes museumResultFloat {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes museumResultCard {
+  from {
+    opacity: 0;
+    filter: blur(4px) saturate(0.96);
+  }
+  45% {
+    opacity: 0.78;
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+  }
+}
+
+@keyframes museumResultLine {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes museumResultCue {
+  from {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes museumResultFocus {
+  from {
+    filter: brightness(1.18) contrast(1.02) saturate(1.04) blur(1px);
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  to {
+    filter: brightness(1.28) contrast(1.05) saturate(1.08) blur(0);
+    transform: scale(1.065) translate3d(0, -0.8%, 0);
+  }
+}
+
+@keyframes fogMuseumEnterZoom {
+  from {
+    transform: scale(1.01);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes museumEntryLight {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  28% {
+    opacity: 0.82;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes museumEntryFog {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(6px) scale(0.96);
+  }
+  26% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px) scale(1.08);
+  }
+}
+
+@keyframes museumStepPush {
+  from {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.09) translate3d(0, -1.2%, 0);
+  }
+}
+
+@keyframes museumStepTextOut {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  35% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+}
+
+@media (max-width: 640px) {
+  .app--fog-museum .museum-dream-particles {
+    opacity: 0.42;
+  }
+  .app--fog-museum .mdp {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app--fog-museum .museum-dream-particles {
+    animation: none;
+    opacity: 0.5;
+  }
+  .app--fog-museum .mdp,
+  .app--fog-museum .mdp--flicker {
+    animation: none;
+  }
+}
+
+.app--candy-forest .background-image {
+  animation: candyForestDrift 24s ease-in-out infinite alternate, candyForestBreathe 9s ease-in-out infinite alternate;
+  transform: scale(1.045);
+  filter: brightness(1.18) contrast(1.08) saturate(1.15);
+}
+
+.app--candy-forest .background-drape {
+  background:
+    radial-gradient(circle at 24% 18%, rgba(255, 203, 230, 0.08), transparent 24%),
+    radial-gradient(circle at 78% 18%, rgba(255, 233, 153, 0.07), transparent 22%),
+    radial-gradient(circle at 18% 78%, rgba(123, 255, 208, 0.05), transparent 26%),
+    radial-gradient(circle at 82% 72%, rgba(144, 156, 255, 0.05), transparent 28%),
+    linear-gradient(180deg, rgba(3, 3, 6, 0.03) 0%, rgba(4, 6, 10, 0.16) 38%, rgba(2, 4, 8, 0.5) 100%);
+}
+
+.candy-effects {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+  opacity: 1;
+  filter: saturate(1.08) brightness(1.03);
+}
+
+.candy-effects::before,
+.candy-effects::after {
+  content: "";
+  position: absolute;
+  inset: -16%;
+  pointer-events: none;
+}
+
+.candy-effects::before {
+  background:
+    radial-gradient(circle at 22% 16%, rgba(255, 194, 228, 0.12), transparent 28%),
+    radial-gradient(circle at 74% 18%, rgba(255, 230, 156, 0.1), transparent 26%),
+    radial-gradient(circle at 54% 82%, rgba(194, 255, 230, 0.08), transparent 30%);
+  filter: blur(10px);
+  mix-blend-mode: screen;
+  opacity: 0.28;
+  animation: candyMistDrift 9s ease-in-out infinite alternate;
+}
+
+.candy-effects::after {
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.04), transparent 30%, rgba(255, 222, 132, 0.06) 50%, transparent 72%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04), transparent 62%);
+  filter: blur(6px);
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  animation: candyAtmospherePulse 6s ease-in-out infinite alternate;
+}
+
+.candy-effects__halo {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(18px);
+  opacity: 0.5;
+}
+
+.candy-effects__halo--left {
+  left: 4%;
+  top: 12%;
+  width: min(38vw, 26rem);
+  height: min(38vw, 26rem);
+  background: radial-gradient(circle, rgba(255, 174, 210, 0.34), transparent 68%);
+  animation: candyHaloFloatLeft 8s ease-in-out infinite alternate;
+}
+
+.candy-effects__halo--right {
+  right: 6%;
+  top: 18%;
+  width: min(34vw, 24rem);
+  height: min(34vw, 24rem);
+  background: radial-gradient(circle, rgba(255, 226, 155, 0.3), transparent 68%);
+  animation: candyHaloFloatRight 10s ease-in-out infinite alternate;
+}
+
+.candy-effects__layer {
+  position: absolute;
+  inset: 0;
+}
+
+.candy-effects__field {
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+  opacity: 0.42;
+  mix-blend-mode: normal;
+  filter: blur(1.2px);
+}
+
+.candy-effects__field--soft {
+  background:
+    radial-gradient(circle at 12% 24%, rgba(255, 235, 190, 0.32) 0 2px, transparent 7px),
+    radial-gradient(circle at 28% 68%, rgba(255, 197, 226, 0.26) 0 3px, transparent 10px),
+    radial-gradient(circle at 46% 36%, rgba(205, 255, 231, 0.24) 0 2px, transparent 9px),
+    radial-gradient(circle at 62% 76%, rgba(255, 244, 214, 0.28) 0 4px, transparent 13px),
+    radial-gradient(circle at 82% 28%, rgba(223, 230, 255, 0.24) 0 3px, transparent 12px),
+    radial-gradient(circle at 92% 64%, rgba(255, 211, 236, 0.26) 0 2px, transparent 9px);
+  animation: candyFieldFloatSoft 8s ease-in-out infinite alternate;
+}
+
+.candy-effects__field--near {
+  opacity: 0.34;
+  filter: blur(1.8px);
+  background:
+    radial-gradient(circle at 18% 82%, rgba(255, 249, 222, 0.34) 0 5px, transparent 16px),
+    radial-gradient(circle at 38% 18%, rgba(255, 206, 232, 0.28) 0 4px, transparent 14px),
+    radial-gradient(circle at 70% 48%, rgba(201, 255, 232, 0.28) 0 6px, transparent 18px),
+    radial-gradient(circle at 86% 84%, rgba(255, 232, 176, 0.3) 0 4px, transparent 15px);
+  animation: candyFieldFloatNear 10s ease-in-out infinite alternate;
+}
+
+.candy-effect__particle {
+  position: absolute;
+  min-width: 2px;
+  min-height: 2px;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  mix-blend-mode: normal;
+  opacity: var(--base-opacity, 0.72);
+  filter: blur(var(--blur, 0.8px)) drop-shadow(0 0 12px var(--particle-glow, rgba(255, 232, 180, 0.22)));
+}
+
+.candy-effect__particle--orb {
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.38) 0%, var(--particle-color) 34%, rgba(255, 255, 255, 0.02) 66%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 18px var(--particle-glow, rgba(255, 220, 180, 0.16));
+}
+
+.candy-effect__particle--candy {
+  border-radius: 999px;
+  background: radial-gradient(ellipse at 42% 38%, rgba(255, 255, 255, 0.28), var(--particle-color) 42%, rgba(255, 255, 255, 0) 84%);
+  box-shadow: 0 0 18px var(--particle-glow, rgba(255, 220, 180, 0.16));
+}
+
+.candy-effect__particle--petal {
+  border-radius: 38% 62% 52% 48% / 36% 46% 54% 64%;
+  background: radial-gradient(ellipse at 40% 36%, rgba(255, 255, 255, 0.2), var(--particle-color) 46%, rgba(255, 255, 255, 0) 86%);
+  box-shadow: 0 0 12px var(--particle-glow, rgba(255, 220, 180, 0.1));
+}
+
+.candy-effect__particle--shard {
+  clip-path: polygon(50% 0%, 100% 32%, 84% 100%, 16% 100%, 0% 32%);
+  background: radial-gradient(ellipse at 46% 36%, rgba(255, 255, 255, 0.22), var(--particle-color) 44%, rgba(255, 255, 255, 0) 88%);
+  box-shadow: 0 0 12px var(--particle-glow, rgba(255, 220, 180, 0.1));
+}
+
+.candy-effect__particle--line {
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), var(--particle-color) 34%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 12px var(--particle-glow, rgba(255, 220, 180, 0.12));
+}
+
+.candy-effect__particle--fluff {
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.2), var(--particle-color) 38%, rgba(255, 255, 255, 0) 82%);
+  box-shadow: 0 0 20px var(--particle-glow, rgba(255, 220, 180, 0.1));
+}
+
+.candy-effect__particle--firefly {
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.42) 0%, var(--particle-color) 42%, rgba(255, 255, 255, 0) 82%);
+  box-shadow: 0 0 20px var(--particle-glow, rgba(255, 220, 180, 0.16));
+}
+
+.candy-effect__particle--mote {
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, var(--particle-color) 38%, rgba(255, 255, 255, 0) 78%);
+  box-shadow: 0 0 16px var(--particle-glow, rgba(255, 220, 180, 0.1));
+}
+
+.candy-effects__mist {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  pointer-events: none;
+  filter: blur(24px);
+  mix-blend-mode: screen;
+  opacity: 0.08;
+}
+
+.candy-effects__mist--back {
+  bottom: -8%;
+  height: 32%;
+  background:
+    radial-gradient(circle at 18% 100%, rgba(255, 194, 228, 0.24), transparent 45%),
+    radial-gradient(circle at 80% 96%, rgba(255, 226, 155, 0.2), transparent 44%),
+    radial-gradient(circle at 50% 100%, rgba(200, 255, 233, 0.16), transparent 52%);
+  animation: candyMistBack 9s ease-in-out infinite alternate;
+}
+
+.candy-effects__mist--front {
+  top: -2%;
+  height: 28%;
+  background:
+    radial-gradient(circle at 28% 0%, rgba(255, 248, 235, 0.18), transparent 44%),
+    radial-gradient(circle at 74% 0%, rgba(255, 211, 239, 0.16), transparent 42%);
+  opacity: 0.06;
+  animation: candyMistFront 8s ease-in-out infinite alternate;
+}
+
+.candy-effects__burst {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: min(60vw, 38rem);
+  height: min(60vw, 38rem);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.42) 0%, rgba(255, 224, 170, 0.18) 28%, transparent 68%);
+  filter: blur(10px);
+  mix-blend-mode: screen;
+  animation: candyBurst 850ms ease both;
+}
+
+.app--candy-forest .choice-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.app--candy-forest .choice-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.06), transparent 32%, rgba(255, 237, 187, 0.08) 58%, transparent 78%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.app--candy-forest .choice-card.is-selected {
+  border-color: rgba(255, 236, 170, 0.72);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 34px rgba(255, 199, 106, 0.28),
+    0 18px 46px rgba(0, 0, 0, 0.28);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.app--candy-forest .choice-card.is-selected::before {
+  opacity: 1;
+  animation: candyChoiceSheen 850ms ease both;
+}
+
+.app--candy-forest .choice-card.is-selected::after {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.36), rgba(255, 225, 165, 0.14) 28%, transparent 68%);
+  opacity: 0;
+  pointer-events: none;
+  animation: candyChoiceBurst 850ms ease both;
+}
+
+.app--candy-forest .choice-card.is-dimmed {
+  opacity: 0.86;
+  filter: saturate(0.92) brightness(0.96);
+}
+
+@keyframes candyForestDrift {
+  from {
+    transform: scale(1.045) translate3d(-0.6%, 0.2%, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(0.8%, -0.5%, 0);
+  }
+}
+
+@keyframes candyForestBreathe {
+  from {
+    filter: brightness(1.16) contrast(1.06) saturate(1.12);
+  }
+  to {
+    filter: brightness(1.22) contrast(1.09) saturate(1.18);
+  }
+}
+
+@keyframes candyMistDrift {
+  from {
+    transform: translate3d(-1.4%, 0.3%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.2%, -0.7%, 0) scale(1.02);
+  }
+}
+
+@keyframes candyAtmospherePulse {
+  from {
+    opacity: 0.34;
+  }
+  to {
+    opacity: 0.54;
+  }
+}
+
+@keyframes candyHaloFloatLeft {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, -3%, 0) scale(1.06);
+  }
+}
+
+@keyframes candyHaloFloatRight {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-4%, 2%, 0) scale(1.05);
+  }
+}
+
+@keyframes candyFieldFloatSoft {
+  from {
+    transform: translate3d(-1.2%, 0.4%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.4%, -1%, 0) scale(1.03);
+  }
+}
+
+@keyframes candyFieldFloatNear {
+  from {
+    transform: translate3d(1%, -0.2%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(-1.5%, 1.2%, 0) scale(1.06);
+  }
+}
+
+@keyframes candyFloatA {
+  from {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(0.98);
+  }
+  to {
+    transform: translate(-50%, -50%) translate3d(var(--dx), var(--dy), 0) rotate(var(--rot)) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatB {
+  from {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(0.98);
+  }
+  to {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * -1), var(--dy), 0) rotate(calc(var(--rot) * -1)) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatC {
+  from {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(0.98);
+  }
+  to {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * 0.55), calc(var(--dy) * -1), 0) rotate(calc(var(--rot) * 0.6)) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatOrbit {
+  0% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(0.96);
+  }
+  40% {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * 0.45), calc(var(--dy) * -0.2), 0) scale(1.04);
+  }
+  70% {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * -0.25), calc(var(--dy) * 0.7), 0) scale(1.01);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate3d(var(--dx), var(--dy), 0) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatRain {
+  from {
+    transform: translate(-50%, -50%) translate3d(0, -8px, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) translate3d(var(--dx), var(--fall), 0) rotate(var(--rot)) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatLine {
+  from {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) translate3d(var(--dx), var(--dy), 0) rotate(var(--rot)) scale(var(--scale));
+  }
+}
+
+@keyframes candyFloatChaos {
+  0% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(0.95);
+  }
+  24% {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * 0.3), calc(var(--dy) * -0.25), 0) rotate(calc(var(--rot) * 0.3)) scale(1.03);
+  }
+  52% {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * -0.25), calc(var(--dy) * 0.45), 0) rotate(calc(var(--rot) * -0.2)) scale(0.99);
+  }
+  76% {
+    transform: translate(-50%, -50%) translate3d(calc(var(--dx) * 0.55), calc(var(--dy) * 0.62), 0) rotate(calc(var(--rot) * 0.55)) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, -50%) translate3d(var(--dx), var(--dy), 0) rotate(var(--rot)) scale(var(--scale));
+  }
+}
+
+@keyframes candyParticleTwinkle {
+  0%,
+  100% {
+    opacity: var(--opacity-low);
+    filter: brightness(0.96) saturate(0.96);
+  }
+  44% {
+    opacity: var(--opacity-high);
+    filter: brightness(1.16) saturate(1.08);
+  }
+  72% {
+    opacity: calc((var(--opacity-low) + var(--opacity-high)) / 2);
+    filter: brightness(1.04) saturate(1.02);
+  }
+}
+
+@keyframes candyMistBack {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, -2%, 0) scale(1.04);
+  }
+}
+
+@keyframes candyMistFront {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0, 1.5%, 0) scale(1.02);
+  }
+}
+
+@keyframes candyBurst {
+  0% {
+    transform: translate(-50%, -50%) scale(0.76);
+    opacity: 0;
+  }
+  26% {
+    opacity: 0.88;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0;
+  }
+}
+
+@keyframes candyChoiceSheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-6%) translateY(2%);
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(6%) translateY(-2%);
+  }
+}
+
+@media (max-width: 640px) {
+  .app--candy-forest .candy-effects {
+    opacity: 0.86;
+  }
+
+  .app--candy-forest .candy-effects__halo {
+    opacity: 0.32;
+  }
+
+  .app--candy-forest .choice-card.is-selected {
+    transform: translateY(-1px) scale(1.005);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app--candy-forest .candy-effects,
+  .app--candy-forest .candy-effects::before,
+  .app--candy-forest .candy-effects::after,
+  .app--candy-forest .candy-effects__halo,
+  .app--candy-forest .candy-effects__burst,
+  .app--candy-forest .candy-effect__particle,
+  .app--candy-forest .choice-card.is-selected::before,
+  .app--candy-forest .choice-card.is-selected::after {
+    animation: none !important;
+  }
+
+  .app--candy-forest .candy-effects {
+    opacity: 0.72;
+  }
+}
+
+/* Mobile layout pass: keep the visual world, but make every screen readable and scrollable. */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .app::after {
+    opacity: 0.46;
+  }
+
+  .stage,
+  .camera,
+  .scene {
+    min-height: 100%;
+  }
+
+  .camera--language,
+  .camera--home,
+  .camera--intro,
+  .camera--arrival,
+  .camera--carriage,
+  .camera--letter,
+  .camera--result,
+  .app--arrival .stage,
+  .app--carriage .stage,
+  .app--letter .stage,
+  .app--result .stage {
+    animation: none;
+  }
+
+  .scene {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    padding: max(1rem, env(safe-area-inset-top)) 1rem max(1.2rem, env(safe-area-inset-bottom));
+  }
+
+  .language-scene,
+  .intro-scene,
+  .arrival-scene,
+  .text-scene,
+  .result-scene,
+  .app--fog-museum .text-scene,
+  .app--fog-museum .result-scene {
+    display: block;
+    align-items: initial;
+    justify-content: initial;
+  }
+
+  .topbar {
+    position: fixed;
+    top: max(0.65rem, env(safe-area-inset-top));
+    right: 0.65rem;
+    left: 0.65rem;
+    z-index: 40;
+    justify-content: flex-end;
+    gap: 0.45rem;
+  }
+
+  .language-panel {
+    width: 100%;
+    height: auto;
+    min-height: calc(100svh - 2rem);
+    padding: 4.2rem 0.85rem 1rem;
+    border-radius: 0.85rem;
+    overflow: visible;
+    gap: 0.5rem;
+  }
+
+  .language-title-stack {
+    margin-bottom: 0.3rem;
+  }
+
+  .language-title-line {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+  }
+
+  .language-eyebrow {
+    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .language-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .language-actions {
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+    margin-top: 0.75rem;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .scene-card-button {
+    min-height: 7.4rem;
+    border-radius: 0.7rem;
+  }
+
+  .scene-card-copy {
+    min-height: 7.4rem;
+    padding: 0.68rem 0.72rem 0.62rem;
+    gap: 0.22rem;
+  }
+
+  .scene-card-title {
+    font-size: 1rem;
+    line-height: 1.16;
+  }
+
+  .scene-card-question {
+    min-height: 0;
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+
+  .intro-scene {
+    padding: max(4.4rem, env(safe-area-inset-top)) 1rem 1rem;
+  }
+
+  .intro-copy {
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    background: rgba(3, 8, 16, 0.38);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .intro-title {
+    font-size: clamp(2.1rem, 12vw, 3.35rem);
+    line-height: 1.02;
+    letter-spacing: 0.02em;
+  }
+
+  .intro-line {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .intro-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-width: 0;
+    width: 100%;
+    min-height: 3.15rem;
+    border-radius: 0.75rem;
+    padding: 0.8rem 0.95rem;
+    letter-spacing: 0.06em;
+  }
+
+  .scene-caption,
+  .app--candy-forest .scene-caption,
+  .app--fog-museum .scene-caption {
+    width: 100%;
+    margin: 4.1rem 0 0;
+    padding: 0.9rem;
+    border-radius: 0.8rem;
+    text-align: left;
+    background: rgba(3, 8, 16, 0.42);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .scene-heading {
+    font-size: clamp(1.9rem, 11vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: 0.02em;
+  }
+
+  .scene-subheading,
+  .subtitle-line {
+    font-size: 0.96rem;
+    line-height: 1.58;
+    letter-spacing: 0.02em;
+  }
+
+  .choice-panel,
+  .app--candy-forest .choice-panel,
+  .app--fog-museum .choice-panel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin: 0.75rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    padding: 0;
+  }
+
+  .choice-card,
+  .app--fog-museum .choice-card,
+  .app--candy-forest .choice-card {
+    min-height: auto;
+    padding: 0.82rem 0.9rem;
+    border-radius: 0.78rem;
+    background: rgba(5, 12, 24, 0.48);
+    border: 1px solid rgba(234, 244, 255, 0.16);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .choice-card-title,
+  .app--fog-museum .choice-card-title {
+    font-size: 1rem;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+  }
+
+  .choice-card-subtitle,
+  .app--fog-museum .choice-card-subtitle {
+    margin-top: 0.22rem;
+    font-size: 0.88rem;
+    line-height: 1.42;
+    letter-spacing: 0.01em;
+  }
+
+  .result-scene,
+  .app--fog-museum .result-scene,
+  .app--candy-forest .result-scene {
+    padding: max(4.2rem, env(safe-area-inset-top)) 1rem max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .subtitle-stack,
+  .subtitle-stack--broadcast,
+  .subtitle-stack--result,
+  .app--fog-museum .subtitle-stack--result,
+  .app--candy-forest .subtitle-stack--result {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  .result-card,
+  .app--fog-museum .result-card,
+  .app--candy-forest .result-card {
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.85rem;
+    background: rgba(3, 8, 16, 0.48);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .result-title,
+  .app--candy-forest .result-card .result-title {
+    font-size: clamp(1.75rem, 9vw, 2.6rem);
+    line-height: 1.06;
+    letter-spacing: 0.02em;
+  }
+
+  .result-subtitle,
+  .result-desc,
+  .result-cue,
+  .result-note,
+  .app--candy-forest .result-card .result-desc,
+  .app--candy-forest .result-card .result-note,
+  .app--candy-forest .result-card .result-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.58;
+    letter-spacing: 0.01em;
+  }
+
+  .background-image {
+    object-position: center;
+  }
+
+  .app--candy-forest .candy-effects {
+    opacity: 0.72;
+  }
+
+  .app--fog-museum .fog-text-layer {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 420px) {
+  .scene {
+    padding-inline: 0.75rem;
+  }
+
+  .language-panel {
+    padding-inline: 0.7rem;
+  }
+
+  .language-title-line {
+    font-size: clamp(1.85rem, 11vw, 2.6rem);
+  }
+
+  .scene-card-button {
+    min-height: 7rem;
+  }
+
+  .scene-card-copy {
+    min-height: 7rem;
+  }
+
+  .choice-card,
+  .app--fog-museum .choice-card,
+  .app--candy-forest .choice-card {
+    padding: 0.74rem 0.78rem;
+  }
+}

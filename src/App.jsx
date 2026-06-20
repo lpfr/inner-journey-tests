@@ -10,7 +10,16 @@ import SceneEffects from "./components/SceneEffects.jsx";
 import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
 import RoomSceneEffects from "./components/effects/RoomSceneEffects.jsx";
 import GreenhouseSceneEffects from "./components/effects/GreenhouseSceneEffects.jsx";
-import "./styles.css";
+// styles.css was split into 7 ordered files for easier navigation/editing.
+// IMPORTANT: import order matters — these must stay 01 -> 07 to preserve
+// the exact original CSS cascade. See src/styles/01-*.css header comment.
+import "./styles/01-base-and-rain-station.css";
+import "./styles/02-candy-forest.css";
+import "./styles/03-fog-museum.css";
+import "./styles/04-candy-forest-fog-museum-extra.css";
+import "./styles/05-mixed-rain-candy-fog-sinking.css";
+import "./styles/06-sinking-city-greenhouse.css";
+import "./styles/07-greenhouse-room-for-two.css";
 
 const PRELOAD_IMAGES = [
   "/img/station_intro.webp",

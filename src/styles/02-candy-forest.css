@@ -1,0 +1,1018 @@
+/* ====================================================================
+ * 02-candy-forest.css
+ * Part 2 of 7 — split from the original single styles.css file.
+ *
+ * IMPORTANT: this file is part of an ORDER-PRESERVING split. The original
+ * styles.css grew organically and chapter-specific rules are interleaved
+ * throughout (NOT cleanly grouped per chapter) — so this file is named by
+ * its position in the original file, not by a single chapter. The comment
+ * below lists what's predominantly in this range.
+ *
+ * These 7 files MUST be imported in numeric order (01 -> 07) for the CSS
+ * cascade to behave identically to the original single file. Do not
+ * reorder the imports in main.jsx.
+ *
+ * Content: Candy forest (chapter 2) — mostly self-contained
+ * ==================================================================== */
+
+
+.beam::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.82), transparent 24%);
+}
+
+.beam--left {
+  left: 16%;
+  transform: rotate(-8deg);
+  opacity: 1;
+}
+
+.beam--right {
+  right: 16%;
+  transform: rotate(8deg);
+  opacity: 1;
+}
+
+.beam--third {
+  left: 29%;
+  transform: rotate(-5deg);
+  opacity: 0.88;
+}
+
+.beam--fourth {
+  right: 29%;
+  transform: rotate(5deg);
+  opacity: 0.88;
+}
+
+.headlights--wide .beam {
+  opacity: 1;
+}
+
+@keyframes beamPulse {
+  0%,
+  100% {
+    filter: blur(2px) brightness(1);
+  }
+  50% {
+    filter: blur(1px) brightness(1.18);
+  }
+}
+
+.subtitle-stack {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  display: grid;
+  gap: 0.45rem;
+  width: min(92vw, 48rem);
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+.subtitle-stack--broadcast {
+  top: 10%;
+  z-index: 9;
+}
+
+.subtitle-stack--result {
+  top: 10%;
+  z-index: 9;
+}
+
+.subtitle-line {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: clamp(1rem, 2.4vw, 1.45rem);
+  line-height: 1.85;
+  letter-spacing: 0.08em;
+  text-wrap: balance;
+  opacity: 0;
+  animation: fadeUp 720ms ease forwards;
+}
+
+.subtitle-line--strong {
+  color: var(--ink-soft);
+  font-size: clamp(1.06rem, 2.6vw, 1.62rem);
+}
+
+.subtitle-line--pending {
+  visibility: hidden;
+}
+
+.choice-panel--pending {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ticket-card {
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  z-index: 7;
+  width: min(90vw, 27rem);
+  padding: 1rem 1rem 1.1rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(234, 244, 255, 0.16);
+  text-align: center;
+}
+
+.ticket-card--floating {
+  animation: ticketFloat 4.8s ease-in-out infinite;
+}
+
+.ticket-line {
+  margin: 0.1rem 0;
+  color: var(--ink-soft);
+  font-size: clamp(0.98rem, 2vw, 1.22rem);
+  line-height: 1.85;
+}
+
+.ticket-line--name {
+  margin-top: 0.25rem;
+  color: var(--ink-strong);
+  font-size: clamp(1.04rem, 2.2vw, 1.3rem);
+}
+
+@keyframes ticketFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.train-gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  padding: 5.5rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.train-gallery-copy {
+  width: min(92vw, 72rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scene-heading {
+  margin: 0 0 0.3rem;
+  color: var(--ink-strong);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.scene-subheading {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.train-grid {
+  inset: auto auto 1.2rem 50%;
+  transform: translateX(-50%);
+  width: min(96vw, 78rem);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.train-door {
+  position: relative;
+  overflow: hidden;
+  min-height: 22rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(234, 244, 255, 0.12);
+  background: rgba(6, 12, 22, 0.9);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  animation: doorRise 700ms ease forwards;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    opacity 220ms ease,
+    filter 220ms ease;
+}
+
+.train-door:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(234, 244, 255, 0.34);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.42),
+    0 0 36px rgba(123, 179, 255, 0.18);
+}
+
+.train-door.is-selected {
+  transform: translateY(-10px) scale(1.08);
+  border-color: rgba(255, 243, 210, 0.74);
+  box-shadow:
+    0 0 0 1px rgba(255, 243, 210, 0.32) inset,
+    0 24px 62px rgba(0, 0, 0, 0.5),
+    0 0 56px rgba(255, 214, 111, 0.22);
+  z-index: 4;
+}
+
+.train-door.is-dimmed {
+  opacity: 0.08;
+  filter: blur(0.4px) saturate(0.7);
+}
+
+.train-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 14%, rgba(255, 236, 168, 0.36), transparent 34%),
+    radial-gradient(circle at 50% 34%, rgba(123, 179, 255, 0.12), transparent 36%);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.train-door-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.06) contrast(1.06) brightness(0.82);
+  transform: scale(1.02);
+}
+
+.train-door-label {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 5rem 0.95rem 1rem;
+  background: linear-gradient(180deg, rgba(2, 6, 12, 0), rgba(2, 6, 12, 0.9) 46%, rgba(2, 6, 12, 0.96));
+  display: grid;
+  gap: 0.35rem;
+}
+
+.train-door-name {
+  color: var(--ink-strong);
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0.12em;
+}
+
+.train-door-desc {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.text-scene {
+  padding: 1.25rem;
+}
+
+.app--candy-forest .intro-scene,
+.app--candy-forest .text-scene,
+.app--candy-forest .result-scene {
+  padding: clamp(0.9rem, 2vw, 1.6rem);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: stretch;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.app--candy-forest .scene-caption {
+  width: min(92vw, 56rem);
+  align-self: start;
+  justify-self: center;
+  background: linear-gradient(180deg, rgba(16, 8, 28, 0.56), rgba(8, 6, 16, 0.72));
+  border-color: rgba(255, 234, 188, 0.16);
+  box-shadow:
+    0 12px 34px rgba(0, 0, 0, 0.28),
+    0 0 24px rgba(255, 214, 111, 0.1);
+}
+
+.app--candy-forest .choice-panel {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: min(92vw, 56rem);
+  max-height: min(42vh, 32rem);
+  overflow: auto;
+  align-self: end;
+  justify-self: center;
+  padding: 0.4rem 0;
+}
+
+.app--candy-forest .choice-card {
+  background: linear-gradient(180deg, rgba(18, 10, 30, 0.62), rgba(8, 8, 16, 0.48));
+  border: 1px solid rgba(255, 224, 178, 0.18);
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.app--candy-forest .choice-card-title {
+  font-size: clamp(1.05rem, 1.4vw, 1.28rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.app--candy-forest .choice-card-subtitle:empty {
+  display: none;
+}
+
+.app--candy-forest .choice-card:hover,
+.app--candy-forest .choice-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 214, 111, 0.45);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    0 0 28px rgba(255, 214, 111, 0.2);
+}
+
+.app--candy-forest .result-scene {
+  padding: clamp(1rem, 2.2vw, 1.8rem);
+  align-items: stretch;
+  justify-content: center;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.app--candy-forest .subtitle-stack--result {
+  position: relative;
+  z-index: 6;
+  width: min(92vw, 52rem);
+  margin: 0 auto;
+  align-self: end;
+  justify-self: center;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(16, 8, 28, 0.64), rgba(8, 6, 16, 0.78));
+  border: 1px solid rgba(255, 224, 178, 0.16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.app--candy-forest .result-card {
+  width: min(92vw, 52rem);
+  margin: 0 auto;
+  max-height: min(52vh, 36rem);
+  overflow: auto;
+  background: linear-gradient(180deg, rgba(16, 8, 28, 0.76), rgba(8, 6, 16, 0.88));
+  border-color: rgba(255, 224, 178, 0.16);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.28),
+    0 0 30px rgba(255, 214, 111, 0.1);
+}
+
+.app--candy-forest .result-card .result-title {
+  line-height: 1.04;
+}
+
+.app--candy-forest .result-cues {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.app--candy-forest .result-veil {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 243, 210, 0.14), transparent 28%),
+    radial-gradient(circle at 18% 24%, rgba(255, 182, 221, 0.08), transparent 22%),
+    radial-gradient(circle at 82% 30%, rgba(176, 255, 218, 0.06), transparent 24%),
+    linear-gradient(180deg, rgba(3, 4, 7, 0.16) 0%, rgba(5, 6, 10, 0.44) 40%, rgba(2, 3, 6, 0.78) 100%);
+}
+
+.app--candy-forest .result-card .result-desc,
+.app--candy-forest .result-card .result-note,
+.app--candy-forest .result-card .result-subtitle,
+.app--candy-forest .subtitle-stack--result .subtitle-line {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+@media (max-width: 720px) {
+  .app--candy-forest .scene-caption {
+    width: min(94vw, 38rem);
+  }
+
+  .app--candy-forest .choice-panel {
+    width: min(94vw, 38rem);
+    max-height: 44vh;
+  }
+
+  .app--candy-forest .subtitle-stack--result,
+  .app--candy-forest .result-card {
+    width: min(94vw, 38rem);
+  }
+}
+.text-scene--carriage {
+  overflow: hidden;
+}
+
+.text-scene-rain {
+  position: absolute;
+  inset: -18% -10% -6%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.text-scene-rain .rain {
+  background-repeat: repeat;
+  background-image:
+    linear-gradient(
+      90deg,
+      transparent 0 45%,
+      rgba(244, 250, 255, 0.18) 47%,
+      rgba(255, 255, 255, 0.98) 50%,
+      rgba(244, 250, 255, 0.18) 53%,
+      transparent 55%
+    ),
+    linear-gradient(180deg, rgba(244, 250, 255, 0.14) 0%, rgba(244, 250, 255, 0.52) 40%, transparent 100%);
+  background-size: 22px 128px, 22px 128px;
+  filter: blur(0px);
+  opacity: 0.72;
+}
+
+.text-scene-rain .rain--a {
+  background-position: 0 0, 0 0;
+  animation-duration: 6.8s;
+}
+
+.text-scene-rain .rain--b {
+  background-position: 9px 0, 9px 0;
+  animation-duration: 4.8s;
+  opacity: 0.58;
+}
+
+.text-scene-rain .rain--c {
+  background-position: 18px 0, 18px 0;
+  animation-duration: 8.8s;
+  opacity: 0.62;
+}
+
+.text-scene--carriage .scene-caption {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 48rem);
+  margin: 0;
+  text-align: center;
+  padding: 1.2rem 1.25rem;
+  z-index: 7;
+}
+
+.text-scene--carriage .scene-caption .subtitle-line {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.text-scene--letter .scene-caption {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 48rem);
+  margin: 0;
+  text-align: center;
+  padding: 1.2rem 1.25rem;
+  z-index: 7;
+}
+
+.text-scene--letter .scene-caption .subtitle-line {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.app--rain-station .text-scene--carriage,
+.app--rain-station .text-scene--letter {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(0.9rem, 2vh, 1.35rem);
+  padding: max(4rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.app--rain-station .text-scene--carriage .scene-caption,
+.app--rain-station .text-scene--letter .scene-caption {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  width: min(92vw, 48rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app--rain-station .text-scene--carriage .choice-panel,
+.app--rain-station .text-scene--letter .choice-panel {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: min(92vw, 48rem);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.scene-caption {
+  width: min(92vw, 56rem);
+  margin: auto 0 2rem auto;
+  align-self: flex-end;
+  justify-self: flex-end;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(4, 10, 20, 0.12), rgba(4, 10, 20, 0.22));
+  border: 1px solid rgba(234, 244, 255, 0.05);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.14);
+}
+
+.scene-caption::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 62%);
+  opacity: 0.7;
+}
+
+.choice-panel {
+  pointer-events: auto;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(92vw, 27rem);
+  padding: 0.35rem 0;
+  border-radius: 0.95rem;
+  display: grid;
+  gap: 0.6rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.choice-card {
+  text-align: left;
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.2rem 0.8rem;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  opacity: 0;
+  animation: fadeUp 580ms ease forwards;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.choice-card:hover {
+  transform: translateX(2px);
+}
+
+.choice-card-title {
+  display: block;
+  color: var(--ink-strong);
+  font-size: 1.04rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+.choice-card-subtitle {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.result-scene {
+  padding: 1.25rem;
+  align-items: flex-end;
+}
+
+.result-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 243, 210, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(2, 6, 14, 0.18) 0%, rgba(2, 6, 14, 0.48) 38%, rgba(2, 6, 14, 0.8) 100%);
+  pointer-events: none;
+}
+
+.result-card {
+  position: relative;
+  z-index: 5;
+  width: min(92vw, 38rem);
+  margin-left: auto;
+  padding: 1.15rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(180deg, rgba(4, 10, 20, 0.12), rgba(4, 10, 20, 0.28));
+  border: 1px solid rgba(234, 244, 255, 0.06);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+}
+
+.result-title {
+  margin: 0 0 0.25rem;
+  color: var(--ink-strong);
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  line-height: 1.1;
+}
+
+.result-subtitle {
+  margin: 0 0 0.85rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+.result-desc {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.result-cues {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.95rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(234, 244, 255, 0.12);
+}
+
+.result-cue {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.result-note {
+  margin: 0.95rem 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.75;
+  opacity: 0.95;
+}
+
+.arrival-scene .subtitle-line,
+.text-scene .subtitle-line,
+.result-scene .subtitle-line,
+.intro-line,
+.intro-time,
+.choice-card-subtitle,
+.choice-card-title,
+.ticket-line,
+.scene-heading,
+.scene-subheading,
+.language-eyebrow,
+.language-subtitle,
+.result-desc,
+.result-cue,
+.result-note,
+.result-subtitle {
+  color: var(--ink-soft);
+}
+
+.result-scene .subtitle-line--strong,
+.intro-title,
+.language-title-line,
+.result-title,
+.train-door-name,
+.ticket-line--name,
+.platform-tag {
+  color: var(--ink-strong);
+}
+
+.train-grid,
+.choice-panel,
+.scene-caption {
+  pointer-events: auto;
+}
+
+.result-card,
+.language-panel,
+.intro-copy,
+.scene-caption {
+  position: relative;
+}
+
+.train-grid {
+  pointer-events: auto;
+}
+
+.train-gallery,
+.train-gallery-copy,
+.arrival-haze,
+.headlights,
+.platform-tag,
+.ticket-card,
+.subtitle-stack,
+.result-veil,
+.background-drape,
+.beam,
+.mist {
+  pointer-events: none;
+}
+
+.mist {
+  position: absolute;
+  width: 42vw;
+  height: 24vh;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(158, 193, 255, 0.16) 0%, rgba(158, 193, 255, 0.03) 44%, transparent 72%);
+  filter: blur(16px);
+  opacity: 0.6;
+  animation: mistDrift 20s ease-in-out infinite;
+}
+
+.mist--left {
+  left: -10vw;
+  bottom: 14vh;
+}
+
+.mist--right {
+  right: -8vw;
+  bottom: 18vh;
+  animation-duration: 24s;
+}
+
+@keyframes mistDrift {
+  0%,
+  100% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(18px) scale(1.04);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sceneFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ambientGrain {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-1px, 1px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sceneDriftLanguage {
+  from { transform: scale(1.06) translate3d(-1.5%, -0.5%, 0); }
+  to { transform: scale(1.12) translate3d(1.2%, 0.8%, 0); }
+}
+
+@keyframes sceneDriftIntro {
+  from { transform: scale(1.04) translate3d(-1%, 0.3%, 0); }
+  to { transform: scale(1.1) translate3d(1.3%, -0.6%, 0); }
+}
+
+@keyframes sceneDriftArrival {
+  from { transform: scale(1.06) translate3d(-1.2%, 0.4%, 0); }
+  to { transform: scale(1.13) translate3d(1.5%, -0.7%, 0); }
+}
+
+@keyframes sceneDriftCarriage {
+  from { transform: scale(1.08) translate3d(-1%, 0.6%, 0); }
+  to { transform: scale(1.15) translate3d(1.4%, -0.4%, 0); }
+}
+
+@keyframes sceneDriftLetter {
+  from { transform: scale(1.07) translate3d(-0.8%, -0.2%, 0); }
+  to { transform: scale(1.13) translate3d(1.1%, 0.7%, 0); }
+}
+
+@keyframes sceneDriftResult {
+  from { transform: scale(1.05) translate3d(-1.1%, 0.2%, 0); }
+  to { transform: scale(1.11) translate3d(1.4%, -0.5%, 0); }
+}
+
+@keyframes sceneBreath {
+  from {
+    filter: brightness(0.9) contrast(1.04) saturate(0.98);
+  }
+  to {
+    filter: brightness(1.04) contrast(1.1) saturate(1.02);
+  }
+}
+
+@keyframes sceneFloat {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.08) translate3d(0.8%, -0.4%, 0);
+  }
+}
+
+@keyframes sceneSway {
+  from {
+    transform: translate3d(-5px, 2px, 0) rotate(-0.35deg);
+  }
+  to {
+    transform: translate3d(5px, -2px, 0) rotate(0.35deg);
+  }
+}
+
+@keyframes sceneSweep {
+  0% {
+    transform: translateX(-55%);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.22;
+  }
+  50% {
+    transform: translateX(45%);
+    opacity: 0.08;
+  }
+  100% {
+    transform: translateX(155%);
+    opacity: 0;
+  }
+}
+
+@keyframes backgroundBreath {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.32;
+  }
+  to {
+    transform: translate3d(0.8%, -0.4%, 0) scale(1.03);
+    opacity: 0.52;
+  }
+}
+
+@keyframes backgroundSweep {
+  0% {
+    transform: translateX(-55%) translateY(0);
+    opacity: 0;
+  }
+  16% {
+    opacity: 0.16;
+  }
+  46% {
+    transform: translateX(35%) translateY(-0.6%);
+    opacity: 0.14;
+  }
+  100% {
+    transform: translateX(145%) translateY(0.2%);
+    opacity: 0;
+  }
+}
+
+@keyframes panelFloat {
+  from {
+    translate: 0 0;
+    rotate: -0.1deg;
+  }
+  to {
+    translate: 0 -6px;
+    rotate: 0.1deg;
+  }
+}
+
+@keyframes subtitleDrift {
+  from {
+    translate: -2px 0;
+  }
+  to {
+    translate: 2px -2px;
+  }
+}
+
+@keyframes hazePulse {
+  from {
+    opacity: 0.3;
+    scale: 0.98;
+  }
+  to {
+    opacity: 0.78;
+    scale: 1.03;
+  }
+}
+
+@keyframes headlightsGlow {
+  from {
+    opacity: 0.78;
+    filter: brightness(0.95) blur(0.2px);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1.14) blur(0.8px);
+  }
+}
+
+@keyframes platformHover {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -3px;
+  }
+}
+
+@keyframes rainDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(1.2%, 0, 0);
+  }
+}
+
+@keyframes rainDriftCarriage {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(2%, 0, 0);
+  }
+}
+
+@keyframes cameraLanguage {
+  from {
+    transform: translate3d(-0.8%, 0.3%, 0) scale(1.03);
+  }
+  to {
+    transform: translate3d(0.8%, -0.4%, 0) scale(1.07);
+  }
+}
+
+@keyframes cameraIntro {
+  from {
+    transform: translate3d(-0.4%, 0.4%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(0.6%, -0.5%, 0) scale(1.08);
+  }
+}
+
+@keyframes cameraArrival {
+  from {
+    transform: translate3d(0, 0.6%, 0) scale(1.04);
+  }
+  to {
+    transform: translate3d(1.2%, -0.8%, 0) scale(1.12);
+  }
+}
+
+@keyframes cameraCarriage {
+  from {
+    transform: translate3d(-0.4%, 0.4%, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(1.6%, -0.7%, 0) scale(1.15);
+  }
+}
+
+@keyframes cameraLetter {
+  from {
+    transform: translate3d(-0.3%, 0.2%, 0) scale(1.05);
+  }
+  to {
+    transform: translate3d(1.1%, -0.5%, 0) scale(1.14);
+  }
+}

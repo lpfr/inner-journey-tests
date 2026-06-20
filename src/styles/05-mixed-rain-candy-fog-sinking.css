@@ -1,0 +1,1015 @@
+/* ====================================================================
+ * 05-mixed-rain-candy-fog-sinking.css
+ * Part 5 of 7 — split from the original single styles.css file.
+ *
+ * IMPORTANT: this file is part of an ORDER-PRESERVING split. The original
+ * styles.css grew organically and chapter-specific rules are interleaved
+ * throughout (NOT cleanly grouped per chapter) — so this file is named by
+ * its position in the original file, not by a single chapter. The comment
+ * below lists what's predominantly in this range.
+ *
+ * These 7 files MUST be imported in numeric order (01 -> 07) for the CSS
+ * cascade to behave identically to the original single file. Do not
+ * reorder the imports in main.jsx.
+ *
+ * Content: Heavily mixed: rain-station, candy-forest, fog-museum, sinking-city all interleaved here
+ * ==================================================================== */
+
+
+/* Responsive layout v2: tablet and phone are treated as first-class layouts. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .language-panel {
+    width: min(94vw, 860px);
+    height: min(100svh - 2rem, 900px);
+    padding: 1.35rem;
+  }
+
+  .language-title-line {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1;
+    letter-spacing: 0.04em;
+  }
+
+  .language-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .scene-card-button {
+    min-height: 8.6rem;
+  }
+
+  .scene-card-copy {
+    min-height: 8.6rem;
+  }
+
+  .text-scene,
+  .app--fog-museum .text-scene {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .scene-caption,
+  .app--candy-forest .scene-caption,
+  .app--fog-museum .scene-caption {
+    width: min(88vw, 44rem);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .choice-panel,
+  .app--candy-forest .choice-panel,
+  .app--fog-museum .choice-panel {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(88vw, 44rem);
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .choice-card,
+  .app--fog-museum .choice-card,
+  .app--candy-forest .choice-card {
+    padding: 0.9rem;
+    min-height: 7.6rem;
+    background: rgba(5, 12, 24, 0.46);
+    border: 1px solid rgba(234, 244, 255, 0.14);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .choice-card-title,
+  .app--fog-museum .choice-card-title {
+    font-size: 1.08rem;
+    line-height: 1.34;
+    letter-spacing: 0.02em;
+  }
+
+  .choice-card-subtitle,
+  .app--fog-museum .choice-card-subtitle {
+    font-size: 0.94rem;
+    line-height: 1.48;
+  }
+
+  .train-gallery {
+    padding: 5rem 1.5rem 1.5rem;
+    justify-content: center;
+  }
+
+  .train-grid {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: min(92vw, 46rem);
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .train-door {
+    min-height: 15rem;
+    border-radius: 0.95rem;
+  }
+
+  .train-door-name {
+    font-size: 1.02rem;
+    letter-spacing: 0.06em;
+  }
+
+  .train-door-desc {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .result-scene,
+  .app--fog-museum .result-scene,
+  .app--candy-forest .result-scene {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+
+  .subtitle-stack--result,
+  .app--fog-museum .subtitle-stack--result,
+  .app--candy-forest .subtitle-stack--result {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(88vw, 44rem);
+    margin: 0 auto 0.75rem;
+  }
+
+  .result-card,
+  .app--fog-museum .result-card,
+  .app--candy-forest .result-card {
+    width: min(88vw, 44rem);
+    margin: 0 auto;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .scene {
+    font-size: 17px;
+  }
+
+  .language-scene,
+  .intro-scene,
+  .arrival-scene,
+  .text-scene,
+  .result-scene {
+    min-height: 100svh;
+  }
+
+  .language-panel {
+    min-height: auto;
+    padding-top: 4.6rem;
+    background: rgba(4, 10, 20, 0.28);
+  }
+
+  .language-title-line {
+    font-size: clamp(2.15rem, 10.5vw, 3.15rem);
+  }
+
+  .language-eyebrow {
+    font-size: 1.02rem;
+  }
+
+  .language-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .scene-card-button {
+    min-height: 6.75rem;
+  }
+
+  .scene-card-media {
+    opacity: 0.74;
+  }
+
+  .scene-card-copy {
+    min-height: 6.75rem;
+    grid-template-rows: auto auto auto auto;
+    align-content: center;
+  }
+
+  .scene-card-status {
+    font-size: 0.56rem;
+  }
+
+  .scene-card-title {
+    align-self: auto;
+    font-size: 1.08rem;
+  }
+
+  .scene-card-question {
+    font-size: 0.9rem;
+  }
+
+  .scene-card-world {
+    font-size: 0.66rem;
+  }
+
+  .arrival-scene {
+    overflow-y: auto;
+  }
+
+  .platform-tag {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: inline-flex;
+    margin: 4.1rem 0 0.75rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+  }
+
+  .subtitle-stack--broadcast {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    margin: 4.4rem 0 0;
+    text-align: left;
+  }
+
+  .ticket-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    margin: 0.8rem 0 0;
+  }
+
+  .headlights,
+  .arrival-haze {
+    position: absolute;
+  }
+
+  .train-gallery {
+    position: relative;
+    inset: auto;
+    min-height: auto;
+    padding: 4.35rem 0 0;
+    display: grid;
+    gap: 0.85rem;
+    justify-content: stretch;
+  }
+
+  .train-gallery-copy {
+    width: 100%;
+    text-align: left;
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+    background: rgba(3, 8, 16, 0.42);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .train-grid {
+    position: relative;
+    inset: auto;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .train-door {
+    min-height: 8rem;
+    border-radius: 0.8rem;
+  }
+
+  .train-door-image {
+    object-position: center 38%;
+    filter: saturate(1.04) contrast(1.02) brightness(0.72);
+  }
+
+  .train-door-label {
+    padding: 2.8rem 0.8rem 0.75rem;
+  }
+
+  .train-door-name {
+    font-size: 1.02rem;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+  }
+
+  .train-door-desc {
+    font-size: 0.92rem;
+    line-height: 1.38;
+  }
+
+  .scene-caption,
+  .app--candy-forest .scene-caption,
+  .app--fog-museum .scene-caption {
+    margin-top: 4.35rem;
+  }
+
+  .scene-heading {
+    font-size: clamp(2rem, 10.5vw, 3.05rem);
+  }
+
+  .scene-subheading,
+  .subtitle-line {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .choice-card-title,
+  .app--fog-museum .choice-card-title {
+    font-size: 1.07rem;
+  }
+
+  .choice-card-subtitle,
+  .app--fog-museum .choice-card-subtitle {
+    font-size: 0.96rem;
+  }
+
+  .result-title,
+  .app--candy-forest .result-card .result-title {
+    font-size: clamp(2rem, 9.8vw, 2.8rem);
+  }
+
+  .result-subtitle,
+  .result-desc,
+  .result-cue,
+  .result-note,
+  .app--candy-forest .result-card .result-desc,
+  .app--candy-forest .result-card .result-note,
+  .app--candy-forest .result-card .result-subtitle {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .result-cues {
+    gap: 0.55rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .scene {
+    font-size: 16.5px;
+  }
+
+  .topbar {
+    gap: 0.35rem;
+  }
+
+  .sound-chip,
+  .lang-button {
+    min-height: 2.35rem;
+    padding-inline: 0.62rem;
+    font-size: 0.78rem;
+  }
+
+  .language-actions {
+    gap: 0.55rem;
+  }
+
+  .scene-card-button {
+    min-height: 6.35rem;
+  }
+
+  .scene-card-copy {
+    min-height: 6.35rem;
+  }
+
+  .scene-heading {
+    font-size: clamp(1.8rem, 10vw, 2.7rem);
+  }
+
+  .choice-card-title,
+  .app--fog-museum .choice-card-title {
+    font-size: 1.02rem;
+  }
+
+  .choice-card-subtitle,
+  .app--fog-museum .choice-card-subtitle {
+    font-size: 0.92rem;
+  }
+}
+
+/* Mobile scroll fix: the content layer must be taller than the viewport when needed. */
+@media (max-width: 760px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .app {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+
+  .stage,
+  .camera {
+    position: relative;
+    inset: auto;
+    min-height: 100dvh;
+    height: auto;
+    transform: none;
+    transform-style: flat;
+  }
+
+  .background,
+  .atmosphere,
+  .candy-effects,
+  .museum-dream-particles {
+    position: fixed;
+    inset: 0;
+  }
+
+  .scene {
+    position: relative;
+    inset: auto;
+    min-height: 100dvh;
+    height: auto;
+    overflow: visible;
+  }
+
+  .language-panel,
+  .intro-copy,
+  .scene-caption,
+  .choice-panel,
+  .result-card,
+  .subtitle-stack {
+    max-width: 100%;
+  }
+
+  .fog-text-layer,
+  .app--fog-museum .fog-text-layer {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .language-scene {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .text-scene,
+  .arrival-scene,
+  .result-scene,
+  .app--fog-museum .text-scene,
+  .app--fog-museum .result-scene {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+
+  .result-card,
+  .app--fog-museum .result-card,
+  .app--candy-forest .result-card {
+    margin-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Rain station mobile: replace cinematic absolute layout with a readable flow. */
+@media (max-width: 760px) {
+  .app--rain-station .arrival-scene {
+    display: block;
+    min-height: auto;
+    padding: max(4.25rem, env(safe-area-inset-top)) 0.9rem max(1.4rem, env(safe-area-inset-bottom));
+  }
+
+  .app--rain-station .arrival-haze,
+  .app--rain-station .headlights,
+  .app--rain-station .rain-line {
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  .app--rain-station .platform-tag {
+    position: relative;
+    top: auto;
+    left: auto;
+    z-index: 8;
+    display: inline-flex;
+    margin: 0 0 0.7rem;
+    max-width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+  }
+
+  .app--rain-station .subtitle-stack--broadcast {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    z-index: 8;
+    width: 100%;
+    margin: 0.5rem 0 0;
+    padding: 0.9rem;
+    border-radius: 0.85rem;
+    text-align: left;
+    background: rgba(3, 8, 16, 0.48);
+    border: 1px solid rgba(234, 244, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .app--rain-station .subtitle-stack--broadcast .subtitle-line {
+    font-size: 1.08rem;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+  }
+
+  .app--rain-station .ticket-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    z-index: 8;
+    width: 100%;
+    margin: 0.75rem 0 0;
+    padding: 0.9rem;
+    border-radius: 0.85rem;
+    text-align: left;
+    background: rgba(3, 8, 16, 0.52);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    animation: none;
+  }
+
+  .app--rain-station .ticket-line,
+  .app--rain-station .ticket-line--name {
+    font-size: 1.02rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  .app--rain-station .train-gallery {
+    position: relative;
+    inset: auto;
+    z-index: 9;
+    display: block;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .app--rain-station .train-gallery-copy {
+    width: 100%;
+    margin: 0 0 0.75rem;
+    padding: 0.9rem;
+    border-radius: 0.85rem;
+    text-align: left;
+    background: rgba(3, 8, 16, 0.5);
+    border: 1px solid rgba(234, 244, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .app--rain-station .train-gallery-copy .scene-heading {
+    font-size: 2.1rem;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+  }
+
+  .app--rain-station .train-gallery-copy .scene-subheading {
+    font-size: 1.02rem;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+  }
+
+  .app--rain-station .train-grid {
+    position: relative;
+    inset: auto;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .app--rain-station .train-door {
+    min-height: 6.8rem;
+    border-radius: 0.85rem;
+    background: rgba(5, 12, 24, 0.66);
+    border-color: rgba(234, 244, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  .app--rain-station .train-door-image {
+    opacity: 0.42;
+    filter: saturate(1.02) contrast(1.02) brightness(0.68);
+  }
+
+  .app--rain-station .train-door-label {
+    position: relative;
+    inset: auto;
+    z-index: 2;
+    min-height: 6.8rem;
+    padding: 0.9rem;
+    display: grid;
+    align-content: center;
+    gap: 0.22rem;
+    background: linear-gradient(90deg, rgba(2, 6, 12, 0.94), rgba(2, 6, 12, 0.74) 62%, rgba(2, 6, 12, 0.42));
+  }
+
+  .app--rain-station .train-door-name {
+    font-size: 1.14rem;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
+  }
+
+  .app--rain-station .train-door-desc {
+    font-size: 0.98rem;
+    line-height: 1.38;
+  }
+
+  .app--rain-station .text-scene {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: 0.75rem;
+    min-height: 100dvh;
+    padding: max(4.25rem, env(safe-area-inset-top)) 0.9rem max(1.4rem, env(safe-area-inset-bottom));
+  }
+
+  .app--rain-station .scene-caption {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin: 0;
+  }
+
+  .app--rain-station .scene-heading {
+    font-size: 2.05rem;
+    line-height: 1.05;
+  }
+
+  .app--rain-station .subtitle-line {
+    font-size: 1.06rem;
+    line-height: 1.5;
+  }
+
+  .app--rain-station .choice-panel {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+    padding: 0;
+  }
+
+  .app--rain-station .choice-panel--pending {
+    min-height: 20rem;
+  }
+
+  .app--rain-station .choice-card {
+    padding: 0.9rem;
+    background: rgba(5, 12, 24, 0.6);
+    border: 1px solid rgba(234, 244, 255, 0.18);
+  }
+
+  .app--rain-station .choice-card-title {
+    font-size: 1.12rem;
+    line-height: 1.32;
+  }
+
+  .app--rain-station .choice-card-subtitle {
+    font-size: 0.98rem;
+    line-height: 1.42;
+  }
+}
+
+.app--candy-forest .text-scene {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(1rem, 2.8vh, 1.8rem);
+  padding: max(4.4rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.app--candy-forest .scene-caption {
+  width: min(92vw, 48rem);
+  margin: 0 auto;
+  text-align: center;
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.app--candy-forest .scene-heading {
+  font-size: clamp(2.2rem, 5.2vw, 4.25rem);
+  line-height: 1.02;
+}
+
+.app--candy-forest .subtitle-line {
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.5;
+}
+
+.app--candy-forest .choice-panel {
+  width: min(92vw, 48rem);
+  max-height: none;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.6vw, 1rem);
+  padding: 0;
+  align-self: auto;
+}
+
+.app--candy-forest .choice-panel--pending {
+  min-height: 13rem;
+}
+
+.app--rain-station .choice-panel--pending {
+  min-height: 13rem;
+}
+
+.app--candy-forest .choice-card {
+  min-height: clamp(5.6rem, 10vh, 7rem);
+  display: grid;
+  align-content: center;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.app--candy-forest .choice-card-title {
+  font-size: clamp(1.18rem, 2.1vw, 1.45rem);
+  line-height: 1.32;
+}
+
+@media (max-width: 720px) {
+  .result-actions {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .app--candy-forest .text-scene {
+    align-content: center;
+    gap: 0.9rem;
+    padding: max(4rem, env(safe-area-inset-top)) 0.95rem
+      max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .app--candy-forest .scene-caption {
+    width: min(94vw, 34rem);
+    padding: 0.95rem;
+  }
+
+  .app--candy-forest .scene-heading {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .app--candy-forest .subtitle-line {
+    font-size: clamp(1.08rem, 4.8vw, 1.28rem);
+    line-height: 1.45;
+  }
+
+  .app--candy-forest .choice-panel {
+    width: min(94vw, 34rem);
+    grid-template-columns: 1fr;
+    gap: 0.62rem;
+  }
+
+  .app--fog-museum .choice-panel--pending,
+  .app--candy-forest .choice-panel--pending {
+    min-height: 21rem;
+  }
+
+  .app--candy-forest .choice-card {
+    min-height: 4.7rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .app--candy-forest .choice-card-title {
+    font-size: clamp(1.12rem, 5vw, 1.32rem);
+    line-height: 1.3;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  .app--candy-forest .text-scene {
+    gap: 1.2rem;
+  }
+
+  .app--candy-forest .scene-caption,
+  .app--candy-forest .choice-panel {
+    width: min(88vw, 46rem);
+  }
+
+  .app--candy-forest .choice-card {
+    min-height: 6.2rem;
+  }
+}
+
+.intro-scene,
+.app--candy-forest .intro-scene,
+.app--fog-museum .intro-scene,
+.app--rain-station .intro-scene {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(3.6rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2.5rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.intro-copy,
+.app--fog-museum .intro-copy,
+.app--candy-forest .intro-copy,
+.app--rain-station .intro-copy {
+  width: min(92vw, 54rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro-time,
+.app--fog-museum .intro-time,
+.app--candy-forest .intro-time,
+.app--rain-station .intro-time {
+  font-size: clamp(0.98rem, 1.4vw, 1.16rem);
+  line-height: 1.35;
+}
+
+.intro-title,
+.app--fog-museum .intro-title,
+.app--candy-forest .intro-title,
+.app--rain-station .intro-title {
+  font-size: clamp(3.4rem, 8vw, 7rem);
+  line-height: 0.98;
+}
+
+.intro-line,
+.app--fog-museum .intro-line,
+.app--candy-forest .intro-line,
+.app--rain-station .intro-line {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.22rem, 2.4vw, 1.72rem);
+  line-height: 1.72;
+}
+
+.intro-actions,
+.app--fog-museum .intro-actions,
+.app--candy-forest .intro-actions,
+.app--rain-station .intro-actions {
+  justify-content: center;
+}
+
+@media (max-width: 720px) {
+  .intro-scene,
+  .app--candy-forest .intro-scene,
+  .app--fog-museum .intro-scene,
+  .app--rain-station .intro-scene {
+    padding: max(4rem, env(safe-area-inset-top)) 0.95rem
+      max(1.1rem, env(safe-area-inset-bottom));
+  }
+
+  .intro-copy,
+  .app--fog-museum .intro-copy,
+  .app--candy-forest .intro-copy,
+  .app--rain-station .intro-copy {
+    width: min(94vw, 34rem);
+  }
+
+  .intro-time,
+  .app--fog-museum .intro-time,
+  .app--candy-forest .intro-time,
+  .app--rain-station .intro-time {
+    font-size: 0.98rem;
+  }
+
+  .intro-title,
+  .app--fog-museum .intro-title,
+  .app--candy-forest .intro-title,
+  .app--rain-station .intro-title {
+    font-size: clamp(2.45rem, 12vw, 3.8rem);
+    line-height: 1.02;
+  }
+
+  .intro-line,
+  .app--fog-museum .intro-line,
+  .app--candy-forest .intro-line,
+  .app--rain-station .intro-line {
+    font-size: clamp(1.08rem, 5vw, 1.3rem);
+    line-height: 1.55;
+  }
+
+  .intro-actions,
+  .app--fog-museum .intro-actions,
+  .app--candy-forest .intro-actions,
+  .app--rain-station .intro-actions {
+    justify-items: center;
+  }
+
+  .intro-actions .primary-button,
+  .intro-actions .secondary-button {
+    font-size: 1rem;
+  }
+}
+
+.app--sinking-city .background {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(102, 230, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 76% 18%, rgba(255, 92, 180, 0.12), transparent 22%),
+    linear-gradient(180deg, #080914 0%, #121426 46%, #070911 100%);
+  animation: cityImageBreath 12s ease-in-out infinite alternate;
+}
+
+.app--sinking-city .background::before,
+.app--sinking-city .background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.app--sinking-city .background::before {
+  background:
+    linear-gradient(88deg, transparent 0 46%, rgba(125, 236, 255, 0.16) 46.4% 46.8%, transparent 47.2%),
+    linear-gradient(132deg, transparent 0 58%, rgba(255, 148, 92, 0.1) 58.2% 58.5%, transparent 58.8%),
+    radial-gradient(circle at 44% 78%, rgba(255, 246, 190, 0.12), transparent 20%);
+  opacity: 0.62;
+  animation: cityLowPulse 7s ease-in-out infinite alternate;
+}
+
+.app--sinking-city .background::after {
+  background:
+    linear-gradient(180deg, rgba(4, 5, 12, 0.1), rgba(2, 3, 8, 0.72)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 12px);
+  mix-blend-mode: screen;
+}
+
+.app--sinking-city .background-drape {
+  background:
+    radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(5, 6, 12, 0.1), rgba(4, 5, 10, 0.72));
+}
+
+.app--sinking-city .city-collapse {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.app--sinking-city .intro-scene,
+.app--sinking-city .text-scene,
+.app--sinking-city .result-scene {
+  position: absolute;
+  z-index: 12;
+}
+
+.city-skyline,
+.city-crack,
+.city-neon,
+.city-fragment {
+  position: absolute;
+  display: block;
+}
+
+.city-skyline {
+  left: 50%;
+  bottom: 0;
+  width: 120vw;
+  height: 44vh;
+  translate: -50% 0;
+  opacity: 0.62;
+  background:
+    linear-gradient(90deg, transparent 0 4%, rgba(17, 22, 42, 0.88) 4% 11%, transparent 11% 14%, rgba(20, 22, 45, 0.84) 14% 23%, transparent 23% 27%, rgba(12, 18, 35, 0.9) 27% 37%, transparent 37% 42%, rgba(21, 24, 46, 0.86) 42% 55%, transparent 55% 59%, rgba(13, 17, 34, 0.9) 59% 70%, transparent 70% 74%, rgba(20, 23, 45, 0.82) 74% 86%, transparent 86%),
+    linear-gradient(180deg, transparent, rgba(4, 5, 12, 0.92));
+  clip-path: polygon(0 74%, 7% 50%, 11% 61%, 18% 32%, 24% 58%, 31% 40%, 36% 66%, 44% 28%, 52% 58%, 59% 34%, 67% 63%, 75% 38%, 83% 68%, 91% 44%, 100% 72%, 100% 100%, 0 100%);
+  animation: citySway 8s ease-in-out infinite alternate;
+}
