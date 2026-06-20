@@ -1015,3 +1015,12 @@
     top: 40%;
   }
 }
+
+/* Front-layer wrapper for the 3 leaves promoted above the text — sibling
+   of .greenhouse-effects, same z-index tier as .greenhouse-beam-front. */
+.greenhouse-leaves-front {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  pointer-events: none;
+}

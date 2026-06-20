@@ -67,6 +67,8 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
     () => makeFallingLeaves(11, `greenhouse-leaves-${sceneType}`),
     [sceneType],
   );
+  const backLeaves = fallingLeaves.slice(0, 8);
+  const frontLeaves = fallingLeaves.slice(8);
 
   if (sceneId !== "glass-greenhouse") return null;
 
@@ -117,7 +119,7 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
       </span>
 
       <span className="greenhouse-effects__falling-leaves">
-        {fallingLeaves.map((leaf, index) => (
+        {backLeaves.map((leaf, index) => (
           <span
             key={`falling-leaf-${index}`}
             className="greenhouse-effects__falling-leaf"
@@ -152,6 +154,26 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
           by that container's own stacking context (z-index 8), no matter
           what z-index value it's given internally. */}
       <span className="greenhouse-beam-front" aria-hidden="true" />
+
+      {/* A few leaves promoted to the same front layer as the beam, for
+          depth — most leaves stay behind the text (see backLeaves above),
+          these 3 drift past in front of it. */}
+      <span className="greenhouse-leaves-front" aria-hidden="true">
+        {frontLeaves.map((leaf, index) => (
+          <span
+            key={`front-leaf-${index}`}
+            className="greenhouse-effects__falling-leaf"
+            style={{
+              left: `${leaf.left}%`,
+              width: `${leaf.size}px`,
+              height: `${leaf.size * 0.72}px`,
+              "--leaf-sway": `${leaf.sway}px`,
+              animationDelay: `${leaf.delay}s`,
+              animationDuration: `${leaf.duration}s`,
+            }}
+          />
+        ))}
+      </span>
     </>
   );
 }
