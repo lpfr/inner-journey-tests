@@ -1,18 +1,20 @@
+import { useMemo } from "react";
+
 /**
- * RoomSceneEffects — chapter 6 "La chambre à deux" ambience layer (v3).
+ * RoomSceneEffects — chapter 6 "La chambre à deux" ambience layer (v4).
  *
- * Builds on the simplified, proven-reliable v2 technique (plain opacity /
- * box-shadow glow, no mix-blend-mode, no isolation, no JS-computed
- * positions) and reintroduces per-scene variation along three safe
- * dimensions only:
- *   - glow color/shape  → warm / cool / soft / shared (two-lobe, balanced)
- *   - dot count         → how many floating light specks (fixed pool, no
- *                          randomness)
- *   - curtain / thread  → optional extra accents for window & connection
- *                          moments
- *
- * Still gated by sceneId, so it only ever renders for "room-for-two" and
- * never touches any other chapter.
+ * Builds on the proven-reliable technique from this chapter's earlier
+ * rounds and chapter 5's later refinements:
+ *   - No mix-blend-mode, no isolation (the chapter 6 saga's root cause).
+ *   - Glow/light layers use organic multi-keyframe drift, not simple
+ *     opacity-only breathing (learned from the greenhouse beam).
+ *   - Small elements (dust, steam) get their visual presence from an
+ *     internal gradient highlight, not an external box-shadow halo
+ *     (learned from the falling-leaf glow-ring feedback).
+ *   - Everything stays BEHIND the text layer (z-index 3, established and
+ *     already verified working) — deliberately no front-layer elements
+ *     here, since this chapter's theme ("nothing between two people") is
+ *     better served by not adding things drifting in front of the text.
  */
 
 const STEP_TO_SCENE_TYPE = {
@@ -25,28 +27,20 @@ const STEP_TO_SCENE_TYPE = {
 };
 
 // glow: "warm" | "cool" | "soft" | "shared"
-// dots: how many of the fixed DOT_POOL positions to render (0-4)
-// curtain / thread: optional accent layers
+// dust: how many floating motes
+// curtain / thread / steam / nightAir: optional accents
 const PROFILES = {
-  intro: { glow: "warm", dots: 4, curtain: true },
-  "second-chair": { glow: "shared", dots: 4 },
-  "thread-cups": { glow: "warm", dots: 3, thread: true },
-  "cooling-cup": { glow: "soft", dots: 2 },
-  "open-window": { glow: "cool", dots: 2, curtain: true },
-  "shared-light": { glow: "shared", dots: 4 },
-  "result-securite": { glow: "warm", dots: 2 },
-  "result-espace": { glow: "cool", dots: 3, curtain: true },
-  "result-reciprocite": { glow: "shared", dots: 3, thread: true },
-  "result-authenticite": { glow: "soft", dots: 2 },
+  intro: { glow: "warm", dust: 5, curtain: true },
+  "second-chair": { glow: "shared", dust: 5 },
+  "thread-cups": { glow: "warm", dust: 3, thread: "normal", steam: "normal" },
+  "cooling-cup": { glow: "soft", dust: 2, steam: "fading" },
+  "open-window": { glow: "cool", dust: 2, curtain: true, nightAir: "normal" },
+  "shared-light": { glow: "shared", dust: 4, steam: "subtle" },
+  "result-securite": { glow: "warm", dust: 2 },
+  "result-espace": { glow: "cool", dust: 3, curtain: true, nightAir: "normal" },
+  "result-reciprocite": { glow: "shared", dust: 3, thread: "subtle" },
+  "result-authenticite": { glow: "soft", dust: 2, nightAir: "soft" },
 };
-
-// Fixed positions, no randomness — first N are used depending on profile.dots.
-const DOT_POOL = [
-  { left: "18%", top: "30%", delay: "0s" },
-  { left: "72%", top: "24%", delay: "1.4s" },
-  { left: "36%", top: "62%", delay: "2.8s" },
-  { left: "64%", top: "70%", delay: "4.2s" },
-];
 
 function sceneTypeFor(stepId, resultKey) {
   if (!stepId) return "intro";
@@ -55,12 +49,28 @@ function sceneTypeFor(stepId, resultKey) {
   return "intro";
 }
 
-export default function RoomSceneEffects({ sceneId, stepId, resultKey }) {
-  if (sceneId !== "room-for-two") return null;
+function makeDustMotes(count, seed) {
+  return Array.from({ length: count }, (_, index) => {
+    const n = seed.length * 23 + index * 41;
+    return {
+      left: 10 + ((n * 17) % 76),
+      top: 14 + ((n * 19) % 64),
+      size: 3 + ((n * 7) % 4),
+      delay: (index / Math.max(count, 1)) * 10 + ((n * 7) % 30) / 10,
+      duration: 14 + ((n * 9) % 10),
+    };
+  });
+}
 
+export default function RoomSceneEffects({ sceneId, stepId, resultKey }) {
   const sceneType = sceneTypeFor(stepId, resultKey);
   const profile = PROFILES[sceneType] || PROFILES.intro;
-  const dots = DOT_POOL.slice(0, profile.dots || 0);
+  const dustMotes = useMemo(
+    () => makeDustMotes(profile.dust || 0, `room-dust-${sceneType}`),
+    [profile.dust, sceneType],
+  );
+
+  if (sceneId !== "room-for-two") return null;
 
   return (
     <div className={`room-effects room-effects--${sceneType}`} aria-hidden="true">
@@ -73,15 +83,55 @@ export default function RoomSceneEffects({ sceneId, stepId, resultKey }) {
         </>
       )}
 
-      {profile.thread && <span className="room-effects__thread" />}
-
-      {dots.map((dot, index) => (
+      {profile.nightAir && (
         <span
-          key={`room-dot-${index}`}
-          className="room-effects__dot"
-          style={{ left: dot.left, top: dot.top, animationDelay: dot.delay }}
+          className={`room-effects__night-air${
+            profile.nightAir === "soft" ? " room-effects__night-air--soft" : ""
+          }`}
         />
-      ))}
+      )}
+
+      {profile.thread && (
+        <span
+          className={`room-effects__thread${
+            profile.thread === "subtle" ? " room-effects__thread--subtle" : ""
+          }`}
+        />
+      )}
+
+      {profile.steam && (
+        <span
+          className={[
+            "room-effects__steam-group",
+            profile.steam === "fading" ? "room-effects__steam-group--fading" : "",
+            profile.steam === "subtle" ? "room-effects__steam-group--subtle" : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
+          <span className="room-effects__steam" />
+          <span className="room-effects__steam room-effects__steam--two" />
+        </span>
+      )}
+
+      {dustMotes.length > 0 && (
+        <span className="room-effects__dust-layer">
+          {dustMotes.map((mote, index) => (
+            <span
+              key={`room-dust-${index}`}
+              className="room-effects__dust-mote"
+              style={{
+                left: `${mote.left}%`,
+                top: `${mote.top}%`,
+                width: `${mote.size}px`,
+                height: `${mote.size}px`,
+                animationDelay: `${mote.delay}s`,
+                animationDuration: `${mote.duration}s`,
+              }}
+            />
+          ))}
+        </span>
+      )}
     </div>
   );
 }
