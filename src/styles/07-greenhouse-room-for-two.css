@@ -719,11 +719,13 @@
   position: absolute;
   border-radius: 50%;
   background: radial-gradient(
-    circle at 35% 30%,
-    rgba(255, 244, 220, 0.95) 0%,
-    rgba(255, 212, 160, 0.55) 55%,
+    circle at 38% 35%,
+    rgba(255, 240, 210, 0.55) 0%,
+    rgba(255, 218, 168, 0.24) 55%,
     transparent 100%
   );
+  box-shadow: 0 0 9px 1px rgba(255, 222, 175, 0.28);
+  filter: blur(1.4px);
   animation: roomDustFloat ease-in-out infinite;
 }
 

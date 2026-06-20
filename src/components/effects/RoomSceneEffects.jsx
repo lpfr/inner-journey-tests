@@ -55,7 +55,7 @@ function makeDustMotes(count, seed) {
     return {
       left: 3 + ((n * 17) % 92),
       top: 5 + ((n * 19) % 88),
-      size: 7 + ((n * 7) % 8),
+      size: 4 + ((n * 7) % 19),
       delay: (index / Math.max(count, 1)) * 8 + ((n * 7) % 20) / 10,
       duration: 11 + ((n * 9) % 7),
     };
