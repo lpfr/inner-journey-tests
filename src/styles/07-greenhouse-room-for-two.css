@@ -720,7 +720,9 @@
   border-radius: 50%;
   background: rgb(255, 225, 180);
   filter: blur(3.2px);
+  opacity: 0.1;
   animation: roomDustFloat ease-in-out infinite;
+  animation-fill-mode: backwards;
 }
 
 @keyframes roomDustFloat {
