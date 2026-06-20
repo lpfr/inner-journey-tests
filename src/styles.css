@@ -6554,7 +6554,6 @@ button {
   z-index: 3;
   overflow: hidden;
   pointer-events: none;
-  isolation: isolate;
 }
 
 .room-effects * {
@@ -6573,7 +6572,6 @@ button {
 .room-effects__lamp-glow {
   background: radial-gradient(circle at 50% 38%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 46%);
   filter: blur(2px);
-  mix-blend-mode: screen;
   animation: roomLampBreathe 16s ease-in-out infinite;
 }
 
@@ -6622,7 +6620,6 @@ button {
 
 .room-effects__shared-light {
   background: radial-gradient(ellipse 62% 38% at 50% 46%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 72%);
-  mix-blend-mode: screen;
   animation: roomSharedBreathe 14s ease-in-out infinite;
 }
 
@@ -6684,8 +6681,7 @@ button {
 }
 
 .room-effects__night-air {
-  background: linear-gradient(115deg, rgba(120, 160, 210, 0.18) 0%, transparent 52%);
-  mix-blend-mode: screen;
+  background: linear-gradient(115deg, rgba(120, 160, 210, 0.26) 0%, transparent 52%);
   animation: roomNightAirDrift 24s ease-in-out infinite alternate;
 }
 
@@ -6716,8 +6712,7 @@ button {
 }
 
 .room-effects__cool-wash {
-  background: linear-gradient(200deg, rgba(110, 150, 205, 0.07), transparent 60%);
-  mix-blend-mode: screen;
+  background: linear-gradient(200deg, rgba(110, 150, 205, 0.1), transparent 60%);
 }
 
 .room-effects__steam-group {
