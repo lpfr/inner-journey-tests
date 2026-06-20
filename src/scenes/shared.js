@@ -8,8 +8,8 @@ export function createPlaceholderScene({
   theme,
   targetAudience,
   psychologyFrame,
-  cover = "/img/station_intro.png",
-  background = "/img/station_intro.png",
+  cover = "/img/station_intro.webp",
+  background = "/img/station_intro.webp",
 }) {
   return {
     id,

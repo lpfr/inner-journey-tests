@@ -7,9 +7,9 @@ export const rainStationScene = {
   targetAudience: "Pour les moments où tout semble lourd, flou ou difficile à porter seul.",
   psychologyFrame:
     "Repos, émotion, lien ou direction : quatre manières de traverser un moment difficile.",
-  coverImage: "/img/station_intro.png",
-  cover: "/img/station_intro.png",
-  background: "/img/station_intro.png",
+  coverImage: "/img/station_intro.webp",
+  cover: "/img/station_intro.webp",
+  background: "/img/station_intro.webp",
   status: "Disponible",
   resultTypes: ["rest", "release", "connection", "direction"],
   choices: [],
@@ -65,28 +65,28 @@ export const rainStationScene = {
           id: "rest",
           name: "Le Train Blanc",
           desc: "Un lieu calme où tu pourrais souffler un peu.",
-          image: "/img/train_rest.png",
+          image: "/img/train_rest.webp",
           score: { rest: 4, release: 0, connection: 1, direction: 0 },
         },
         {
           id: "release",
           name: "Le Vieux Train",
           desc: "Une pluie ancienne attend de pouvoir passer.",
-          image: "/img/train_release.png",
+          image: "/img/train_release.webp",
           score: { rest: 0, release: 4, connection: 0, direction: 1 },
         },
         {
           id: "connection",
           name: "Le Train des Lumières",
           desc: "Une chaleur douce brille derrière les vitres.",
-          image: "/img/train_connection.png",
+          image: "/img/train_connection.webp",
           score: { rest: 0, release: 1, connection: 4, direction: 0 },
         },
         {
           id: "direction",
           name: "Le Train Sans Nom",
           desc: "Les rails continuent, même quand la destination reste floue.",
-          image: "/img/train_direction.png",
+          image: "/img/train_direction.webp",
           score: { rest: 0, release: 0, connection: 1, direction: 4 },
         },
       ],
@@ -202,7 +202,7 @@ export const rainStationScene = {
   },
   results: {
     rest: {
-      image: "/img/ending_rest.png",
+      image: "/img/ending_rest.webp",
       ending: "La pluie ralentit.",
       story: [
         "Le train s’arrête dans une lumière calme.",
@@ -221,7 +221,7 @@ export const rainStationScene = {
       shareText: "Repose-toi d’abord. La clarté reviendra mieux après.",
     },
     release: {
-      image: "/img/ending_release.png",
+      image: "/img/ending_release.webp",
       ending: "La vitre se couvre de pluie.",
       story: [
         "Quelque chose en toi cesse de se retenir.",
@@ -239,7 +239,7 @@ export const rainStationScene = {
       shareText: "Ce qui te traverse n’a pas besoin de rester bloqué.",
     },
     connection: {
-      image: "/img/ending_connection.png",
+      image: "/img/ending_connection.webp",
       ending: "Une lumière apparaît dans le wagon.",
       story: [
         "Quelqu'un reste là, sans te presser.",
@@ -257,7 +257,7 @@ export const rainStationScene = {
       shareText: "Tu n’as pas besoin d’aller bien pour demander du soutien.",
     },
     direction: {
-      image: "/img/ending_direction.png",
+      image: "/img/ending_direction.webp",
       ending: "Les rails continuent sous la pluie.",
       story: [
         "Tu ne vois pas encore la destination.",

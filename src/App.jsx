@@ -12,53 +12,53 @@ import RoomSceneEffects from "./components/effects/RoomSceneEffects.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
-  "/img/station_intro.png",
-  "/img/train_rest.png",
-  "/img/train_release.png",
-  "/img/train_connection.png",
-  "/img/train_direction.png",
-  "/img/train_interior.png",
-  "/img/conductor_letter.png",
-  "/img/ending_rest.png",
-  "/img/ending_release.png",
-  "/img/ending_connection.png",
-  "/img/ending_direction.png",
-  "/scenes/candy-forest/candy_forest_home.png",
-  "/scenes/candy-forest/forest_opening.png",
-  "/scenes/candy-forest/glowing_candy.png",
-  "/scenes/candy-forest/talking_fox.png",
-  "/scenes/candy-forest/candy_rain.png",
-  "/scenes/candy-forest/mirror_abandoned_self.png",
-  "/scenes/candy-forest/marshmallow_tree.png",
-  "/scenes/candy-forest/notification_fireflies.png",
-  "/scenes/candy-forest/magic_map.png",
-  "/scenes/candy-forest/sugar_door_waiting.png",
-  "/scenes/candy-forest/noisy_forest_fatigue.png",
-  "/scenes/candy-forest/ending_satisfaction.png",
-  "/scenes/candy-forest/ending_control.png",
-  "/scenes/candy-forest/ending_structure.png",
-  "/scenes/candy-forest/ending_emotion.png",
-  "/scenes/glass-greenhouse/glass_greenhouse_home.png",
-  "/scenes/glass-greenhouse/greenhouse_intro.png",
-  "/scenes/glass-greenhouse/fogged_glass.png",
-  "/scenes/glass-greenhouse/exposed_plant.png",
-  "/scenes/glass-greenhouse/rain_on_glass.png",
-  "/scenes/glass-greenhouse/cracked_flower.png",
-  "/scenes/glass-greenhouse/greenhouse_door.png",
-  "/scenes/glass-greenhouse/ending_limites.png",
-  "/scenes/glass-greenhouse/ending_douceur.png",
-  "/scenes/glass-greenhouse/ending_filtrage.png",
-  "/scenes/two-person-room/two_person_room_home.png",
-  "/scenes/two-person-room/room_intro.png",
-  "/scenes/two-person-room/second_chair.png",
-  "/scenes/two-person-room/thread_between_cups.png",
-  "/scenes/two-person-room/cooling_cup.png",
-  "/scenes/two-person-room/open_window.png",
-  "/scenes/two-person-room/shared_light.png",
-  "/scenes/two-person-room/ending_securite.png",
-  "/scenes/two-person-room/ending_espace.png",
-  "/scenes/two-person-room/ending_reciprocite.png",
-  "/scenes/two-person-room/ending_authenticite.png",
+  "/img/station_intro.webp",
+  "/img/train_rest.webp",
+  "/img/train_release.webp",
+  "/img/train_connection.webp",
+  "/img/train_direction.webp",
+  "/img/train_interior.webp",
+  "/img/conductor_letter.webp",
+  "/img/ending_rest.webp",
+  "/img/ending_release.webp",
+  "/img/ending_connection.webp",
+  "/img/ending_direction.webp",
+  "/scenes/candy-forest/candy_forest_home.webp",
+  "/scenes/candy-forest/forest_opening.webp",
+  "/scenes/candy-forest/glowing_candy.webp",
+  "/scenes/candy-forest/talking_fox.webp",
+  "/scenes/candy-forest/candy_rain.webp",
+  "/scenes/candy-forest/mirror_abandoned_self.webp",
+  "/scenes/candy-forest/marshmallow_tree.webp",
+  "/scenes/candy-forest/notification_fireflies.webp",
+  "/scenes/candy-forest/magic_map.webp",
+  "/scenes/candy-forest/sugar_door_waiting.webp",
+  "/scenes/candy-forest/noisy_forest_fatigue.webp",
+  "/scenes/candy-forest/ending_satisfaction.webp",
+  "/scenes/candy-forest/ending_control.webp",
+  "/scenes/candy-forest/ending_structure.webp",
+  "/scenes/candy-forest/ending_emotion.webp",
+  "/scenes/glass-greenhouse/glass_greenhouse_home.webp",
+  "/scenes/glass-greenhouse/greenhouse_intro.webp",
+  "/scenes/glass-greenhouse/fogged_glass.webp",
+  "/scenes/glass-greenhouse/exposed_plant.webp",
+  "/scenes/glass-greenhouse/rain_on_glass.webp",
+  "/scenes/glass-greenhouse/cracked_flower.webp",
+  "/scenes/glass-greenhouse/greenhouse_door.webp",
+  "/scenes/glass-greenhouse/ending_limites.webp",
+  "/scenes/glass-greenhouse/ending_douceur.webp",
+  "/scenes/glass-greenhouse/ending_filtrage.webp",
+  "/scenes/two-person-room/two_person_room_home.webp",
+  "/scenes/two-person-room/room_intro.webp",
+  "/scenes/two-person-room/second_chair.webp",
+  "/scenes/two-person-room/thread_between_cups.webp",
+  "/scenes/two-person-room/cooling_cup.webp",
+  "/scenes/two-person-room/open_window.webp",
+  "/scenes/two-person-room/shared_light.webp",
+  "/scenes/two-person-room/ending_securite.webp",
+  "/scenes/two-person-room/ending_espace.webp",
+  "/scenes/two-person-room/ending_reciprocite.webp",
+  "/scenes/two-person-room/ending_authenticite.webp",
 ];
 
 const HOME_CARDS = {
@@ -320,16 +320,16 @@ function Background({ scene, step, resultKey }) {
   const src = useMemo(() => {
     if (!scene) return scenes[0].coverImage;
     if (scene.visualOnly) return null;
-    if (step?.id === "intro") return scene.introImage || scene.background || scene.coverImage || "/img/station_intro.png";
+    if (step?.id === "intro") return scene.introImage || scene.background || scene.coverImage || "/img/station_intro.webp";
     if (step?.image) return step.image;
-    if (step?.id === "carriage") return "/img/train_interior.png";
-    if (step?.id === "letter") return "/img/conductor_letter.png";
+    if (step?.id === "carriage") return "/img/train_interior.webp";
+    if (step?.id === "letter") return "/img/conductor_letter.webp";
     if (step?.id === "result") {
       if (scene.results?.[resultKey]?.image) return scene.results[resultKey].image;
       if (scene.id === "glass-greenhouse") return scene.background || scene.coverImage || null;
-      return "/img/ending_" + (resultKey || "rest") + ".png";
+      return "/img/ending_" + (resultKey || "rest") + ".webp";
     }
-    return scene.coverImage || scene.background || "/img/station_intro.png";
+    return scene.coverImage || scene.background || "/img/station_intro.webp";
   }, [scene, step, resultKey]);
 
   return (

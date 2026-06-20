@@ -9,10 +9,10 @@ export const sinkingCityScene = {
   psychologyFrame:
     "Sécurité intérieure, ancrage corporel, appui et petits gestes concrets.",
   status: "Disponible",
-  coverImage: "/scenes/collapsing-city/collapsing_city_home.png",
-  cover: "/scenes/collapsing-city/collapsing_city_home.png",
-  background: "/scenes/collapsing-city/collapsing_city_home.png",
-  introImage: "/scenes/collapsing-city/city_intro.png",
+  coverImage: "/scenes/collapsing-city/collapsing_city_home.webp",
+  cover: "/scenes/collapsing-city/collapsing_city_home.webp",
+  background: "/scenes/collapsing-city/collapsing_city_home.webp",
+  introImage: "/scenes/collapsing-city/city_intro.webp",
   resultTypes: ["ancrage", "abri", "mouvement", "appui"],
   tieBreakOrder: ["ancrage", "abri", "appui", "mouvement"],
   choices: [],
@@ -46,7 +46,7 @@ export const sinkingCityScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/collapsing-city/first_crack.png",
+      image: "/scenes/collapsing-city/first_crack.webp",
       rain: false,
       copy: {
         heading: "La première fissure",
@@ -71,7 +71,7 @@ export const sinkingCityScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/collapsing-city/leaning_buildings.png",
+      image: "/scenes/collapsing-city/leaning_buildings.webp",
       rain: false,
       copy: {
         heading: "Les immeubles penchés",
@@ -92,7 +92,7 @@ export const sinkingCityScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/collapsing-city/suspended_bridge.png",
+      image: "/scenes/collapsing-city/suspended_bridge.webp",
       rain: false,
       copy: {
         heading: "Le pont suspendu",
@@ -121,7 +121,7 @@ export const sinkingCityScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/collapsing-city/alarm_square.png",
+      image: "/scenes/collapsing-city/alarm_square.webp",
       rain: false,
       copy: {
         heading: "La place des alarmes",
@@ -150,7 +150,7 @@ export const sinkingCityScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/collapsing-city/last_lamppost.png",
+      image: "/scenes/collapsing-city/last_lamppost.webp",
       rain: false,
       copy: {
         heading: "Le dernier lampadaire",
@@ -214,7 +214,7 @@ export const sinkingCityScene = {
   },
   results: {
     ancrage: {
-      image: "/scenes/collapsing-city/ending_ancrage.png",
+      image: "/scenes/collapsing-city/ending_ancrage.webp",
       ending: "La ville tremble encore.",
       story: [
         "Mais sous tes pieds, quelque chose devient plus réel.",
@@ -233,7 +233,7 @@ export const sinkingCityScene = {
       shareText: "Le monde peut bouger. Tu peux revenir ici.",
     },
     abri: {
-      image: "/scenes/collapsing-city/ending_abri.png",
+      image: "/scenes/collapsing-city/ending_abri.webp",
       ending: "Tu entres dans un lieu plus calme.",
       story: [
         "Dehors, la ville continue de changer.",
@@ -251,7 +251,7 @@ export const sinkingCityScene = {
       shareText: "Un abri n’est pas une fuite. C’est parfois le début du retour.",
     },
     mouvement: {
-      image: "/scenes/collapsing-city/ending_mouvement.png",
+      image: "/scenes/collapsing-city/ending_mouvement.webp",
       ending: "Tu ne sais pas encore où mène la rue.",
       story: [
         "Mais un petit pas rend la ville moins immense.",
@@ -266,7 +266,7 @@ export const sinkingCityScene = {
       shareText: "Un petit geste peut rouvrir la rue.",
     },
     appui: {
-      image: "/scenes/collapsing-city/ending_appui.png",
+      image: "/scenes/collapsing-city/ending_appui.webp",
       ending: "Dans la ville qui tremble, une présence reste près de toi.",
       story: ["Elle ne répare pas les murs.", "Mais elle rend la nuit moins seule."],
       title: "Besoin d’appui",

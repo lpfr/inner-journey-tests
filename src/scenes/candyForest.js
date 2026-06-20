@@ -7,10 +7,10 @@ export const candyForestScene = {
   targetAudience: "Personnes qui veulent observer leur attention avec douceur.",
   psychologyFrame:
     "Envie, fatigue, attention et petites pauses. Cette expérience n’est pas un diagnostic.",
-  coverImage: "/scenes/candy-forest/candy_forest_home.png",
-  cover: "/scenes/candy-forest/candy_forest_home.png",
-  background: "/scenes/candy-forest/candy_forest_home.png",
-  introImage: "/scenes/candy-forest/forest_opening.png",
+  coverImage: "/scenes/candy-forest/candy_forest_home.webp",
+  cover: "/scenes/candy-forest/candy_forest_home.webp",
+  background: "/scenes/candy-forest/candy_forest_home.webp",
+  introImage: "/scenes/candy-forest/forest_opening.webp",
   status: "Disponible",
   resultTypes: ["satisfaction", "controle", "structure", "emotion"],
   tieBreakOrder: ["emotion", "structure", "satisfaction", "controle"],
@@ -45,7 +45,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/glowing_candy.png",
+      image: "/scenes/candy-forest/glowing_candy.webp",
       rain: false,
       copy: {
         heading: "Le bonbon lumineux",
@@ -81,7 +81,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/talking_fox.png",
+      image: "/scenes/candy-forest/talking_fox.webp",
       rain: false,
       copy: {
         heading: "Le raccourci du renard",
@@ -117,7 +117,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/candy_rain.png",
+      image: "/scenes/candy-forest/candy_rain.webp",
       rain: false,
       copy: {
         heading: "La pluie sucrée",
@@ -153,7 +153,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/marshmallow_tree.png",
+      image: "/scenes/candy-forest/marshmallow_tree.webp",
       rain: false,
       copy: {
         heading: "L’arbre de guimauve",
@@ -189,7 +189,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/notification_fireflies.png",
+      image: "/scenes/candy-forest/notification_fireflies.webp",
       rain: false,
       copy: {
         heading: "Les lucioles lumineuses",
@@ -225,7 +225,7 @@ export const candyForestScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [520, 1180],
-      image: "/scenes/candy-forest/sugar_door_waiting.png",
+      image: "/scenes/candy-forest/sugar_door_waiting.webp",
       rain: false,
       copy: {
         heading: "La porte en sucre",
@@ -306,7 +306,7 @@ export const candyForestScene = {
   },
   results: {
     satisfaction: {
-      image: "/scenes/candy-forest/ending_satisfaction.png",
+      image: "/scenes/candy-forest/ending_satisfaction.webp",
       ending: "La clairière brille de mille couleurs.",
       story: [
         "Les douceurs ne sont pas l’ennemi, mais elles prennent beaucoup de place quand elles sont toujours à portée.",
@@ -323,7 +323,7 @@ export const candyForestScene = {
       shareText: "Un petit début vaut mieux qu’un grand plan jamais commencé.",
     },
     controle: {
-      image: "/scenes/candy-forest/ending_control.png",
+      image: "/scenes/candy-forest/ending_control.webp",
       ending: "Tu quittes la forêt sans toucher aux bonbons.",
       story: ["Mais tu sens que résister à tout demande beaucoup d’espace intérieur."],
       title: "Besoin de tenir bon",
@@ -338,7 +338,7 @@ export const candyForestScene = {
       shareText: "Tenir dans la durée demande aussi un peu d’air.",
     },
     structure: {
-      image: "/scenes/candy-forest/ending_structure.png",
+      image: "/scenes/candy-forest/ending_structure.webp",
       ending: "La carte s’éclaire et les chemins cessent de bouger.",
       story: ["Les tentations restent là, mais elles prennent moins de place."],
       title: "Besoin de structure",
@@ -353,7 +353,7 @@ export const candyForestScene = {
       shareText: "Quand le chemin est clair, l’effort devient plus léger.",
     },
     emotion: {
-      image: "/scenes/candy-forest/ending_emotion.png",
+      image: "/scenes/candy-forest/ending_emotion.webp",
       ending: "Tu t’assois au bord du sentier.",
       story: ["La forêt devient moins bruyante quand tu cesses de courir."],
       title: "Émotion en premier plan",

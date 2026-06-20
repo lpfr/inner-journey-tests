@@ -9,10 +9,10 @@ export const glassGreenhouseScene = {
   psychologyFrame:
     "Sensibilité, limites, douceur, filtrage et ouverture protégée.",
   status: "Disponible",
-  coverImage: "/scenes/glass-greenhouse/glass_greenhouse_home.png",
-  cover: "/scenes/glass-greenhouse/glass_greenhouse_home.png",
-  background: "/scenes/glass-greenhouse/glass_greenhouse_home.png",
-  introImage: "/scenes/glass-greenhouse/greenhouse_intro.png",
+  coverImage: "/scenes/glass-greenhouse/glass_greenhouse_home.webp",
+  cover: "/scenes/glass-greenhouse/glass_greenhouse_home.webp",
+  background: "/scenes/glass-greenhouse/glass_greenhouse_home.webp",
+  introImage: "/scenes/glass-greenhouse/greenhouse_intro.webp",
   resultTypes: ["limites", "douceur", "filtrage", "ouverture"],
   tieBreakOrder: ["limites", "filtrage", "douceur", "ouverture"],
   choices: [],
@@ -47,7 +47,7 @@ export const glassGreenhouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/glass-greenhouse/fogged_glass.png",
+      image: "/scenes/glass-greenhouse/fogged_glass.webp",
       copy: {
         heading: "La vitre embuée",
         line1: "Que fais-tu quand tout devient flou ?",
@@ -75,7 +75,7 @@ export const glassGreenhouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/glass-greenhouse/exposed_plant.png",
+      image: "/scenes/glass-greenhouse/exposed_plant.webp",
       copy: {
         heading: "La plante trop exposée",
         line1: "Comment prends-tu soin d’elle ?",
@@ -103,7 +103,7 @@ export const glassGreenhouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/glass-greenhouse/rain_on_glass.png",
+      image: "/scenes/glass-greenhouse/rain_on_glass.webp",
       copy: {
         heading: "Le bruit de la pluie",
         line1: "Que laisses-tu entrer ?",
@@ -131,7 +131,7 @@ export const glassGreenhouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/glass-greenhouse/cracked_flower.png",
+      image: "/scenes/glass-greenhouse/cracked_flower.webp",
       copy: {
         heading: "La fleur fissurée",
         line1: "Que fais-tu devant ce qui semble fragile ?",
@@ -163,7 +163,7 @@ export const glassGreenhouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/glass-greenhouse/greenhouse_door.png",
+      image: "/scenes/glass-greenhouse/greenhouse_door.webp",
       copy: {
         heading: "La porte de la serre",
         line1: "Comment sors-tu vers le jardin ?",
@@ -229,7 +229,7 @@ export const glassGreenhouseScene = {
   },
   results: {
     limites: {
-      image: "/scenes/glass-greenhouse/ending_limites.png",
+      image: "/scenes/glass-greenhouse/ending_limites.webp",
       ending: "La lumière devient plus douce quand le rideau descend.",
       story: ["Rien ne disparaît.", "Mais tout cesse d’entrer en même temps."],
       title: "Besoin de limites",
@@ -245,7 +245,7 @@ export const glassGreenhouseScene = {
       shareText: "Une limite juste ne coupe pas le lien. Elle lui donne une forme respirable.",
     },
     douceur: {
-      image: "/scenes/glass-greenhouse/ending_douceur.png",
+      image: "/scenes/glass-greenhouse/ending_douceur.webp",
       ending: "La plante ne se redresse pas sous la pression.",
       story: [
         "Elle revient lentement quand l’eau arrive au bon rythme.",
@@ -264,7 +264,7 @@ export const glassGreenhouseScene = {
       shareText: "La douceur n’enlève pas la force. Elle l’aide à revenir.",
     },
     filtrage: {
-      image: "/scenes/glass-greenhouse/ending_filtrage.png",
+      image: "/scenes/glass-greenhouse/ending_filtrage.webp",
       ending: "Tu essuies seulement une petite partie de la vitre.",
       story: [
         "Le monde reste là.",
@@ -284,7 +284,7 @@ export const glassGreenhouseScene = {
       shareText: "Filtrer, ce n’est pas ignorer le monde. C’est choisir comment le rencontrer.",
     },
     ouverture: {
-      image: "/scenes/glass-greenhouse/greenhouse_door.png",
+      image: "/scenes/glass-greenhouse/greenhouse_door.webp",
       ending: "La porte s’entrouvre.",
       story: [
         "L’air entre doucement, sans tout renverser.",

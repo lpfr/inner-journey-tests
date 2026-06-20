@@ -8,10 +8,10 @@ export const roomForTwoScene = {
     "Pour les moments où tu veux mieux comprendre ce dont tu as besoin avec quelqu’un qui compte.",
   psychologyFrame: "Sécurité, espace, réciprocité et authenticité dans les liens proches.",
   status: "Disponible",
-  coverImage: "/scenes/two-person-room/two_person_room_home.png",
-  cover: "/scenes/two-person-room/two_person_room_home.png",
-  background: "/scenes/two-person-room/two_person_room_home.png",
-  introImage: "/scenes/two-person-room/room_intro.png",
+  coverImage: "/scenes/two-person-room/two_person_room_home.webp",
+  cover: "/scenes/two-person-room/two_person_room_home.webp",
+  background: "/scenes/two-person-room/two_person_room_home.webp",
+  introImage: "/scenes/two-person-room/room_intro.webp",
   resultTypes: ["securite", "espace", "reciprocite", "authenticite"],
   tieBreakOrder: ["securite", "espace", "reciprocite", "authenticite"],
   choices: [],
@@ -46,7 +46,7 @@ export const roomForTwoScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/two-person-room/second_chair.png",
+      image: "/scenes/two-person-room/second_chair.webp",
       copy: {
         heading: "La deuxième chaise",
         line1: "Où t’assois-tu ?",
@@ -66,7 +66,7 @@ export const roomForTwoScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/two-person-room/thread_between_cups.png",
+      image: "/scenes/two-person-room/thread_between_cups.webp",
       copy: {
         heading: "Le fil entre les mains",
         line1: "Que fais-tu du fil ?",
@@ -86,7 +86,7 @@ export const roomForTwoScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/two-person-room/cooling_cup.png",
+      image: "/scenes/two-person-room/cooling_cup.webp",
       copy: {
         heading: "La tasse refroidie",
         line1: "Que fais-tu quand l’autre tarde à répondre ?",
@@ -106,7 +106,7 @@ export const roomForTwoScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/two-person-room/open_window.png",
+      image: "/scenes/two-person-room/open_window.webp",
       copy: {
         heading: "La fenêtre ouverte",
         line1: "Que laisses-tu entrer ?",
@@ -126,7 +126,7 @@ export const roomForTwoScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
-      image: "/scenes/two-person-room/shared_light.png",
+      image: "/scenes/two-person-room/shared_light.webp",
       copy: {
         heading: "La lumière partagée",
         line1: "Comment restes-tu dans la pièce ?",
@@ -184,7 +184,7 @@ export const roomForTwoScene = {
   },
   results: {
     securite: {
-      image: "/scenes/two-person-room/ending_securite.png",
+      image: "/scenes/two-person-room/ending_securite.webp",
       title: "Besoin de sécurité",
       ending: "La lampe reste allumée.",
       story: [
@@ -205,7 +205,7 @@ export const roomForTwoScene = {
         "Un lien sûr n’enferme pas. Il permet de respirer sans avoir peur de tomber.",
     },
     espace: {
-      image: "/scenes/two-person-room/ending_espace.png",
+      image: "/scenes/two-person-room/ending_espace.webp",
       title: "Besoin d’espace",
       ending: "La fenêtre reste entrouverte.",
       story: [
@@ -226,7 +226,7 @@ export const roomForTwoScene = {
         "La bonne distance ne coupe pas le lien. Elle peut parfois le rendre plus juste.",
     },
     reciprocite: {
-      image: "/scenes/two-person-room/ending_reciprocite.png",
+      image: "/scenes/two-person-room/ending_reciprocite.webp",
       title: "Besoin de réciprocité",
       ending: "La lampe placée au milieu éclaire les deux chaises.",
       story: [
@@ -248,7 +248,7 @@ export const roomForTwoScene = {
         "La réciprocité ne se mesure pas parfaitement. Mais elle se sent quand le cœur se repose un peu.",
     },
     authenticite: {
-      image: "/scenes/two-person-room/ending_authenticite.png",
+      image: "/scenes/two-person-room/ending_authenticite.webp",
       title: "Besoin d’être vrai",
       ending: "La pièce devient plus silencieuse.",
       story: [

@@ -8,10 +8,10 @@ export const fogMuseumScene = {
   targetAudience: "Personnes qui veulent écouter ce qui les attire intérieurement.",
   psychologyFrame:
     "Exploration douce de soi, des élans et des liens. Cette expérience n’est pas un diagnostic.",
-  coverImage: "/scenes/fog-museum/cover.png",
-  cover: "/scenes/fog-museum/cover.png",
-  background: "/scenes/fog-museum/background.png",
-  introImage: "/scenes/fog-museum/intro.png",
+  coverImage: "/scenes/fog-museum/cover.webp",
+  cover: "/scenes/fog-museum/cover.webp",
+  background: "/scenes/fog-museum/background.webp",
+  introImage: "/scenes/fog-museum/intro.webp",
   status: "Disponible",
   resultTypes: ["explorer", "guardian", "creator", "relater"],
   tieBreakOrder: ["explorer", "creator", "guardian", "relater"],
@@ -47,7 +47,7 @@ export const fogMuseumScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [1200, 2500, 3900, 5200, 6600],
-      image: "/scenes/fog-museum/hall.png",
+      image: "/scenes/fog-museum/hall.webp",
       rain: false,
       copy: {
         heading: "La carte du hall",
@@ -84,7 +84,7 @@ export const fogMuseumScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [1100, 2300, 3600, 5000],
-      image: "/scenes/fog-museum/object.png",
+      image: "/scenes/fog-museum/object.webp",
       rain: false,
       copy: {
         heading: "La vitrine éclairée",
@@ -120,7 +120,7 @@ export const fogMuseumScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [1100, 2200, 3400, 4700],
-      image: "/scenes/fog-museum/phrase.png",
+      image: "/scenes/fog-museum/phrase.webp",
       rain: false,
       copy: {
         heading: "Les phrases sur le mur",
@@ -157,7 +157,7 @@ export const fogMuseumScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [1200, 2400, 3600, 5200, 6600],
-      image: "/scenes/fog-museum/door.png",
+      image: "/scenes/fog-museum/door.webp",
       rain: false,
       copy: {
         heading: "Les quatre portes",
@@ -227,7 +227,7 @@ export const fogMuseumScene = {
   },
   results: {
     explorer: {
-      image: "/scenes/fog-museum/result-explorer.png",
+      image: "/scenes/fog-museum/result-explorer.webp",
       ending: "La brume s’ouvre sur un passage que tu n’avais pas vu.",
       story: [
         "Le musée ne te donne pas de réponse.",
@@ -246,7 +246,7 @@ export const fogMuseumScene = {
       shareText: "Parfois, un petit détour suffit à réveiller l’élan.",
     },
     guardian: {
-      image: "/scenes/fog-museum/result-guardian.png",
+      image: "/scenes/fog-museum/result-guardian.webp",
       ending: "Dans une salle calme, la lumière devient plus stable.",
       story: [
         "Tu comprends qu’un refuge n’est pas une prison.",
@@ -264,7 +264,7 @@ export const fogMuseumScene = {
       shareText: "Un sol fiable peut devenir le début du mouvement.",
     },
     creator: {
-      image: "/scenes/fog-museum/result-creator.png",
+      image: "/scenes/fog-museum/result-creator.webp",
       ending: "Au fond du couloir, une table reste éclairée.",
       story: [
         "Rien n'y est terminé.",
@@ -283,7 +283,7 @@ export const fogMuseumScene = {
       shareText: "Ce qui est vrai n’a pas besoin d’être parfait pour exister.",
     },
     relater: {
-      image: "/scenes/fog-museum/result-relater.png",
+      image: "/scenes/fog-museum/result-relater.webp",
       ending: "Derrière une vitre claire, une présence demeure.",
       story: ["Elle ne demande rien.", "Elle paraît seulement te reconnaître."],
       title: "Le lien intérieur",
