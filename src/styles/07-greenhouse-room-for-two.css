@@ -1021,3 +1021,15 @@
     top: 40%;
   }
 }
+
+/* --- 临时测试: 叶子放大+纯色+无模糊+无延迟, 测试完会删除 --- */
+.greenhouse-effects__falling-leaf {
+  width: 60px !important;
+  height: 45px !important;
+  background: lime !important;
+  opacity: 1 !important;
+  filter: none !important;
+  border: 3px solid red !important;
+  animation-delay: 0s !important;
+  animation-duration: 6s !important;
+}
