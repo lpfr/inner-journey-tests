@@ -710,99 +710,6 @@
   opacity: 0.7;
 }
 
-.room-effects__steam-group {
-  position: absolute;
-  left: 50%;
-  bottom: 20%;
-  width: 30%;
-  height: 36%;
-  transform: translateX(-50%);
-}
-
-.room-effects__steam {
-  position: absolute;
-  bottom: 0;
-  left: 42%;
-  width: 9px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 248, 235, 0.55) 0%,
-    rgba(255, 248, 235, 0.2) 55%,
-    transparent 100%
-  );
-  filter: blur(2px);
-  animation: roomSteamRise 13s linear infinite;
-}
-
-.room-effects__steam--two {
-  left: 58%;
-  width: 7px;
-  height: 46px;
-  animation-delay: 4.5s;
-  animation-duration: 14s;
-}
-
-@keyframes roomSteamRise {
-  0% {
-    transform: translateY(0) scaleY(1) scaleX(1);
-    opacity: 0;
-  }
-  18% {
-    opacity: 0.5;
-  }
-  65% {
-    opacity: 0.24;
-  }
-  100% {
-    transform: translateY(-68px) scaleY(1.6) scaleX(1.35);
-    opacity: 0;
-  }
-}
-
-.room-effects__steam-group--fading .room-effects__steam {
-  animation-name: roomSteamRiseFading;
-  animation-duration: 19s;
-}
-
-@keyframes roomSteamRiseFading {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleY(1);
-  }
-  18% {
-    opacity: 0.3;
-  }
-  70% {
-    opacity: 0.12;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-52px) scaleY(1.4);
-  }
-}
-
-.room-effects__steam-group--subtle .room-effects__steam {
-  animation-name: roomSteamRiseSubtle;
-}
-
-@keyframes roomSteamRiseSubtle {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.26;
-  }
-  70% {
-    opacity: 0.1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-60px) scaleY(1.5);
-  }
-}
-
 .room-effects__dust-layer {
   position: absolute;
   inset: 0;
@@ -813,8 +720,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle at 35% 30%,
-    rgba(255, 235, 205, 0.75) 0%,
-    rgba(255, 205, 150, 0.35) 60%,
+    rgba(255, 244, 220, 0.95) 0%,
+    rgba(255, 212, 160, 0.55) 55%,
     transparent 100%
   );
   animation: roomDustFloat ease-in-out infinite;
@@ -823,20 +730,20 @@
 @keyframes roomDustFloat {
   0%,
   100% {
-    transform: translate(0, 0);
-    opacity: 0.3;
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
   }
   25% {
-    transform: translate(5px, -9px);
-    opacity: 0.6;
+    transform: translate(12px, -20px) scale(1.2);
+    opacity: 0.9;
   }
   52% {
-    transform: translate(-4px, -16px);
-    opacity: 0.4;
+    transform: translate(-10px, -34px) scale(0.92);
+    opacity: 0.65;
   }
   78% {
-    transform: translate(6px, -7px);
-    opacity: 0.55;
+    transform: translate(14px, -16px) scale(1.15);
+    opacity: 0.85;
   }
 }
 
@@ -845,7 +752,6 @@
   .room-effects__curtain,
   .room-effects__night-air,
   .room-effects__thread,
-  .room-effects__steam,
   .room-effects__dust-mote {
     animation: none;
   }
@@ -867,12 +773,8 @@
     opacity: 0.55;
   }
 
-  .room-effects__steam {
-    opacity: 0.15;
-  }
-
   .room-effects__dust-mote {
-    opacity: 0.4;
+    opacity: 0.5;
   }
 }
 
@@ -881,11 +783,7 @@
     width: 20%;
   }
 
-  .room-effects__steam-group {
-    width: 40%;
-  }
-
-  .room-effects__dust-mote:nth-child(n + 4) {
+  .room-effects__dust-mote:nth-child(n + 6) {
     display: none;
   }
 }

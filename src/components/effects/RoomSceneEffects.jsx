@@ -8,9 +8,9 @@ import { useMemo } from "react";
  *   - No mix-blend-mode, no isolation (the chapter 6 saga's root cause).
  *   - Glow/light layers use organic multi-keyframe drift, not simple
  *     opacity-only breathing (learned from the greenhouse beam).
- *   - Small elements (dust, steam) get their visual presence from an
- *     internal gradient highlight, not an external box-shadow halo
- *     (learned from the falling-leaf glow-ring feedback).
+ *   - Small elements (dust) get their visual presence from an internal
+ *     gradient highlight, not an external box-shadow halo (learned from
+ *     the falling-leaf glow-ring feedback).
  *   - Everything stays BEHIND the text layer (z-index 3, established and
  *     already verified working) — deliberately no front-layer elements
  *     here, since this chapter's theme ("nothing between two people") is
@@ -28,18 +28,18 @@ const STEP_TO_SCENE_TYPE = {
 
 // glow: "warm" | "cool" | "soft" | "shared"
 // dust: how many floating motes
-// curtain / thread / steam / nightAir: optional accents
+// curtain / thread / nightAir: optional accents
 const PROFILES = {
-  intro: { glow: "warm", dust: 5, curtain: true },
-  "second-chair": { glow: "shared", dust: 5 },
-  "thread-cups": { glow: "warm", dust: 3, thread: "normal", steam: "normal" },
-  "cooling-cup": { glow: "soft", dust: 2, steam: "fading" },
-  "open-window": { glow: "cool", dust: 2, curtain: true, nightAir: "normal" },
-  "shared-light": { glow: "shared", dust: 4, steam: "subtle" },
-  "result-securite": { glow: "warm", dust: 2 },
-  "result-espace": { glow: "cool", dust: 3, curtain: true, nightAir: "normal" },
-  "result-reciprocite": { glow: "shared", dust: 3, thread: "subtle" },
-  "result-authenticite": { glow: "soft", dust: 2, nightAir: "soft" },
+  intro: { glow: "warm", dust: 7, curtain: true },
+  "second-chair": { glow: "shared", dust: 7 },
+  "thread-cups": { glow: "warm", dust: 5, thread: "normal" },
+  "cooling-cup": { glow: "soft", dust: 4 },
+  "open-window": { glow: "cool", dust: 4, curtain: true, nightAir: "normal" },
+  "shared-light": { glow: "shared", dust: 6 },
+  "result-securite": { glow: "warm", dust: 4 },
+  "result-espace": { glow: "cool", dust: 5, curtain: true, nightAir: "normal" },
+  "result-reciprocite": { glow: "shared", dust: 5, thread: "subtle" },
+  "result-authenticite": { glow: "soft", dust: 4, nightAir: "soft" },
 };
 
 function sceneTypeFor(stepId, resultKey) {
@@ -53,11 +53,11 @@ function makeDustMotes(count, seed) {
   return Array.from({ length: count }, (_, index) => {
     const n = seed.length * 23 + index * 41;
     return {
-      left: 10 + ((n * 17) % 76),
-      top: 14 + ((n * 19) % 64),
-      size: 3 + ((n * 7) % 4),
-      delay: (index / Math.max(count, 1)) * 10 + ((n * 7) % 30) / 10,
-      duration: 14 + ((n * 9) % 10),
+      left: 3 + ((n * 17) % 92),
+      top: 5 + ((n * 19) % 88),
+      size: 7 + ((n * 7) % 8),
+      delay: (index / Math.max(count, 1)) * 8 + ((n * 7) % 20) / 10,
+      duration: 11 + ((n * 9) % 7),
     };
   });
 }
@@ -97,21 +97,6 @@ export default function RoomSceneEffects({ sceneId, stepId, resultKey }) {
             profile.thread === "subtle" ? " room-effects__thread--subtle" : ""
           }`}
         />
-      )}
-
-      {profile.steam && (
-        <span
-          className={[
-            "room-effects__steam-group",
-            profile.steam === "fading" ? "room-effects__steam-group--fading" : "",
-            profile.steam === "subtle" ? "room-effects__steam-group--subtle" : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          <span className="room-effects__steam" />
-          <span className="room-effects__steam room-effects__steam--two" />
-        </span>
       )}
 
       {dustMotes.length > 0 && (
