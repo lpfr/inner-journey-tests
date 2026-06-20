@@ -109,6 +109,14 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
 
       <span className="greenhouse-effects__airflow greenhouse-effects__airflow--one" />
       <span className="greenhouse-effects__airflow greenhouse-effects__airflow--two" />
+
+      {/* TEMP TEST — white squares, front-most layer, will be removed */}
+      <span className="greenhouse-white-square-test" style={{ left: "10%", top: "15%" }} />
+      <span className="greenhouse-white-square-test" style={{ left: "30%", top: "40%" }} />
+      <span className="greenhouse-white-square-test" style={{ left: "50%", top: "20%" }} />
+      <span className="greenhouse-white-square-test" style={{ left: "70%", top: "55%" }} />
+      <span className="greenhouse-white-square-test" style={{ left: "85%", top: "30%" }} />
+      <span className="greenhouse-white-square-test" style={{ left: "20%", top: "70%" }} />
     </div>
   );
 }
