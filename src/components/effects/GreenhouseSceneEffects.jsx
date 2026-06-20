@@ -48,7 +48,7 @@ function makeFallingLeaves(count, seed) {
     const n = seed.length * 23 + index * 41;
     return {
       left: 6 + ((n * 17) % 88),
-      size: 9 + ((n * 5) % 7),
+      size: 16 + ((n * 5) % 11),
       sway: 10 + ((n * 7) % 16),
       delay: ((n * 13) % 280) / 10,
       duration: 22 + ((n * 9) % 14),

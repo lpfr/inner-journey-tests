@@ -964,22 +964,24 @@
   position: absolute;
   top: -8%;
   border-radius: 0% 60% 60% 60%;
-  filter: blur(0.3px);
   animation-name: greenhouseLeafFall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 .greenhouse-effects__falling-leaf--0 {
-  background: rgba(86, 158, 102, 0.62);
+  background: rgba(78, 152, 96, 0.92);
+  box-shadow: inset -2px -2px 3px rgba(40, 90, 56, 0.5);
 }
 
 .greenhouse-effects__falling-leaf--1 {
-  background: rgba(168, 188, 92, 0.56);
+  background: rgba(176, 196, 88, 0.88);
+  box-shadow: inset -2px -2px 3px rgba(120, 138, 50, 0.5);
 }
 
 .greenhouse-effects__falling-leaf--2 {
-  background: rgba(196, 156, 84, 0.5);
+  background: rgba(202, 150, 74, 0.85);
+  box-shadow: inset -2px -2px 3px rgba(150, 100, 40, 0.5);
 }
 
 @keyframes greenhouseLeafFall {
@@ -988,7 +990,7 @@
     opacity: 0;
   }
   8% {
-    opacity: 0.6;
+    opacity: 0.92;
   }
   25% {
     transform: translate(var(--leaf-sway), 28vh) rotate(95deg);
@@ -1000,7 +1002,7 @@
     transform: translate(var(--leaf-sway), 82vh) rotate(280deg);
   }
   92% {
-    opacity: 0.6;
+    opacity: 0.92;
   }
   100% {
     transform: translate(0, 112vh) rotate(370deg);
