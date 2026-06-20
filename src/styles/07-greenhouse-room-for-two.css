@@ -889,13 +889,3 @@
     line-height: 1.05;
   }
 }
-
-/* --- 临时测试: 白色方块粒子, 放在最前面, 测试完会删除 --- */
-.greenhouse-white-square-test {
-  position: fixed;
-  width: 28px;
-  height: 28px;
-  background: white;
-  z-index: 99999;
-  pointer-events: none;
-}
