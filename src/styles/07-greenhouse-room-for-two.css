@@ -889,3 +889,34 @@
     line-height: 1.05;
   }
 }
+
+/* --- 临时测试: 去掉模糊+拉满不透明度+饱和色, 看真实形状/位置, 测试完会删除 --- */
+.greenhouse-effects__bloom,
+.greenhouse-effects__reflection,
+.greenhouse-effects__mist,
+.greenhouse-effects__leaf,
+.greenhouse-effects__airflow {
+  opacity: 1 !important;
+  filter: none !important;
+}
+.greenhouse-effects__bloom--main,
+.greenhouse-effects__bloom--edge {
+  background: magenta !important;
+}
+.greenhouse-effects__reflection--wide,
+.greenhouse-effects__reflection--fine {
+  background: cyan !important;
+}
+.greenhouse-effects__mist--left,
+.greenhouse-effects__mist--right,
+.greenhouse-effects__mist--ground {
+  background: yellow !important;
+}
+.greenhouse-effects__leaf--left,
+.greenhouse-effects__leaf--right,
+.greenhouse-effects__leaf--bottom {
+  background: lime !important;
+}
+.greenhouse-effects__airflow {
+  background: orange !important;
+}
