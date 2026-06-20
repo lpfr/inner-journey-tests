@@ -50,7 +50,7 @@ function makeFallingLeaves(count, seed) {
       left: 4 + ((n * 17) % 90),
       size: 13 + ((n * 5) % 9),
       sway: 10 + ((n * 7) % 16),
-      delay: (index * 1.8 + ((n * 13) % 40)) / 10,
+      delay: (index / count) * 26 + ((n * 7) % 30) / 10,
       duration: 20 + ((n * 9) % 12),
     };
   });
