@@ -6307,7 +6307,15 @@ button {
   animation-delay: -5s;
 }
 
+.app--glass-greenhouse .intro-scene,
+.app--glass-greenhouse .result-scene {
+  position: absolute;
+  z-index: 20;
+}
+
 .app--glass-greenhouse .text-scene {
+  position: absolute;
+  z-index: 20;
   min-height: 100svh;
   display: grid;
   grid-template-rows: auto auto;

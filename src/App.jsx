@@ -9,6 +9,7 @@ import SceneResult from "./components/SceneResult.jsx";
 import SceneEffects from "./components/SceneEffects.jsx";
 import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
 import RoomSceneEffects from "./components/effects/RoomSceneEffects.jsx";
+import GreenhouseSceneEffects from "./components/effects/GreenhouseSceneEffects.jsx";
 import "./styles.css";
 
 const PRELOAD_IMAGES = [
@@ -638,6 +639,11 @@ function App() {
             selectedChoiceId={selectedChoiceId}
           />
           <RoomSceneEffects
+            sceneId={activeScene?.id || null}
+            stepId={currentStep?.id || null}
+            resultKey={resultKey}
+          />
+          <GreenhouseSceneEffects
             sceneId={activeScene?.id || null}
             stepId={currentStep?.id || null}
             resultKey={resultKey}
