@@ -532,8 +532,7 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.16 : 0.12;
-          playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
+          playSceneClip(activeScene.audio.ambience, true, 0.14);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
           playTrainArrival();
