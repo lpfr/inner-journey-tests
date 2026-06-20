@@ -43,12 +43,30 @@ function makeDroplets(count, seed) {
   });
 }
 
+function makeFallingLeaves(count, seed) {
+  return Array.from({ length: count }, (_, index) => {
+    const n = seed.length * 23 + index * 41;
+    return {
+      left: 6 + ((n * 17) % 88),
+      size: 9 + ((n * 5) % 7),
+      sway: 10 + ((n * 7) % 16),
+      delay: ((n * 13) % 280) / 10,
+      duration: 22 + ((n * 9) % 14),
+      variant: index % 3,
+    };
+  });
+}
+
 export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
   const sceneType = sceneTypeFor(stepId, resultKey);
   const profile = PROFILES[sceneType] || PROFILES.home;
   const droplets = useMemo(
     () => makeDroplets(profile.droplets, `greenhouse-${sceneType}`),
     [profile.droplets, sceneType],
+  );
+  const fallingLeaves = useMemo(
+    () => makeFallingLeaves(6, `greenhouse-leaves-${sceneType}`),
+    [sceneType],
   );
 
   if (sceneId !== "glass-greenhouse") return null;
@@ -94,6 +112,23 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
               opacity: drop.opacity,
               animationDelay: `${drop.delay}s`,
               animationDuration: `${drop.duration}s`,
+            }}
+          />
+        ))}
+      </span>
+
+      <span className="greenhouse-effects__falling-leaves">
+        {fallingLeaves.map((leaf, index) => (
+          <span
+            key={`falling-leaf-${index}`}
+            className={`greenhouse-effects__falling-leaf greenhouse-effects__falling-leaf--${leaf.variant}`}
+            style={{
+              left: `${leaf.left}%`,
+              width: `${leaf.size}px`,
+              height: `${leaf.size * 0.72}px`,
+              "--leaf-sway": `${leaf.sway}px`,
+              animationDelay: `${leaf.delay}s`,
+              animationDuration: `${leaf.duration}s`,
             }}
           />
         ))}

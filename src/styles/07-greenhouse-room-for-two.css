@@ -950,3 +950,74 @@
     display: none;
   }
 }
+
+/* Slowly falling leaves — chapter 5. Stays behind the text layer (part of
+   .greenhouse-effects, z-index 8), unlike the light beam which is a
+   front-layer sibling. A handful of leaves drift down with horizontal
+   sway + tumbling rotation, looping from top to bottom very slowly. */
+.greenhouse-effects__falling-leaves {
+  position: absolute;
+  inset: 0;
+}
+
+.greenhouse-effects__falling-leaf {
+  position: absolute;
+  top: -8%;
+  border-radius: 0% 60% 60% 60%;
+  filter: blur(0.3px);
+  animation-name: greenhouseLeafFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.greenhouse-effects__falling-leaf--0 {
+  background: rgba(86, 158, 102, 0.62);
+}
+
+.greenhouse-effects__falling-leaf--1 {
+  background: rgba(168, 188, 92, 0.56);
+}
+
+.greenhouse-effects__falling-leaf--2 {
+  background: rgba(196, 156, 84, 0.5);
+}
+
+@keyframes greenhouseLeafFall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.6;
+  }
+  25% {
+    transform: translate(var(--leaf-sway), 28vh) rotate(95deg);
+  }
+  50% {
+    transform: translate(calc(var(--leaf-sway) * -1), 55vh) rotate(190deg);
+  }
+  75% {
+    transform: translate(var(--leaf-sway), 82vh) rotate(280deg);
+  }
+  92% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(0, 112vh) rotate(370deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .greenhouse-effects__falling-leaves span:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greenhouse-effects__falling-leaf {
+    animation: none;
+    opacity: 0.3;
+    top: 40%;
+  }
+}
