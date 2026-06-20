@@ -6543,11 +6543,7 @@ button {
   --result-accent: var(--room-accent);
 }
 
-/* ---------------------------------------------------------------------- */
-/* Chapter 6 — "La chambre à deux" ambience layer (RoomSceneEffects.jsx)   */
-/* Sits above the background image and atmosphere, below all text/cards. */
-/* ---------------------------------------------------------------------- */
-
+/* Chapter 6 — "La chambre à deux" ambience layer (simplified, v2) */
 .room-effects {
   position: absolute;
   inset: 0;
@@ -6556,374 +6552,91 @@ button {
   pointer-events: none;
 }
 
-.room-effects * {
-  pointer-events: none;
-}
-
-.room-effects__lamp-glow,
-.room-effects__shared-light,
-.room-effects__night-air,
-.room-effects__cool-wash {
+.room-effects__glow {
   position: absolute;
   inset: 0;
-  display: block;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 178, 110, 0.55) 0%, rgba(255, 178, 110, 0) 45%);
+  animation: roomGlowPulse 9s ease-in-out infinite;
 }
 
-.room-effects__lamp-glow {
-  background: radial-gradient(circle at 50% 38%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 46%);
-  filter: blur(2px);
-  animation: roomLampBreathe 16s ease-in-out infinite;
-}
-
-.room-effects__lamp-glow--medium {
-  --lamp-low: 0.22;
-  --lamp-high: 0.42;
-  animation-duration: 16s;
-}
-
-.room-effects__lamp-glow--low {
-  --lamp-low: 0.15;
-  --lamp-high: 0.28;
-  animation-duration: 19s;
-}
-
-.room-effects__lamp-glow--stable {
-  --lamp-low: 0.22;
-  --lamp-high: 0.3;
-  animation-duration: 21s;
-}
-
-.room-effects__lamp-glow--soft {
-  --lamp-low: 0.17;
-  --lamp-high: 0.3;
-  animation-duration: 23s;
-}
-
-.room-effects__lamp-glow--balanced {
-  background:
-    radial-gradient(circle at 30% 42%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 32%),
-    radial-gradient(circle at 70% 42%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 32%);
-  --lamp-low: 0.2;
-  --lamp-high: 0.36;
-  animation-duration: 17s;
-}
-
-@keyframes roomLampBreathe {
+@keyframes roomGlowPulse {
   0%,
   100% {
-    opacity: var(--lamp-low, 0.14);
+    opacity: 0.35;
   }
   50% {
-    opacity: var(--lamp-high, 0.26);
+    opacity: 0.75;
   }
 }
 
-.room-effects__shared-light {
-  background: radial-gradient(ellipse 62% 38% at 50% 46%, var(--room-accent, rgba(255, 210, 148, 0.6)), transparent 72%);
-  animation: roomSharedBreathe 14s ease-in-out infinite;
-}
-
-@keyframes roomSharedBreathe {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.52;
-  }
-}
-
-.room-effects__curtain {
+.room-effects__dot {
   position: absolute;
-  top: -4%;
-  bottom: -4%;
-  width: 16%;
-  background: linear-gradient(180deg, rgba(8, 10, 18, 0) 0%, rgba(10, 12, 22, 0.34) 45%, rgba(8, 10, 18, 0) 100%);
-  filter: blur(6px);
-  opacity: 0.68;
-}
-
-.room-effects__curtain--left {
-  left: -3%;
-  animation: roomCurtainSwayLeft 22s ease-in-out infinite alternate;
-}
-
-.room-effects__curtain--right {
-  right: -3%;
-  animation: roomCurtainSwayRight 25s ease-in-out infinite alternate;
-  animation-delay: 2.4s;
-}
-
-.room-effects--airy .room-effects__curtain--left {
-  animation-duration: 17s;
-}
-
-.room-effects--airy .room-effects__curtain--right {
-  animation-duration: 19s;
-}
-
-@keyframes roomCurtainSwayLeft {
-  from {
-    transform: translateX(0) rotate(-0.5deg);
-  }
-  to {
-    transform: translateX(5px) rotate(0.6deg);
-  }
-}
-
-@keyframes roomCurtainSwayRight {
-  from {
-    transform: translateX(0) rotate(0.5deg);
-  }
-  to {
-    transform: translateX(-5px) rotate(-0.6deg);
-  }
-}
-
-.room-effects__night-air {
-  background: linear-gradient(115deg, rgba(120, 160, 210, 0.26) 0%, transparent 52%);
-  animation: roomNightAirDrift 24s ease-in-out infinite alternate;
-}
-
-@keyframes roomNightAirDrift {
-  from {
-    opacity: 0.38;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0.6;
-    transform: translateX(-4%);
-  }
-}
-
-.room-effects__night-air--soft {
-  animation: roomNightAirDriftSoft 28s ease-in-out infinite alternate;
-}
-
-@keyframes roomNightAirDriftSoft {
-  from {
-    opacity: 0.22;
-    transform: translateX(0);
-  }
-  to {
-    opacity: 0.36;
-    transform: translateX(-1.5%);
-  }
-}
-
-.room-effects__cool-wash {
-  background: linear-gradient(200deg, rgba(110, 150, 205, 0.1), transparent 60%);
-}
-
-.room-effects__steam-group {
-  position: absolute;
-  left: 50%;
-  bottom: 20%;
-  width: 36%;
-  height: 34%;
-  transform: translateX(-50%);
-  display: block;
-}
-
-.room-effects__steam {
-  position: absolute;
-  bottom: 0;
-  left: 40%;
-  width: 8px;
-  height: 54px;
-  background: linear-gradient(180deg, rgba(255, 250, 240, 0.24), transparent 78%);
-  filter: blur(3px);
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  opacity: 0;
-  animation: roomSteamRise 12s ease-in infinite;
+  background: rgba(255, 225, 180, 0.85);
+  box-shadow: 0 0 14px 5px rgba(255, 196, 132, 0.65);
+  animation: roomDotFloat 8s ease-in-out infinite;
 }
 
-.room-effects__steam--two {
-  left: 58%;
-  width: 7px;
-  height: 46px;
-  animation-delay: 4.5s;
-  animation-duration: 13s;
+.room-effects__dot--1 {
+  left: 18%;
+  top: 30%;
+  animation-delay: 0s;
 }
 
-@keyframes roomSteamRise {
-  0% {
-    transform: translateY(0) scaleY(1);
-    opacity: 0;
-  }
-  18% {
-    opacity: 0.34;
-  }
-  65% {
-    opacity: 0.16;
-  }
-  100% {
-    transform: translateY(-64px) scaleY(1.5);
-    opacity: 0;
-  }
+.room-effects__dot--2 {
+  left: 72%;
+  top: 24%;
+  animation-delay: 1.4s;
 }
 
-.room-effects__steam-group--fading .room-effects__steam {
-  animation-name: roomSteamRiseFading;
-  animation-duration: 18s;
+.room-effects__dot--3 {
+  left: 36%;
+  top: 62%;
+  animation-delay: 2.8s;
 }
 
-@keyframes roomSteamRiseFading {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scaleY(1);
-  }
-  15% {
-    opacity: 0.2;
-  }
-  70% {
-    opacity: 0.07;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-50px) scaleY(1.3);
-  }
+.room-effects__dot--4 {
+  left: 64%;
+  top: 70%;
+  animation-delay: 4.2s;
 }
 
-.room-effects__steam-group--subtle .room-effects__steam {
-  animation-name: roomSteamRiseSubtle;
-}
-
-@keyframes roomSteamRiseSubtle {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.16;
-  }
-  70% {
-    opacity: 0.06;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-58px) scaleY(1.4);
-  }
-}
-
-.room-effects__thread-glow {
-  position: absolute;
-  left: 32%;
-  right: 32%;
-  top: 55%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 214, 158, 0.6), transparent);
-  filter: blur(1px);
-  animation: roomThreadPulse 11s ease-in-out infinite;
-}
-
-@keyframes roomThreadPulse {
+@keyframes roomDotFloat {
   0%,
   100% {
-    opacity: 0.36;
+    transform: translateY(0);
+    opacity: 0.5;
   }
   50% {
-    opacity: 0.68;
-  }
-}
-
-.room-effects__thread-glow--subtle {
-  animation-name: roomThreadPulseSubtle;
-  animation-duration: 14s;
-}
-
-@keyframes roomThreadPulseSubtle {
-  0%,
-  100% {
-    opacity: 0.18;
-  }
-  50% {
-    opacity: 0.38;
-  }
-}
-
-.room-effects__dust-layer {
-  position: absolute;
-  inset: 0;
-  display: block;
-}
-
-.room-effects__dust-mote {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 232, 198, 0.65), transparent 72%);
-  opacity: 0.14;
-  animation: roomDustFloat 20s ease-in-out infinite;
-}
-
-@keyframes roomDustFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.14;
-  }
-  50% {
-    opacity: 0.36;
-  }
-  100% {
-    transform: translate3d(5px, -16px, 0);
-    opacity: 0.14;
+    transform: translateY(-14px);
+    opacity: 0.95;
   }
 }
 
 @media (max-width: 720px) {
-  .room-effects__curtain {
-    width: 22%;
-    filter: blur(4px);
-  }
-
-  .room-effects__steam-group {
-    width: 44%;
-  }
-
-  .room-effects__dust-mote:nth-child(n + 4) {
+  .room-effects__dot--3,
+  .room-effects__dot--4 {
     display: none;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .room-effects__lamp-glow,
-  .room-effects__shared-light,
-  .room-effects__curtain,
-  .room-effects__night-air,
-  .room-effects__steam,
-  .room-effects__thread-glow,
-  .room-effects__dust-mote {
-    animation: none !important;
+  .room-effects__glow,
+  .room-effects__dot {
+    animation: none;
   }
 
-  .room-effects__lamp-glow {
-    opacity: 0.26;
+  .room-effects__glow {
+    opacity: 0.5;
   }
 
-  .room-effects__shared-light {
-    opacity: 0.38;
-  }
-
-  .room-effects__curtain {
-    opacity: 0.4;
-    transform: none;
-  }
-
-  .room-effects__night-air {
-    opacity: 0.3;
-  }
-
-  .room-effects__steam {
-    opacity: 0.12;
-  }
-
-  .room-effects__thread-glow {
-    opacity: 0.3;
-  }
-
-  .room-effects__dust-mote:nth-child(n + 3) {
-    display: none;
+  .room-effects__dot {
+    opacity: 0.7;
   }
 }
+
 
 @keyframes greenhouseBreath {
   from {
