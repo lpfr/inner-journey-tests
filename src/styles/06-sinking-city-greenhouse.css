@@ -953,22 +953,20 @@
 .app--glass-greenhouse .background::before {
   inset: -12%;
   background:
-    radial-gradient(ellipse at 48% 76%, rgba(211, 255, 229, 0.16), transparent 42%),
-    radial-gradient(ellipse at 18% 24%, rgba(255, 231, 172, 0.18), transparent 24%),
-    radial-gradient(ellipse at 78% 22%, rgba(218, 255, 235, 0.12), transparent 26%);
-  mix-blend-mode: screen;
-  opacity: 0.42;
+    radial-gradient(ellipse at 48% 76%, rgba(180, 255, 215, 0.32), transparent 42%),
+    radial-gradient(ellipse at 18% 24%, rgba(255, 222, 140, 0.34), transparent 24%),
+    radial-gradient(ellipse at 78% 22%, rgba(190, 255, 225, 0.26), transparent 26%);
+  opacity: 0.6;
   animation: greenhouseBreath 13s ease-in-out infinite alternate;
 }
 
 .app--glass-greenhouse .background::after {
   inset: -8%;
   background:
-    radial-gradient(ellipse at 18% 88%, rgba(105, 178, 123, 0.18), transparent 26%),
-    radial-gradient(ellipse at 42% 90%, rgba(70, 134, 91, 0.14), transparent 25%),
-    radial-gradient(ellipse at 74% 90%, rgba(98, 168, 121, 0.13), transparent 28%);
-  mix-blend-mode: screen;
-  opacity: 0.26;
+    radial-gradient(ellipse at 18% 88%, rgba(70, 150, 95, 0.34), transparent 26%),
+    radial-gradient(ellipse at 42% 90%, rgba(50, 120, 72, 0.28), transparent 25%),
+    radial-gradient(ellipse at 74% 90%, rgba(65, 140, 92, 0.26), transparent 28%);
+  opacity: 0.42;
   transform: none;
   animation: greenhouseMist 22s ease-in-out infinite alternate;
 }
@@ -997,11 +995,10 @@
 
 .greenhouse-effects__visible-sheen {
   inset: -18%;
-  opacity: 0.18;
-  mix-blend-mode: screen;
+  opacity: 0.32;
   background:
-    radial-gradient(ellipse at 70% 12%, rgba(255, 244, 190, 0.16), transparent 44%),
-    radial-gradient(ellipse at 42% 48%, rgba(221, 255, 232, 0.08), transparent 48%);
+    radial-gradient(ellipse at 70% 12%, rgba(255, 238, 178, 0.34), transparent 44%),
+    radial-gradient(ellipse at 42% 48%, rgba(200, 255, 222, 0.22), transparent 48%);
   filter: blur(42px);
   animation: greenhouseVisibleSheen 26s ease-in-out infinite alternate;
 }
@@ -1009,7 +1006,6 @@
 .greenhouse-effects__bloom {
   border-radius: 999px;
   filter: blur(34px);
-  mix-blend-mode: screen;
-  opacity: 0.28;
+  opacity: 0.42;
   animation: greenhouseBloom 22s ease-in-out infinite alternate;
 }
