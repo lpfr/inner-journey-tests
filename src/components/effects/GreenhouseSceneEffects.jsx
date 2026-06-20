@@ -54,17 +54,18 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
   if (sceneId !== "glass-greenhouse") return null;
 
   return (
-    <div
-      className={[
-        "greenhouse-effects",
-        `greenhouse-effects--${sceneType}`,
-        `greenhouse-effects--mist-${profile.mist}`,
-        `greenhouse-effects--bloom-${profile.bloom}`,
-        `greenhouse-effects--leaves-${profile.leaves}`,
-        `greenhouse-effects--reflection-${profile.reflection}`,
-      ].join(" ")}
-      aria-hidden="true"
-    >
+    <>
+      <div
+        className={[
+          "greenhouse-effects",
+          `greenhouse-effects--${sceneType}`,
+          `greenhouse-effects--mist-${profile.mist}`,
+          `greenhouse-effects--bloom-${profile.bloom}`,
+          `greenhouse-effects--leaves-${profile.leaves}`,
+          `greenhouse-effects--reflection-${profile.reflection}`,
+        ].join(" ")}
+        aria-hidden="true"
+      >
       <span className="greenhouse-effects__visible-sheen" />
       <span className="greenhouse-effects__bloom greenhouse-effects__bloom--main" />
       <span className="greenhouse-effects__bloom greenhouse-effects__bloom--edge" />
@@ -109,6 +110,14 @@ export default function GreenhouseSceneEffects({ sceneId, stepId, resultKey }) {
 
       <span className="greenhouse-effects__airflow greenhouse-effects__airflow--one" />
       <span className="greenhouse-effects__airflow greenhouse-effects__airflow--two" />
-    </div>
+      </div>
+
+      {/* Sibling of .greenhouse-effects, NOT nested inside it — this is the
+          only way its z-index can actually compete with the text layer
+          (z-index 20). Anything nested inside .greenhouse-effects is capped
+          by that container's own stacking context (z-index 8), no matter
+          what z-index value it's given internally. */}
+      <span className="greenhouse-beam-front" aria-hidden="true" />
+    </>
   );
 }
