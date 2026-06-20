@@ -718,14 +718,8 @@
 .room-effects__dust-mote {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at 38% 35%,
-    rgba(255, 240, 210, 0.55) 0%,
-    rgba(255, 218, 168, 0.24) 55%,
-    transparent 100%
-  );
-  box-shadow: 0 0 9px 1px rgba(255, 222, 175, 0.28);
-  filter: blur(1.4px);
+  background: rgb(255, 225, 180);
+  filter: blur(2.5px);
   animation: roomDustFloat ease-in-out infinite;
 }
 
@@ -733,19 +727,19 @@
   0%,
   100% {
     transform: translate(0, 0) scale(1);
-    opacity: 0.5;
+    opacity: 0.22;
   }
   25% {
     transform: translate(12px, -20px) scale(1.2);
-    opacity: 0.9;
+    opacity: 0.5;
   }
   52% {
     transform: translate(-10px, -34px) scale(0.92);
-    opacity: 0.65;
+    opacity: 0.3;
   }
   78% {
     transform: translate(14px, -16px) scale(1.15);
-    opacity: 0.85;
+    opacity: 0.45;
   }
 }
 
