@@ -37,16 +37,16 @@ const STEP_TO_SCENE_TYPE = {
 // top: vertical position (desktop only — overridden on mobile).
 // size: mask width in px. opacity: peak opacity.
 const PROFILES = {
-  intro: { zone: "left", top: 12, size: 126, opacity: 0.22 },
-  "masque-choisi": { zone: "right", top: 58, size: 148, opacity: 0.26 },
-  "premiere-danse": { zone: "left", top: 66, size: 106, opacity: 0.2 },
-  "couloir-miroirs": { zone: "right", top: 10, size: 156, opacity: 0.27 },
-  "musique-arrete": { zone: "left", top: 38, size: 116, opacity: 0.21 },
-  balcon: { zone: "right", top: 70, size: 136, opacity: 0.23 },
-  "result-performance": { zone: "left", top: 16, size: 146, opacity: 0.25 },
-  "result-sauveur": { zone: "right", top: 62, size: 126, opacity: 0.21 },
-  "result-effacement": { zone: "left", top: 68, size: 104, opacity: 0.16 },
-  "result-conformite": { zone: "right", top: 14, size: 138, opacity: 0.23 },
+  intro: { zone: "left", top: 12, size: 190, opacity: 0.4 },
+  "masque-choisi": { zone: "right", top: 56, size: 215, opacity: 0.46 },
+  "premiere-danse": { zone: "left", top: 64, size: 165, opacity: 0.38 },
+  "couloir-miroirs": { zone: "right", top: 10, size: 225, opacity: 0.48 },
+  "musique-arrete": { zone: "left", top: 36, size: 178, opacity: 0.4 },
+  balcon: { zone: "right", top: 68, size: 200, opacity: 0.42 },
+  "result-performance": { zone: "left", top: 16, size: 212, opacity: 0.45 },
+  "result-sauveur": { zone: "right", top: 60, size: 188, opacity: 0.4 },
+  "result-effacement": { zone: "left", top: 66, size: 162, opacity: 0.32 },
+  "result-conformite": { zone: "right", top: 14, size: 200, opacity: 0.42 },
 };
 
 function sceneTypeFor(stepId, resultKey) {

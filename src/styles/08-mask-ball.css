@@ -17,11 +17,11 @@
 }
 
 .mask-ball-effects--left {
-  left: 3%;
+  left: 5%;
 }
 
 .mask-ball-effects--right {
-  right: 3%;
+  right: 5%;
 }
 
 @keyframes maskBallDrift {
@@ -63,17 +63,17 @@
   );
   background: radial-gradient(
     ellipse at 35% 30%,
-    rgba(255, 234, 182, 0.92) 0%,
-    rgba(230, 180, 98, 0.58) 55%,
-    rgba(160, 110, 50, 0.32) 100%
+    rgba(255, 240, 195, 0.98) 0%,
+    rgba(238, 188, 104, 0.72) 55%,
+    rgba(170, 116, 52, 0.45) 100%
   );
   filter: blur(0.4px);
 }
 
 .mask-ball-effects__sparkle {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgb(255, 246, 220);
   opacity: 0.15;
@@ -115,9 +115,9 @@
 
 @media (max-width: 720px) {
   .mask-ball-effects {
-    width: 64px !important;
-    height: 35px !important;
-    opacity: 0.14 !important;
+    width: 84px !important;
+    height: 46px !important;
+    opacity: 0.24 !important;
   }
 
   /* Per-scene vertical placement is a desktop-margin assumption — on
