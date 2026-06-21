@@ -45,22 +45,7 @@
 .mask-ball-effects__mask {
   position: absolute;
   inset: 0;
-  clip-path: polygon(
-    0% 50%,
-    8% 14%,
-    30% 0%,
-    42% 22%,
-    50% 36%,
-    58% 22%,
-    70% 0%,
-    92% 14%,
-    100% 50%,
-    88% 84%,
-    64% 100%,
-    50% 76%,
-    36% 100%,
-    12% 84%
-  );
+  border-radius: 50%;
   background: radial-gradient(
     ellipse at 35% 30%,
     rgba(255, 240, 195, 0.98) 0%,
@@ -68,6 +53,46 @@
     rgba(170, 116, 52, 0.45) 100%
   );
   filter: blur(0.4px);
+}
+
+.mask-ball-effects__mask-wing {
+  position: absolute;
+  width: 26%;
+  height: 62%;
+  top: 11%;
+  border-radius: 50%;
+  background: rgba(214, 164, 88, 0.7);
+  filter: blur(0.4px);
+}
+
+.mask-ball-effects__mask-wing--left {
+  left: -16%;
+  transform: rotate(40deg);
+}
+
+.mask-ball-effects__mask-wing--right {
+  right: -16%;
+  transform: rotate(-40deg);
+}
+
+.mask-ball-effects__mask-eye {
+  position: absolute;
+  width: 23%;
+  height: 80%;
+  top: 20%;
+  border-radius: 50%;
+  background: rgba(8, 6, 16, 0.82);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
+}
+
+.mask-ball-effects__mask-eye--left {
+  left: 16%;
+  transform: rotate(-9deg);
+}
+
+.mask-ball-effects__mask-eye--right {
+  right: 16%;
+  transform: rotate(9deg);
 }
 
 .mask-ball-effects__sparkle {

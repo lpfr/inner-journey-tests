@@ -74,6 +74,10 @@ export default function MaskBallEffects({ sceneId, stepId, resultKey }) {
       aria-hidden="true"
     >
       <span className="mask-ball-effects__mask" />
+      <span className="mask-ball-effects__mask-wing mask-ball-effects__mask-wing--left" />
+      <span className="mask-ball-effects__mask-wing mask-ball-effects__mask-wing--right" />
+      <span className="mask-ball-effects__mask-eye mask-ball-effects__mask-eye--left" />
+      <span className="mask-ball-effects__mask-eye mask-ball-effects__mask-eye--right" />
       <span className="mask-ball-effects__sparkle mask-ball-effects__sparkle--1" />
       <span className="mask-ball-effects__sparkle mask-ball-effects__sparkle--2" />
       <span className="mask-ball-effects__sparkle mask-ball-effects__sparkle--3" />
