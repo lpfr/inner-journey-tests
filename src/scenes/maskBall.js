@@ -23,6 +23,12 @@ export const maskBallScene = {
     choice: "/scenes/masked-ball/audio/choice_soft.mp3",
     step: "/scenes/masked-ball/audio/mask_chime.mp3",
     ending: "/scenes/masked-ball/audio/ending_ballroom.mp3",
+    endingByResult: {
+      performance: "/scenes/masked-ball/audio/ending_performance.mp3",
+      sauveur: "/scenes/masked-ball/audio/ending_sauveur.mp3",
+      effacement: "/scenes/masked-ball/audio/ending_effacement.mp3",
+      conformite: "/scenes/masked-ball/audio/ending_conformite.mp3",
+    },
   },
   opening: {
     eyebrow: "Rôles et masques",

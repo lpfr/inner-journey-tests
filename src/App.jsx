@@ -481,6 +481,7 @@ function App() {
     playTrainArrival,
     playEnding,
     playSceneClip,
+    playSceneClipWithFallback,
     stopAll,
   } = useAudio();
 
@@ -543,7 +544,7 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball"].includes(activeScene.id) ? 0.16 : 0.12;
+          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.16 : 0.14;
           playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
@@ -609,7 +610,8 @@ function App() {
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (activeScene?.id === "mask-ball" && activeScene?.audio?.ending) {
           stopAll();
-          playSceneClip(activeScene.audio.ending, false, 0.16);
+          const specificEnding = activeScene?.audio?.endingByResult?.[nextResult];
+          playSceneClipWithFallback(specificEnding, activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {
           playEnding(nextResult);
         } else if (activeScene?.audio?.reveal) {

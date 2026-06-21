@@ -152,6 +152,73 @@ export function useAudio() {
     });
   }, []);
 
+  // Tries `primaryPath` first (e.g. a result-specific ending track); if it
+  // fails to load (missing file, decode error, etc.) it silently falls back
+  // to `fallbackPath` instead of surfacing any error. Used for "optional
+  // per-result audio that may not exist yet" — never throws, never logs a
+  // user-visible error, just degrades to the generic clip.
+  const playSceneClipWithFallback = useCallback((primaryPath, fallbackPath, loop = false, vol = 0.7) => {
+    return new Promise(res => {
+      if (!soundOnRef.current) {
+        res(false);
+        return;
+      }
+      if (!primaryPath) {
+        if (fallbackPath) {
+          playSceneClip(fallbackPath, loop, vol).then(res);
+        } else {
+          res(false);
+        }
+        return;
+      }
+
+      try {
+        const key = `scene:${primaryPath}`;
+        const existing = nodesRef.current[key];
+        if (existing) {
+          existing.pause();
+          existing.currentTime = 0;
+        }
+        const audio = new Audio(primaryPath);
+        audio.preload = "auto";
+        audio.playsInline = true;
+        audio.loop = loop;
+        audio.volume = vol;
+        nodesRef.current[key] = audio;
+
+        const fallback = () => {
+          if (nodesRef.current[key] === audio) {
+            delete nodesRef.current[key];
+          }
+          if (fallbackPath) {
+            playSceneClip(fallbackPath, loop, vol).then(res);
+          } else {
+            res(false);
+          }
+        };
+
+        audio.addEventListener("error", fallback, { once: true });
+        audio.addEventListener("ended", () => {
+          if (nodesRef.current[key] === audio) {
+            delete nodesRef.current[key];
+          }
+        });
+        const attempt = audio.play();
+        if (attempt && typeof attempt.then === "function") {
+          attempt.then(() => res(true)).catch(fallback);
+        } else {
+          res(true);
+        }
+      } catch {
+        if (fallbackPath) {
+          playSceneClip(fallbackPath, loop, vol).then(res);
+        } else {
+          res(false);
+        }
+      }
+    });
+  }, [playSceneClip]);
+
   const initSound = useCallback(async () => {
     if (!soundOnRef.current) return false;
     if (readyRef.current) return true;
@@ -209,5 +276,5 @@ export function useAudio() {
     }
   }, [soundOn, enableSound, stopAll]);
 
-  return { soundOn, toggleSound, initSound, enableSound, playClick, playTrainArrival, playEnding, playSceneClip, stopAll };
+  return { soundOn, toggleSound, initSound, enableSound, playClick, playTrainArrival, playEnding, playSceneClip, playSceneClipWithFallback, stopAll };
 }
