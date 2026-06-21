@@ -147,14 +147,3 @@
     opacity: 0.3;
   }
 }
-
-/* --- 临时测试: 测试完会删除 --- */
-.mask-ball-effects__mask {
-  background: red !important;
-  filter: none !important;
-}
-.mask-ball-effects {
-  opacity: 1 !important;
-  width: 200px !important;
-  height: 120px !important;
-}
