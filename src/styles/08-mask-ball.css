@@ -21,7 +21,7 @@
   z-index: 3;
   aspect-ratio: 4362 / 5224;
   pointer-events: none;
-  animation: maskBallDrift 24s ease-in-out infinite;
+  animation: maskBallDrift 32s ease-in-out infinite;
 }
 
 .mask-ball-effects--left {
@@ -36,14 +36,14 @@
   0% {
     transform: translate(0, 0) rotate(0deg) scale(1);
   }
-  28% {
-    transform: translate(2.2%, -2.6%) rotate(4deg) scale(1.06);
+  26% {
+    transform: translate(1.6%, -4%) rotate(3deg) scale(1.03);
   }
-  55% {
-    transform: translate(-1.8%, 2%) rotate(-3deg) scale(0.96);
+  52% {
+    transform: translate(-1.2%, -1%) rotate(-2deg) scale(0.98);
   }
-  80% {
-    transform: translate(1.3%, 1.3%) rotate(2deg) scale(1.03);
+  78% {
+    transform: translate(0.8%, 2.6%) rotate(2deg) scale(1.02);
   }
   100% {
     transform: translate(0, 0) rotate(0deg) scale(1);
@@ -55,9 +55,9 @@
   inset: 0;
   background: radial-gradient(
     ellipse at 35% 28%,
-    rgba(255, 240, 195, 0.98) 0%,
-    rgba(238, 188, 104, 0.85) 50%,
-    rgba(170, 116, 52, 0.7) 100%
+    rgba(255, 235, 195, 0.92) 0%,
+    rgba(228, 184, 110, 0.74) 52%,
+    rgba(165, 120, 64, 0.5) 100%
   );
   -webkit-mask-image: url("/scenes/masked-ball/vendetta-mask.svg");
   mask-image: url("/scenes/masked-ball/vendetta-mask.svg");
@@ -67,15 +67,18 @@
   mask-position: center;
   -webkit-mask-size: contain;
   mask-size: contain;
+  filter: blur(0.7px) drop-shadow(0 0 7px rgba(255, 213, 142, 0.32));
 }
 
 .mask-ball-effects__sparkle {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: rgb(255, 246, 220);
-  opacity: 0.15;
+  background: rgb(255, 248, 226);
+  filter: blur(0.3px);
+  box-shadow: 0 0 4px rgba(255, 240, 200, 0.5);
+  opacity: 0.12;
   animation: maskBallSparkleTwinkle ease-in-out infinite;
   animation-fill-mode: backwards;
 }
@@ -83,39 +86,39 @@
 .mask-ball-effects__sparkle--1 {
   top: -10%;
   left: 16%;
-  animation-duration: 5s;
+  animation-duration: 6.5s;
 }
 
 .mask-ball-effects__sparkle--2 {
   top: 48%;
   right: -10%;
-  animation-duration: 6.5s;
-  animation-delay: 1.2s;
+  animation-duration: 8s;
+  animation-delay: 1.6s;
 }
 
 .mask-ball-effects__sparkle--3 {
   bottom: -10%;
   left: 40%;
-  animation-duration: 4.3s;
-  animation-delay: 2.4s;
+  animation-duration: 5.6s;
+  animation-delay: 3.1s;
 }
 
 @keyframes maskBallSparkleTwinkle {
   0%,
   100% {
-    opacity: 0.15;
-    transform: scale(0.8);
+    opacity: 0.12;
+    transform: scale(0.7);
   }
   50% {
-    opacity: 0.85;
-    transform: scale(1.3);
+    opacity: 0.7;
+    transform: scale(1.2);
   }
 }
 
 @media (max-width: 720px) {
   .mask-ball-effects {
-    width: 64px !important;
-    opacity: 0.24 !important;
+    width: 46px !important;
+    opacity: 0.3 !important;
   }
 
   /* Per-scene vertical placement is a desktop-margin assumption — on
