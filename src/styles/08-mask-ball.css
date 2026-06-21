@@ -2,6 +2,13 @@
  * Chapter 7 — "Le bal des masques" (mask-ball) ambience layer.
  * Component: src/components/effects/MaskBallEffects.jsx
  *
+ * The mask shape itself is a real vector illustration
+ * (public/scenes/masked-ball/vendetta-mask.svg, supplied by the user),
+ * applied via CSS mask-image and filled with our own gold gradient —
+ * not a hand-built CSS shape. The SVG's natural aspect ratio (~0.835:1,
+ * taller than wide) is preserved via `aspect-ratio` rather than a fixed
+ * height, so the silhouette never gets stretched.
+ *
  * Stays behind the text layer (z-index 3) at all times — never covers
  * reading content. On desktop it lives in the left/right margin outside
  * the centered content column; on mobile (where that margin nearly
@@ -12,6 +19,7 @@
 .mask-ball-effects {
   position: absolute;
   z-index: 3;
+  aspect-ratio: 4362 / 5224;
   pointer-events: none;
   animation: maskBallDrift 24s ease-in-out infinite;
 }
@@ -45,54 +53,20 @@
 .mask-ball-effects__mask {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
   background: radial-gradient(
-    ellipse at 35% 30%,
+    ellipse at 35% 28%,
     rgba(255, 240, 195, 0.98) 0%,
-    rgba(238, 188, 104, 0.72) 55%,
-    rgba(170, 116, 52, 0.45) 100%
+    rgba(238, 188, 104, 0.85) 50%,
+    rgba(170, 116, 52, 0.7) 100%
   );
-  filter: blur(0.4px);
-}
-
-.mask-ball-effects__mask-wing {
-  position: absolute;
-  width: 26%;
-  height: 62%;
-  top: 11%;
-  border-radius: 50%;
-  background: rgba(214, 164, 88, 0.7);
-  filter: blur(0.4px);
-}
-
-.mask-ball-effects__mask-wing--left {
-  left: -16%;
-  transform: rotate(40deg);
-}
-
-.mask-ball-effects__mask-wing--right {
-  right: -16%;
-  transform: rotate(-40deg);
-}
-
-.mask-ball-effects__mask-eye {
-  position: absolute;
-  width: 23%;
-  height: 80%;
-  top: 20%;
-  border-radius: 50%;
-  background: rgba(8, 6, 16, 0.82);
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
-}
-
-.mask-ball-effects__mask-eye--left {
-  left: 16%;
-  transform: rotate(-9deg);
-}
-
-.mask-ball-effects__mask-eye--right {
-  right: 16%;
-  transform: rotate(9deg);
+  -webkit-mask-image: url("/scenes/masked-ball/vendetta-mask.svg");
+  mask-image: url("/scenes/masked-ball/vendetta-mask.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .mask-ball-effects__sparkle {
@@ -140,8 +114,7 @@
 
 @media (max-width: 720px) {
   .mask-ball-effects {
-    width: 84px !important;
-    height: 46px !important;
+    width: 64px !important;
     opacity: 0.24 !important;
   }
 
