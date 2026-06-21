@@ -1,0 +1,149 @@
+/* ====================================================================
+ * Chapter 7 — "Le bal des masques" (mask-ball) ambience layer.
+ * Component: src/components/effects/MaskBallEffects.jsx
+ *
+ * Stays behind the text layer (z-index 3) at all times — never covers
+ * reading content. On desktop it lives in the left/right margin outside
+ * the centered content column; on mobile (where that margin nearly
+ * vanishes) it is forcibly pinned into a small, low-opacity corner
+ * instead of trusting per-scene vertical placement.
+ * ==================================================================== */
+
+.mask-ball-effects {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  animation: maskBallDrift 24s ease-in-out infinite;
+}
+
+.mask-ball-effects--left {
+  left: 3%;
+}
+
+.mask-ball-effects--right {
+  right: 3%;
+}
+
+@keyframes maskBallDrift {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  28% {
+    transform: translate(2.2%, -2.6%) rotate(4deg) scale(1.06);
+  }
+  55% {
+    transform: translate(-1.8%, 2%) rotate(-3deg) scale(0.96);
+  }
+  80% {
+    transform: translate(1.3%, 1.3%) rotate(2deg) scale(1.03);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.mask-ball-effects__mask {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    0% 50%,
+    8% 14%,
+    30% 0%,
+    42% 22%,
+    50% 36%,
+    58% 22%,
+    70% 0%,
+    92% 14%,
+    100% 50%,
+    88% 84%,
+    64% 100%,
+    50% 76%,
+    36% 100%,
+    12% 84%
+  );
+  background: radial-gradient(
+    ellipse at 35% 30%,
+    rgba(255, 234, 182, 0.92) 0%,
+    rgba(230, 180, 98, 0.58) 55%,
+    rgba(160, 110, 50, 0.32) 100%
+  );
+  filter: blur(0.4px);
+}
+
+.mask-ball-effects__sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(255, 246, 220);
+  opacity: 0.15;
+  animation: maskBallSparkleTwinkle ease-in-out infinite;
+  animation-fill-mode: backwards;
+}
+
+.mask-ball-effects__sparkle--1 {
+  top: -10%;
+  left: 16%;
+  animation-duration: 5s;
+}
+
+.mask-ball-effects__sparkle--2 {
+  top: 48%;
+  right: -10%;
+  animation-duration: 6.5s;
+  animation-delay: 1.2s;
+}
+
+.mask-ball-effects__sparkle--3 {
+  bottom: -10%;
+  left: 40%;
+  animation-duration: 4.3s;
+  animation-delay: 2.4s;
+}
+
+@keyframes maskBallSparkleTwinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.3);
+  }
+}
+
+@media (max-width: 720px) {
+  .mask-ball-effects {
+    width: 64px !important;
+    height: 35px !important;
+    opacity: 0.14 !important;
+  }
+
+  /* Per-scene vertical placement is a desktop-margin assumption — on
+     mobile the side margin nearly disappears, so force a safe corner
+     instead of trusting it. Left-zone scenes pin to the top-left
+     (above the heading); right-zone scenes pin to bottom-right (below
+     the choice buttons). */
+  .mask-ball-effects--left {
+    top: 4% !important;
+    left: 4%;
+  }
+
+  .mask-ball-effects--right {
+    top: auto !important;
+    bottom: 4%;
+    right: 4%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mask-ball-effects {
+    animation: none;
+  }
+
+  .mask-ball-effects__sparkle {
+    animation: none;
+    opacity: 0.3;
+  }
+}
