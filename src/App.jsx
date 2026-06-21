@@ -69,6 +69,17 @@ const PRELOAD_IMAGES = [
   "/scenes/two-person-room/ending_espace.webp",
   "/scenes/two-person-room/ending_reciprocite.webp",
   "/scenes/two-person-room/ending_authenticite.webp",
+  "/scenes/masked-ball/masked_ball_home.jpg",
+  "/scenes/masked-ball/ballroom_intro.jpg",
+  "/scenes/masked-ball/chosen_mask.jpg",
+  "/scenes/masked-ball/first_dance.jpg",
+  "/scenes/masked-ball/mirror_corridor.jpg",
+  "/scenes/masked-ball/music_stops.jpg",
+  "/scenes/masked-ball/balcony_night.jpg",
+  "/scenes/masked-ball/ending_performance.jpg",
+  "/scenes/masked-ball/ending_sauveur.jpg",
+  "/scenes/masked-ball/ending_effacement.jpg",
+  "/scenes/masked-ball/ending_conformite.jpg",
 ];
 
 const HOME_CARDS = {
@@ -109,7 +120,7 @@ const HOME_CARDS = {
     world: "La chambre à deux",
   },
   "mask-ball": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Rôles et masques",
     question: "Quel rôle te fatigue ?",
     world: "Le bal des masques",
@@ -532,7 +543,8 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          playSceneClip(activeScene.audio.ambience, true, 0.14);
+          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball"].includes(activeScene.id) ? 0.16 : 0.12;
+          playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
           playTrainArrival();
@@ -549,7 +561,7 @@ function App() {
     if (selectedChoiceId) return;
     playClick();
     if (activeScene?.audio?.choice) {
-      const choiceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.3 : 0.14;
+      const choiceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball"].includes(activeScene.id) ? 0.3 : 0.14;
       playSceneClip(activeScene.audio.choice, false, choiceVolume);
     }
     if (activeScene?.id === "sinking-city" && activeScene?.audio?.rumble) {
@@ -565,6 +577,9 @@ function App() {
       playSceneClip(activeScene.audio.step, false, 0.2);
     }
     if (activeScene?.id === "room-for-two" && activeScene?.audio?.step) {
+      playSceneClip(activeScene.audio.step, false, 0.18);
+    }
+    if (activeScene?.id === "mask-ball" && activeScene?.audio?.step) {
       playSceneClip(activeScene.audio.step, false, 0.18);
     }
     setSelectedChoiceId(choice.id);
@@ -590,6 +605,9 @@ function App() {
           stopAll();
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (activeScene?.id === "room-for-two" && activeScene?.audio?.ending) {
+          stopAll();
+          playSceneClip(activeScene.audio.ending, false, 0.16);
+        } else if (activeScene?.id === "mask-ball" && activeScene?.audio?.ending) {
           stopAll();
           playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {

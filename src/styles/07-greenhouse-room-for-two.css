@@ -1113,3 +1113,160 @@
   z-index: 25;
   pointer-events: none;
 }
+
+.app--mask-ball {
+  --mask-accent: rgba(242, 201, 128, 0.66);
+  --mask-blue: rgba(18, 29, 58, 0.92);
+}
+
+.scene-card-button--mask-ball {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 219, 150, 0.26), transparent 22%),
+    radial-gradient(circle at 18% 78%, rgba(54, 80, 145, 0.46), transparent 30%),
+    linear-gradient(145deg, rgba(18, 24, 55, 0.9), rgba(28, 15, 38, 0.9));
+}
+
+.scene-card-button--mask-ball::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 50% 24%, rgba(255, 229, 168, 0.28), transparent 17%),
+    radial-gradient(ellipse at 50% 57%, transparent 0 11%, rgba(255, 218, 146, 0.2) 12% 13%, transparent 14% 100%),
+    linear-gradient(90deg, transparent 0 36%, rgba(255, 236, 195, 0.13) 37% 38%, transparent 39% 61%, rgba(255, 236, 195, 0.1) 62% 63%, transparent 64% 100%),
+    linear-gradient(180deg, rgba(4, 7, 18, 0.1), rgba(5, 7, 18, 0.68));
+  opacity: 0.78;
+}
+
+.app--mask-ball .background-drape {
+  background:
+    radial-gradient(circle at 50% 16%, rgba(255, 223, 164, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(4, 7, 19, 0.32) 0%, rgba(7, 8, 18, 0.56) 52%, rgba(2, 4, 10, 0.84) 100%);
+}
+
+.app--mask-ball .intro-copy,
+.app--mask-ball .scene-caption,
+.app--mask-ball .choice-panel,
+.app--mask-ball .result-card,
+.app--mask-ball .subtitle-stack--result {
+  background: linear-gradient(180deg, rgba(16, 18, 37, 0.66), rgba(7, 8, 18, 0.8));
+  border-color: rgba(242, 201, 128, 0.18);
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.34),
+    0 0 32px rgba(255, 201, 121, 0.08);
+}
+
+.app--mask-ball .intro-scene,
+.app--mask-ball .text-scene,
+.app--mask-ball .result-scene {
+  min-height: 100svh;
+}
+
+.app--mask-ball .text-scene {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  justify-items: center;
+  gap: clamp(0.9rem, 2vh, 1.35rem);
+  padding: max(4rem, env(safe-area-inset-top)) clamp(1rem, 3vw, 2rem)
+    max(1.4rem, env(safe-area-inset-bottom));
+}
+
+.app--mask-ball .scene-caption,
+.app--mask-ball .choice-panel {
+  position: relative;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  transform: none;
+  width: min(92vw, 50rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app--mask-ball .choice-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+}
+
+.app--mask-ball .choice-card {
+  min-height: 5.4rem;
+  display: grid;
+  align-content: center;
+  padding: 1rem;
+  background: rgba(10, 11, 25, 0.6);
+  border: 1px solid rgba(242, 201, 128, 0.18);
+  border-radius: 0.95rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.app--mask-ball .choice-card-title {
+  font-size: clamp(1.08rem, 1.7vw, 1.28rem);
+  line-height: 1.34;
+}
+
+.app--mask-ball .intro-title,
+.app--mask-ball .scene-heading {
+  font-size: clamp(1.78rem, 3.15vw, 2.75rem);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.96),
+    0 0 24px rgba(255, 201, 121, 0.16);
+}
+
+.app--mask-ball .scene-caption .subtitle-line {
+  font-size: clamp(1.08rem, 1.75vw, 1.34rem);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.app--mask-ball .scene-caption .subtitle-line--strong {
+  font-size: clamp(1.16rem, 2vw, 1.48rem);
+  font-weight: 520;
+  color: rgba(255, 248, 231, 0.96);
+}
+
+.app--mask-ball .choice-card-subtitle:empty {
+  display: none;
+}
+
+.app--mask-ball .choice-panel--pending {
+  min-height: 12rem;
+}
+
+.app--mask-ball .choice-card:hover,
+.app--mask-ball .choice-card:focus-visible,
+.app--mask-ball .choice-card.is-selected {
+  border-color: rgba(242, 201, 128, 0.66);
+  box-shadow:
+    0 18px 44px rgba(5, 7, 18, 0.34),
+    0 0 26px rgba(255, 201, 121, 0.18);
+}
+
+.result-scene--mask-ball .unified-result-card {
+  --result-accent: var(--mask-accent);
+}
+
+@media (max-width: 760px) {
+  .app--mask-ball .text-scene {
+    align-content: start;
+    gap: 0.85rem;
+    padding-top: max(5rem, env(safe-area-inset-top));
+  }
+
+  .app--mask-ball .choice-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .app--mask-ball .choice-card {
+    min-height: 4.5rem;
+    padding: 0.95rem;
+  }
+}
