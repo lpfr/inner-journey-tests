@@ -15,15 +15,15 @@ function sceneTypeFor(stepId, resultKey) {
 }
 
 function makeParticles(sceneType) {
-  return Array.from({ length: 16 }, (_, index) => {
+  return Array.from({ length: 22 }, (_, index) => {
     const seed = sceneType.length * 31 + index * 47;
     return {
       left: 6 + ((seed * 11) % 88),
       top: 8 + ((seed * 17) % 76),
-      size: 1.8 + ((seed * 5) % 18) / 10,
+      size: 2.4 + ((seed * 5) % 24) / 10,
       delay: ((seed * 7) % 90) / 10,
       duration: 14 + ((seed * 13) % 14),
-      opacity: 0.18 + ((seed * 3) % 14) / 100,
+      opacity: 0.28 + ((seed * 3) % 20) / 100,
     };
   });
 }
@@ -38,6 +38,7 @@ export default function LighthouseSceneEffects({ sceneId, stepId, resultKey }) {
     <div className={`lighthouse-effects lighthouse-effects--${sceneType}`} aria-hidden="true">
       <span className="lighthouse-effects__beam lighthouse-effects__beam--main" />
       <span className="lighthouse-effects__beam lighthouse-effects__beam--soft" />
+      <span className="lighthouse-effects__sweep" />
       <span className="lighthouse-effects__mist lighthouse-effects__mist--low" />
       <span className="lighthouse-effects__mist lighthouse-effects__mist--side" />
       <span className="lighthouse-effects__glow lighthouse-effects__glow--far" />
