@@ -1477,7 +1477,7 @@
   background:
     radial-gradient(ellipse at 48% 20%, rgba(255, 243, 196, 0.58), rgba(255, 243, 196, 0.18) 16%, transparent 38%),
     conic-gradient(from 262deg at 48% 20%, transparent 0deg, rgba(255, 242, 190, 0.08) 8deg, rgba(255, 242, 190, 0.43) 18deg, rgba(183, 216, 244, 0.22) 34deg, transparent 52deg 360deg);
-  animation: lighthouseBeamSweep 14s ease-in-out infinite alternate;
+  animation: lighthouseBeamSweep 8s ease-in-out infinite alternate;
 }
 
 .lighthouse-effects__beam--soft {
@@ -1488,8 +1488,8 @@
   opacity: 0.24;
   filter: blur(48px);
   clip-path: polygon(47% 19%, 100% 25%, 100% 48%, 49% 35%);
-  animation-duration: 21s;
-  animation-delay: -6s;
+  animation-duration: 12s;
+  animation-delay: -4s;
 }
 
 .lighthouse-effects__mist {
@@ -1522,13 +1522,13 @@
 }
 
 .lighthouse-effects__glow--far {
-  left: 53%;
-  top: 12%;
+  left: calc(68.5% - 4rem);
+  top: calc(23.5% - 4rem);
   width: 8rem;
   height: 8rem;
-  opacity: 0.48;
-  background: radial-gradient(circle, rgba(255, 238, 180, 0.58), rgba(255, 235, 174, 0.16) 42%, transparent 70%);
-  animation: lighthouseGlowPulse 6s ease-in-out infinite alternate;
+  opacity: 0.5;
+  background: radial-gradient(circle, rgba(255, 244, 203, 0.64), rgba(255, 235, 174, 0.2) 42%, transparent 70%);
+  animation: lighthouseGlowPulse 4.5s ease-in-out infinite alternate;
 }
 
 .lighthouse-effects__glow--path {
@@ -1594,11 +1594,17 @@
 
 @keyframes lighthouseBeamSweep {
   0% {
-    transform: rotate(-6deg);
+    transform: rotate(-10deg);
+    opacity: 0.4;
+  }
+
+  48% {
+    opacity: 0.58;
   }
 
   100% {
-    transform: rotate(6deg);
+    transform: rotate(10deg);
+    opacity: 0.46;
   }
 }
 
