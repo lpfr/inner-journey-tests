@@ -9,7 +9,10 @@ export const mountainLighthouseScene = {
   psychologyFrame:
     "Explorer le repère dont tu as besoin sans forcer une réponse définitive.",
   status: "Disponible",
-  visualOnly: true,
+  coverImage: "/scenes/mountain-lighthouse/lighthouse_home.png",
+  cover: "/scenes/mountain-lighthouse/lighthouse_home.png",
+  background: "/scenes/mountain-lighthouse/lighthouse_home.png",
+  introImage: "/scenes/mountain-lighthouse/lighthouse_intro.png",
   resultTypes: ["clarte", "courage", "patience", "boussole"],
   tieBreakOrder: ["clarte", "courage", "patience", "boussole"],
   choices: [],
@@ -39,6 +42,7 @@ export const mountainLighthouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
+      image: "/scenes/mountain-lighthouse/wet_map_path.png",
       copy: {
         heading: "Le sentier divisé",
         line1: "Comment choisis-tu le chemin ?",
@@ -58,6 +62,7 @@ export const mountainLighthouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
+      image: "/scenes/mountain-lighthouse/wet_map_path.png",
       copy: {
         heading: "La carte mouillée",
         line1: "Que fais-tu de la carte ?",
@@ -77,6 +82,7 @@ export const mountainLighthouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
+      image: "/scenes/mountain-lighthouse/lighthouse_home.png",
       copy: {
         heading: "Le vent sur la crête",
         line1: "Que fais-tu quand le vent se lève ?",
@@ -96,6 +102,7 @@ export const mountainLighthouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
+      image: "/scenes/mountain-lighthouse/lighthouse_home.png",
       copy: {
         heading: "Les étoiles cachées",
         line1: "Que cherches-tu dans le ciel ?",
@@ -115,6 +122,7 @@ export const mountainLighthouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [700, 1500],
+      image: "/scenes/mountain-lighthouse/lighthouse_door.png",
       copy: {
         heading: "La porte du phare",
         line1: "Comment entres-tu dans la lumière ?",
@@ -172,6 +180,7 @@ export const mountainLighthouseScene = {
   },
   results: {
     clarte: {
+      image: "/scenes/mountain-lighthouse/lighthouse_door.png",
       title: "Besoin de clarté",
       ending: "La lumière du phare balaie la brume.",
       story: [
@@ -191,6 +200,7 @@ export const mountainLighthouseScene = {
         "Une petite lumière claire suffit parfois à rendre le prochain pas possible.",
     },
     courage: {
+      image: "/scenes/mountain-lighthouse/lighthouse_home.png",
       title: "Besoin de courage",
       ending: "Le vent ne s'arrête pas.",
       story: [
@@ -211,6 +221,7 @@ export const mountainLighthouseScene = {
       shareText: "Tu peux avancer sans que toute la montagne soit éclairée.",
     },
     patience: {
+      image: "/scenes/mountain-lighthouse/wet_map_path.png",
       title: "Besoin de patience",
       ending: "Tu t'abrites près d'un rocher.",
       story: [
@@ -231,6 +242,7 @@ export const mountainLighthouseScene = {
         "Certaines directions ne se révèlent pas sous la pression, mais dans l'espace.",
     },
     boussole: {
+      image: "/scenes/mountain-lighthouse/lighthouse_door.png",
       title: "Besoin d'une boussole intérieure",
       ending: "Dans la tour du phare, la lumière tourne autour de toi.",
       story: [
