@@ -128,13 +128,13 @@ const HOME_CARDS = {
     world: "Le bal des masques",
   },
   "mountain-lighthouse": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Direction intérieure",
     question: "Quel repère peut te guider ?",
     world: "Le phare au sommet",
   },
   "inner-house": {
-    status: "Bientôt disponible",
+    status: "Disponible",
     title: "Voix intérieures",
     question: "Quelle part de toi parle le plus fort ?",
     world: "Les quatre voix dans la maison",
@@ -546,7 +546,7 @@ function App() {
         if (activeScene?.audio?.ambience) {
           enableSound(false);
           stopAll();
-          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two"].includes(activeScene.id) ? 0.16 : 0.14;
+          const ambienceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball", "inner-house"].includes(activeScene.id) ? 0.16 : 0.14;
           playSceneClip(activeScene.audio.ambience, true, ambienceVolume);
         } else if (activeScene?.id === "rain-station") {
           await enableSound(true);
@@ -564,7 +564,7 @@ function App() {
     if (selectedChoiceId) return;
     playClick();
     if (activeScene?.audio?.choice) {
-      const choiceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball"].includes(activeScene.id) ? 0.3 : 0.14;
+      const choiceVolume = ["sinking-city", "glass-greenhouse", "room-for-two", "mask-ball", "inner-house"].includes(activeScene.id) ? 0.3 : 0.14;
       playSceneClip(activeScene.audio.choice, false, choiceVolume);
     }
     if (activeScene?.id === "sinking-city" && activeScene?.audio?.rumble) {
@@ -584,6 +584,9 @@ function App() {
     }
     if (activeScene?.id === "mask-ball" && activeScene?.audio?.step) {
       playSceneClip(activeScene.audio.step, false, 0.18);
+    }
+    if (activeScene?.id === "inner-house" && activeScene?.audio?.step) {
+      playSceneClip(activeScene.audio.step, false, 0.16);
     }
     setSelectedChoiceId(choice.id);
     if (activeScene?.id === "fog-museum") {
@@ -614,6 +617,9 @@ function App() {
           stopAll();
           const specificEnding = activeScene?.audio?.endingByResult?.[nextResult];
           playSceneClipWithFallback(specificEnding, activeScene.audio.ending, false, 0.16);
+        } else if (activeScene?.id === "inner-house" && activeScene?.audio?.ending) {
+          stopAll();
+          playSceneClip(activeScene.audio.ending, false, 0.16);
         } else if (currentStep?.playsEnding) {
           playEnding(nextResult);
         } else if (activeScene?.audio?.reveal) {
