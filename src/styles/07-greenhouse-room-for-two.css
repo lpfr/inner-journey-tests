@@ -1449,6 +1449,206 @@
   --result-accent: var(--lighthouse-accent);
 }
 
+.lighthouse-effects {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.lighthouse-effects span,
+.lighthouse-effects i {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.lighthouse-effects__beam {
+  left: 54%;
+  top: -18%;
+  width: 58vw;
+  height: 92vh;
+  min-width: 32rem;
+  transform-origin: 50% 18%;
+  filter: blur(18px);
+  opacity: 0.24;
+  background:
+    conic-gradient(
+      from 238deg at 50% 12%,
+      transparent 0deg,
+      rgba(255, 241, 188, 0.02) 10deg,
+      rgba(255, 241, 188, 0.24) 20deg,
+      rgba(176, 214, 244, 0.12) 30deg,
+      transparent 42deg 360deg
+    );
+  animation: lighthouseBeamSweep 19s ease-in-out infinite alternate;
+}
+
+.lighthouse-effects__beam--soft {
+  left: 42%;
+  top: -12%;
+  width: 70vw;
+  height: 86vh;
+  opacity: 0.14;
+  filter: blur(34px);
+  animation-duration: 26s;
+  animation-delay: -8s;
+}
+
+.lighthouse-effects__mist {
+  inset: auto auto 0 0;
+  width: 120%;
+  height: 48%;
+  opacity: 0.28;
+  filter: blur(22px);
+  background:
+    radial-gradient(ellipse at 26% 72%, rgba(186, 211, 229, 0.26), transparent 42%),
+    radial-gradient(ellipse at 72% 58%, rgba(132, 162, 194, 0.2), transparent 40%),
+    linear-gradient(90deg, transparent, rgba(222, 232, 232, 0.13), transparent);
+  animation: lighthouseMistDrift 24s ease-in-out infinite alternate;
+}
+
+.lighthouse-effects__mist--side {
+  inset: 8% auto auto -18%;
+  width: 46%;
+  height: 72%;
+  opacity: 0.2;
+  filter: blur(28px);
+  background: radial-gradient(ellipse at 55% 50%, rgba(202, 220, 229, 0.25), transparent 62%);
+  animation-duration: 31s;
+  animation-delay: -9s;
+}
+
+.lighthouse-effects__glow {
+  border-radius: 999px;
+  filter: blur(24px);
+}
+
+.lighthouse-effects__glow--far {
+  left: 53%;
+  top: 12%;
+  width: 8rem;
+  height: 8rem;
+  opacity: 0.28;
+  background: radial-gradient(circle, rgba(255, 235, 174, 0.42), rgba(255, 235, 174, 0.08) 42%, transparent 70%);
+  animation: lighthouseGlowPulse 8s ease-in-out infinite alternate;
+}
+
+.lighthouse-effects__glow--path {
+  left: 38%;
+  bottom: 3%;
+  width: 28%;
+  height: 22%;
+  opacity: 0.18;
+  background: radial-gradient(ellipse, rgba(219, 232, 220, 0.3), transparent 68%);
+}
+
+.lighthouse-effects__stars {
+  inset: 0;
+  opacity: 0.36;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 24% 12%, rgba(255, 255, 255, 0.48) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 76% 10%, rgba(255, 255, 255, 0.5) 0 1px, transparent 1.3px),
+    radial-gradient(circle at 86% 24%, rgba(255, 255, 255, 0.38) 0 1px, transparent 1.3px);
+  animation: lighthouseStarsBreathe 11s ease-in-out infinite alternate;
+}
+
+.lighthouse-effects__particles {
+  inset: 0;
+}
+
+.lighthouse-effects__particles i {
+  border-radius: 50%;
+  background: rgba(232, 241, 244, 0.84);
+  box-shadow: 0 0 10px rgba(255, 238, 188, 0.32);
+  filter: blur(0.6px);
+  animation: lighthouseParticleDrift linear infinite;
+}
+
+.lighthouse-effects--map .lighthouse-effects__glow--path,
+.lighthouse-effects--path .lighthouse-effects__glow--path {
+  opacity: 0.28;
+}
+
+.lighthouse-effects--wind .lighthouse-effects__mist {
+  opacity: 0.34;
+}
+
+.lighthouse-effects--stars .lighthouse-effects__stars,
+.lighthouse-effects--result-boussole .lighthouse-effects__stars {
+  opacity: 0.52;
+}
+
+.lighthouse-effects--door .lighthouse-effects__beam,
+.lighthouse-effects--result-clarte .lighthouse-effects__beam,
+.lighthouse-effects--result-courage .lighthouse-effects__beam {
+  opacity: 0.32;
+}
+
+.lighthouse-effects--result-patience .lighthouse-effects__mist {
+  opacity: 0.36;
+  animation-duration: 34s;
+}
+
+.lighthouse-effects--result-boussole .lighthouse-effects__glow--far {
+  opacity: 0.36;
+}
+
+@keyframes lighthouseBeamSweep {
+  0% {
+    transform: rotate(-7deg) translate3d(-2%, 0, 0);
+  }
+
+  100% {
+    transform: rotate(7deg) translate3d(2%, 1%, 0);
+  }
+}
+
+@keyframes lighthouseMistDrift {
+  0% {
+    transform: translate3d(-5%, 1%, 0);
+  }
+
+  100% {
+    transform: translate3d(5%, -2%, 0);
+  }
+}
+
+@keyframes lighthouseGlowPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(1.06);
+    opacity: 0.34;
+  }
+}
+
+@keyframes lighthouseStarsBreathe {
+  0% {
+    opacity: 0.22;
+  }
+
+  100% {
+    opacity: 0.44;
+  }
+}
+
+@keyframes lighthouseParticleDrift {
+  0% {
+    transform: translate3d(-0.4rem, 0.4rem, 0);
+  }
+
+  100% {
+    transform: translate3d(0.8rem, -1.1rem, 0);
+  }
+}
+
 @media (max-width: 760px) {
   .app--mountain-lighthouse .text-scene {
     align-content: start;
@@ -1463,6 +1663,35 @@
   .app--mountain-lighthouse .choice-card {
     min-height: 4.5rem;
     padding: 0.95rem;
+  }
+
+  .lighthouse-effects__beam {
+    left: 40%;
+    width: 96vw;
+    min-width: 20rem;
+    opacity: 0.2;
+  }
+
+  .lighthouse-effects__mist {
+    opacity: 0.2;
+  }
+
+  .lighthouse-effects__particles i:nth-child(n + 11) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lighthouse-effects__beam,
+  .lighthouse-effects__mist,
+  .lighthouse-effects__glow--far,
+  .lighthouse-effects__stars,
+  .lighthouse-effects__particles i {
+    animation: none;
+  }
+
+  .lighthouse-effects {
+    opacity: 0.72;
   }
 }
 

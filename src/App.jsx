@@ -11,6 +11,7 @@ import SceneEffectsCity from "./components/SceneEffectsCity.jsx";
 import RoomSceneEffects from "./components/effects/RoomSceneEffects.jsx";
 import GreenhouseSceneEffects from "./components/effects/GreenhouseSceneEffects.jsx";
 import MaskBallEffects from "./components/effects/MaskBallEffects.jsx";
+import LighthouseSceneEffects from "./components/effects/LighthouseSceneEffects.jsx";
 // styles.css was split into 7 ordered files for easier navigation/editing.
 // IMPORTANT: import order matters — these must stay 01 -> 07 to preserve
 // the exact original CSS cascade. See src/styles/01-*.css header comment.
@@ -700,6 +701,11 @@ function App() {
             resultKey={resultKey}
           />
           <MaskBallEffects
+            sceneId={activeScene?.id || null}
+            stepId={currentStep?.id || null}
+            resultKey={resultKey}
+          />
+          <LighthouseSceneEffects
             sceneId={activeScene?.id || null}
             stepId={currentStep?.id || null}
             resultKey={resultKey}
