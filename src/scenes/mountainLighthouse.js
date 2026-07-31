@@ -18,7 +18,12 @@ export const mountainLighthouseScene = {
   choices: [],
   disclaimer:
     "Ce résultat n'est pas un diagnostic. C'est seulement une piste pour mieux écouter le repère dont tu as besoin en ce moment.",
-  audio: {},
+  audio: {
+    ambience: "/scenes/fog-museum/audio/ambience.mp3",
+    choice: "/scenes/fog-museum/audio/choice.mp3",
+    step: "/scenes/fog-museum/audio/step.mp3",
+    ending: "/scenes/fog-museum/audio/reveal.mp3",
+  },
   opening: {
     eyebrow: "Direction intérieure",
     title: "Le phare au sommet",

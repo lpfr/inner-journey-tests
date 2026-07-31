@@ -1327,12 +1327,11 @@
 
 .app--mountain-lighthouse .background::after {
   background:
-    repeating-linear-gradient(156deg, transparent 0 1.55rem, rgba(236, 235, 223, 0.14) 1.6rem 1.72rem, transparent 1.78rem 3.2rem),
     radial-gradient(ellipse at 48% 76%, rgba(204, 220, 230, 0.18), transparent 26%),
     linear-gradient(90deg, transparent 0 38%, rgba(215, 225, 229, 0.11) 39% 61%, transparent 62% 100%);
-  opacity: 0.58;
+  opacity: 0.36;
   transform: translateY(8%);
-  filter: blur(0.2px);
+  filter: blur(1.5px);
 }
 
 .app--mountain-lighthouse .background-drape {
