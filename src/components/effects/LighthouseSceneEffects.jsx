@@ -38,7 +38,6 @@ export default function LighthouseSceneEffects({ sceneId, stepId, resultKey }) {
     <div className={`lighthouse-effects lighthouse-effects--${sceneType}`} aria-hidden="true">
       <span className="lighthouse-effects__beam lighthouse-effects__beam--main" />
       <span className="lighthouse-effects__beam lighthouse-effects__beam--soft" />
-      <span className="lighthouse-effects__sweep" />
       <span className="lighthouse-effects__mist lighthouse-effects__mist--low" />
       <span className="lighthouse-effects__mist lighthouse-effects__mist--side" />
       <span className="lighthouse-effects__glow lighthouse-effects__glow--far" />
