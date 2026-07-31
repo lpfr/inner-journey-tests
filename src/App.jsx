@@ -82,6 +82,11 @@ const PRELOAD_IMAGES = [
   "/scenes/masked-ball/ending_sauveur.jpg",
   "/scenes/masked-ball/ending_effacement.jpg",
   "/scenes/masked-ball/ending_conformite.jpg",
+  "/scenes/inner-house/inner_house_home.png",
+  "/scenes/inner-house/inner_house_intro.png",
+  "/scenes/inner-house/table_round.png",
+  "/scenes/inner-house/open_window.png",
+  "/scenes/inner-house/salon_mirror.png",
 ];
 
 const HOME_CARDS = {

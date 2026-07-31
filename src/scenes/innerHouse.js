@@ -9,7 +9,10 @@ export const innerHouseScene = {
   psychologyFrame:
     "Repérer une voix intérieure dominante sans la juger, pour mieux comprendre ce qu'elle cherche à protéger.",
   status: "Disponible",
-  visualOnly: true,
+  coverImage: "/scenes/inner-house/inner_house_home.png",
+  cover: "/scenes/inner-house/inner_house_home.png",
+  background: "/scenes/inner-house/inner_house_home.png",
+  introImage: "/scenes/inner-house/inner_house_intro.png",
   resultTypes: ["securite", "elan", "douceur", "repos"],
   tieBreakOrder: ["securite", "elan", "douceur", "repos"],
   choices: [],
@@ -44,6 +47,7 @@ export const innerHouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [650, 1350],
+      image: "/scenes/inner-house/inner_house_home.png",
       copy: {
         heading: "Le couloir",
         line1: "Quelle porte t'attire d'abord ?",
@@ -63,6 +67,7 @@ export const innerHouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [650, 1350],
+      image: "/scenes/inner-house/table_round.png",
       copy: {
         heading: "La table ronde",
         line1: "Qui prend la parole en premier ?",
@@ -82,6 +87,7 @@ export const innerHouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [650, 1350],
+      image: "/scenes/inner-house/open_window.png",
       copy: {
         heading: "La fenêtre ouverte",
         line1: "Que ressens-tu face au dehors ?",
@@ -101,6 +107,7 @@ export const innerHouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [650, 1350],
+      image: "/scenes/inner-house/salon_mirror.png",
       copy: {
         heading: "Le miroir du salon",
         line1: "Que remarques-tu dans ton reflet ?",
@@ -120,6 +127,7 @@ export const innerHouseScene = {
       type: "question",
       layout: "choices",
       phaseDelays: [650, 1350],
+      image: "/scenes/inner-house/table_round.png",
       copy: {
         heading: "La lampe du soir",
         line1: "Quelle voix veux-tu écouter avec douceur ?",
@@ -177,6 +185,7 @@ export const innerHouseScene = {
   },
   results: {
     securite: {
+      image: "/scenes/inner-house/inner_house_home.png",
       title: "Besoin de sécurité",
       ending: "Dans la maison, une porte reste entrouverte.",
       story: [
@@ -197,6 +206,7 @@ export const innerHouseScene = {
       shareText: "Une porte sûre peut rendre le mouvement plus possible.",
     },
     elan: {
+      image: "/scenes/inner-house/open_window.png",
       title: "Besoin d'élan",
       ending: "Une fenêtre laisse entrer l'air du soir.",
       story: [
@@ -217,6 +227,7 @@ export const innerHouseScene = {
       shareText: "Un petit élan peut suffire à rouvrir une fenêtre.",
     },
     douceur: {
+      image: "/scenes/inner-house/salon_mirror.png",
       title: "Besoin de douceur",
       ending: "Près du miroir, une voix baisse enfin le ton.",
       story: [
@@ -237,6 +248,7 @@ export const innerHouseScene = {
       shareText: "La clarté peut exister sans dureté.",
     },
     repos: {
+      image: "/scenes/inner-house/table_round.png",
       title: "Besoin de repos",
       ending: "Dans la pièce la plus calme, la lumière reste basse.",
       story: [
