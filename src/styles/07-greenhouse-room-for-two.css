@@ -1884,8 +1884,17 @@
   overflow: hidden;
 }
 
+.inner-house-front-dust {
+  position: fixed;
+  inset: 0;
+  z-index: 42;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .inner-house-effects span,
-.inner-house-effects i {
+.inner-house-effects i,
+.inner-house-front-dust i {
   position: absolute;
   display: block;
   pointer-events: none;
@@ -2080,6 +2089,27 @@
   animation: innerHouseParticleFloat ease-in-out infinite;
 }
 
+.inner-house-front-dust i {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(255, 248, 226, 0.84) 0 18%, rgba(255, 226, 178, 0.38) 48%, transparent 76%);
+  box-shadow: 0 0 8px rgba(255, 225, 178, 0.2);
+  filter: blur(var(--front-dust-blur, 1px));
+  animation: innerHouseFrontDustFloat ease-in-out infinite;
+}
+
+.inner-house-front-dust--mirror i,
+.inner-house-front-dust--result-douceur i {
+  background:
+    radial-gradient(circle, rgba(232, 224, 255, 0.78) 0 18%, rgba(213, 190, 255, 0.32) 48%, transparent 76%);
+}
+
+.inner-house-front-dust--window i,
+.inner-house-front-dust--result-elan i {
+  background:
+    radial-gradient(circle, rgba(224, 240, 255, 0.76) 0 18%, rgba(179, 211, 246, 0.32) 48%, transparent 76%);
+}
+
 .inner-house-effects--corridor .inner-house-effects__door-light,
 .inner-house-effects--home .inner-house-effects__door-light {
   opacity: 0.36;
@@ -2194,6 +2224,23 @@
   }
 }
 
+@keyframes innerHouseFrontDustFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.96);
+    opacity: var(--front-dust-opacity-soft, 0.16);
+  }
+
+  50% {
+    transform: translate3d(calc(var(--front-dust-drift-x, 0.5rem) * 0.55), calc(var(--front-dust-drift-y, -1.2rem) * 0.55), 0) scale(1.04);
+    opacity: var(--front-dust-opacity, 0.22);
+  }
+
+  100% {
+    transform: translate3d(var(--front-dust-drift-x, 0.5rem), var(--front-dust-drift-y, -1.2rem), 0) scale(0.98);
+    opacity: var(--front-dust-opacity-soft, 0.16);
+  }
+}
+
 @keyframes innerHouseDustField {
   0% {
     transform: translate3d(-1.5rem, 0.5rem, 0);
@@ -2255,6 +2302,10 @@
   .inner-house-effects__dust i:nth-child(n + 11) {
     display: none;
   }
+
+  .inner-house-front-dust i:nth-child(n + 9) {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2267,7 +2318,8 @@
   .inner-house-effects__shadow,
   .inner-house-effects__haze,
   .inner-house-effects__voice-wave,
-  .inner-house-effects__dust i {
+  .inner-house-effects__dust i,
+  .inner-house-front-dust i {
     animation: none;
   }
 
@@ -2276,7 +2328,8 @@
   }
 
   .inner-house-effects__voice-wave,
-  .inner-house-effects__dust i:nth-child(n + 8) {
+  .inner-house-effects__dust i:nth-child(n + 8),
+  .inner-house-front-dust i:nth-child(n + 7) {
     display: none;
   }
 }
