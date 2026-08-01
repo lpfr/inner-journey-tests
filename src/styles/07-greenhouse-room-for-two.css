@@ -2023,24 +2023,25 @@
 
 .inner-house-effects__dust {
   inset: 0;
+  z-index: 3;
 }
 
 .inner-house-effects__dust-field {
   inset: -8%;
-  opacity: 0.34;
-  mix-blend-mode: screen;
-  filter: blur(0.6px);
+  opacity: 0.48;
+  mix-blend-mode: normal;
+  filter: blur(0.45px);
   background:
-    radial-gradient(circle at 9% 18%, rgba(255, 244, 218, 0.46) 0 0.06rem, transparent 0.08rem),
-    radial-gradient(circle at 18% 42%, rgba(255, 244, 218, 0.34) 0 0.05rem, transparent 0.08rem),
-    radial-gradient(circle at 27% 28%, rgba(210, 224, 238, 0.38) 0 0.055rem, transparent 0.085rem),
-    radial-gradient(circle at 36% 64%, rgba(255, 238, 202, 0.36) 0 0.05rem, transparent 0.08rem),
-    radial-gradient(circle at 44% 52%, rgba(255, 244, 218, 0.42) 0 0.065rem, transparent 0.09rem),
-    radial-gradient(circle at 53% 21%, rgba(210, 224, 238, 0.32) 0 0.05rem, transparent 0.08rem),
-    radial-gradient(circle at 61% 76%, rgba(255, 238, 202, 0.4) 0 0.055rem, transparent 0.085rem),
-    radial-gradient(circle at 70% 36%, rgba(255, 244, 218, 0.36) 0 0.05rem, transparent 0.08rem),
-    radial-gradient(circle at 82% 58%, rgba(210, 224, 238, 0.34) 0 0.055rem, transparent 0.085rem),
-    radial-gradient(circle at 91% 24%, rgba(255, 244, 218, 0.42) 0 0.06rem, transparent 0.09rem);
+    radial-gradient(circle at 9% 18%, rgba(255, 246, 224, 0.62) 0 0.075rem, transparent 0.105rem),
+    radial-gradient(circle at 18% 42%, rgba(255, 246, 224, 0.46) 0 0.06rem, transparent 0.095rem),
+    radial-gradient(circle at 27% 28%, rgba(222, 235, 245, 0.48) 0 0.07rem, transparent 0.105rem),
+    radial-gradient(circle at 36% 64%, rgba(255, 238, 202, 0.5) 0 0.06rem, transparent 0.095rem),
+    radial-gradient(circle at 44% 52%, rgba(255, 246, 224, 0.56) 0 0.08rem, transparent 0.115rem),
+    radial-gradient(circle at 53% 21%, rgba(222, 235, 245, 0.42) 0 0.06rem, transparent 0.095rem),
+    radial-gradient(circle at 61% 76%, rgba(255, 238, 202, 0.52) 0 0.07rem, transparent 0.105rem),
+    radial-gradient(circle at 70% 36%, rgba(255, 246, 224, 0.5) 0 0.06rem, transparent 0.095rem),
+    radial-gradient(circle at 82% 58%, rgba(222, 235, 245, 0.44) 0 0.07rem, transparent 0.105rem),
+    radial-gradient(circle at 91% 24%, rgba(255, 246, 224, 0.56) 0 0.075rem, transparent 0.11rem);
   background-size:
     23rem 19rem,
     31rem 23rem,
@@ -2056,26 +2057,26 @@
 }
 
 .inner-house-effects__dust-field--near {
-  opacity: 0.42;
-  filter: blur(0.3px);
+  opacity: 0.56;
+  filter: blur(0.22px);
   transform: scale(1.04);
   animation-duration: 14s;
   animation-delay: -6s;
 }
 
 .inner-house-effects__dust-field--far {
-  opacity: 0.28;
-  filter: blur(1px);
+  opacity: 0.36;
+  filter: blur(0.85px);
   transform: scale(1.12);
 }
 
 .inner-house-effects__dust i {
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 246, 222, 0.88), rgba(255, 238, 198, 0.36) 45%, transparent 72%);
-  box-shadow: 0 0 10px rgba(255, 225, 172, 0.3);
+    radial-gradient(circle, rgba(255, 250, 232, 0.98) 0 22%, rgba(255, 234, 190, 0.58) 46%, transparent 74%);
+  box-shadow: 0 0 9px rgba(255, 225, 172, 0.28);
   filter: blur(var(--dust-blur, 0.85px));
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   animation: innerHouseParticleFloat ease-in-out infinite;
 }
 
@@ -2174,7 +2175,7 @@
 @keyframes innerHouseParticleFloat {
   0% {
     transform: translate3d(0, 0, 0) scale(0.92);
-    opacity: calc(var(--dust-opacity, 0.16) * 0.58);
+    opacity: var(--dust-opacity-low, 0.2);
   }
 
   35% {
@@ -2184,12 +2185,12 @@
 
   70% {
     transform: translate3d(calc(var(--dust-drift-x, 1rem) * 0.78), calc(var(--dust-drift-y, -4rem) * 0.78), 0) scale(0.98);
-    opacity: calc(var(--dust-opacity, 0.16) * 0.82);
+    opacity: var(--dust-opacity-soft, 0.28);
   }
 
   100% {
     transform: translate3d(var(--dust-drift-x, 1rem), var(--dust-drift-y, -4rem), 0) scale(0.94);
-    opacity: calc(var(--dust-opacity, 0.16) * 0.48);
+    opacity: var(--dust-opacity-low, 0.2);
   }
 }
 
