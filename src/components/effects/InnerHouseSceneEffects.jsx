@@ -71,6 +71,8 @@ export default function InnerHouseSceneEffects({ sceneId, stepId, resultKey }) {
       <span className="inner-house-effects__door-light inner-house-effects__door-light--left" />
       <span className="inner-house-effects__door-light inner-house-effects__door-light--right" />
       <span className="inner-house-effects__shadow" />
+      <span className="inner-house-effects__haze inner-house-effects__haze--low" />
+      <span className="inner-house-effects__haze inner-house-effects__haze--side" />
       <span className="inner-house-effects__voice-wave" />
       <span className="inner-house-effects__dust">
         {dust.map((particle, index) => (
