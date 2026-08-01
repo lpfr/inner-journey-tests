@@ -2025,12 +2025,56 @@
   inset: 0;
 }
 
+.inner-house-effects__dust-field {
+  inset: -8%;
+  opacity: 0.34;
+  mix-blend-mode: screen;
+  filter: blur(0.6px);
+  background:
+    radial-gradient(circle at 9% 18%, rgba(255, 244, 218, 0.46) 0 0.06rem, transparent 0.08rem),
+    radial-gradient(circle at 18% 42%, rgba(255, 244, 218, 0.34) 0 0.05rem, transparent 0.08rem),
+    radial-gradient(circle at 27% 28%, rgba(210, 224, 238, 0.38) 0 0.055rem, transparent 0.085rem),
+    radial-gradient(circle at 36% 64%, rgba(255, 238, 202, 0.36) 0 0.05rem, transparent 0.08rem),
+    radial-gradient(circle at 44% 52%, rgba(255, 244, 218, 0.42) 0 0.065rem, transparent 0.09rem),
+    radial-gradient(circle at 53% 21%, rgba(210, 224, 238, 0.32) 0 0.05rem, transparent 0.08rem),
+    radial-gradient(circle at 61% 76%, rgba(255, 238, 202, 0.4) 0 0.055rem, transparent 0.085rem),
+    radial-gradient(circle at 70% 36%, rgba(255, 244, 218, 0.36) 0 0.05rem, transparent 0.08rem),
+    radial-gradient(circle at 82% 58%, rgba(210, 224, 238, 0.34) 0 0.055rem, transparent 0.085rem),
+    radial-gradient(circle at 91% 24%, rgba(255, 244, 218, 0.42) 0 0.06rem, transparent 0.09rem);
+  background-size:
+    23rem 19rem,
+    31rem 23rem,
+    28rem 21rem,
+    35rem 27rem,
+    26rem 24rem,
+    33rem 22rem,
+    30rem 28rem,
+    37rem 24rem,
+    29rem 25rem,
+    34rem 29rem;
+  animation: innerHouseDustField 20s ease-in-out infinite alternate;
+}
+
+.inner-house-effects__dust-field--near {
+  opacity: 0.42;
+  filter: blur(0.3px);
+  transform: scale(1.04);
+  animation-duration: 14s;
+  animation-delay: -6s;
+}
+
+.inner-house-effects__dust-field--far {
+  opacity: 0.28;
+  filter: blur(1px);
+  transform: scale(1.12);
+}
+
 .inner-house-effects__dust i {
   border-radius: 50%;
   background:
-    radial-gradient(circle, rgba(255, 246, 222, 0.72), rgba(255, 238, 198, 0.26) 45%, transparent 72%);
-  box-shadow: 0 0 8px rgba(255, 225, 172, 0.2);
-  filter: blur(var(--dust-blur, 0.9px));
+    radial-gradient(circle, rgba(255, 246, 222, 0.88), rgba(255, 238, 198, 0.36) 45%, transparent 72%);
+  box-shadow: 0 0 10px rgba(255, 225, 172, 0.3);
+  filter: blur(var(--dust-blur, 0.85px));
   mix-blend-mode: screen;
   animation: innerHouseParticleFloat ease-in-out infinite;
 }
@@ -2146,6 +2190,22 @@
   100% {
     transform: translate3d(var(--dust-drift-x, 1rem), var(--dust-drift-y, -4rem), 0) scale(0.94);
     opacity: calc(var(--dust-opacity, 0.16) * 0.48);
+  }
+}
+
+@keyframes innerHouseDustField {
+  0% {
+    transform: translate3d(-1.5rem, 0.5rem, 0);
+    opacity: 0.24;
+  }
+
+  45% {
+    opacity: 0.46;
+  }
+
+  100% {
+    transform: translate3d(1.6rem, -1rem, 0);
+    opacity: 0.36;
   }
 }
 
