@@ -1948,9 +1948,18 @@
   overflow: hidden;
 }
 
+.inner-house-voice-orbits {
+  position: fixed;
+  inset: 0;
+  z-index: 48;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .inner-house-effects span,
 .inner-house-effects i,
-.inner-house-light-mood span {
+.inner-house-light-mood span,
+.inner-house-voice-orbit {
   position: absolute;
   display: block;
   pointer-events: none;
@@ -2218,6 +2227,68 @@
     linear-gradient(90deg, transparent, rgba(215, 197, 255, 0.17) 42%, rgba(241, 231, 255, 0.26) 50%, rgba(215, 197, 255, 0.14) 58%, transparent);
 }
 
+.inner-house-voice-orbit {
+  width: clamp(6.5rem, 13vw, 10.5rem);
+  height: clamp(6.5rem, 13vw, 10.5rem);
+  border-radius: 999px;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  opacity: 0.52;
+  will-change: transform, opacity;
+}
+
+.inner-house-voice-orbit--security {
+  left: 17%;
+  top: 18%;
+  background: radial-gradient(circle, rgba(246, 192, 111, 0.9), rgba(246, 192, 111, 0.34) 45%, transparent 72%);
+  animation: innerHouseVoiceOrbitSecurity 4.8s ease-in-out infinite alternate;
+}
+
+.inner-house-voice-orbit--drive {
+  right: 14%;
+  top: 22%;
+  background: radial-gradient(circle, rgba(111, 165, 218, 0.82), rgba(111, 165, 218, 0.32) 46%, transparent 73%);
+  animation: innerHouseVoiceOrbitDrive 5.4s ease-in-out infinite alternate;
+  animation-delay: -1.8s;
+}
+
+.inner-house-voice-orbit--tenderness {
+  left: 20%;
+  bottom: 16%;
+  background: radial-gradient(circle, rgba(203, 130, 154, 0.84), rgba(203, 130, 154, 0.3) 46%, transparent 72%);
+  animation: innerHouseVoiceOrbitTenderness 5.8s ease-in-out infinite alternate;
+  animation-delay: -3.1s;
+}
+
+.inner-house-voice-orbit--rest {
+  right: 18%;
+  bottom: 18%;
+  background: radial-gradient(circle, rgba(158, 136, 212, 0.82), rgba(158, 136, 212, 0.3) 47%, transparent 74%);
+  animation: innerHouseVoiceOrbitRest 5.1s ease-in-out infinite alternate;
+  animation-delay: -2.4s;
+}
+
+.inner-house-voice-orbits--window .inner-house-voice-orbit--drive,
+.inner-house-voice-orbits--result-elan .inner-house-voice-orbit--drive {
+  opacity: 0.64;
+}
+
+.inner-house-voice-orbits--lamp .inner-house-voice-orbit--security,
+.inner-house-voice-orbits--table .inner-house-voice-orbit--security,
+.inner-house-voice-orbits--result-securite .inner-house-voice-orbit--security {
+  opacity: 0.66;
+}
+
+.inner-house-voice-orbits--mirror .inner-house-voice-orbit--tenderness,
+.inner-house-voice-orbits--result-douceur .inner-house-voice-orbit--tenderness {
+  opacity: 0.62;
+}
+
+.inner-house-voice-orbits--corridor .inner-house-voice-orbit--rest,
+.inner-house-voice-orbits--result-repos .inner-house-voice-orbit--rest {
+  opacity: 0.62;
+}
+
 .inner-house-effects--corridor .inner-house-effects__door-light,
 .inner-house-effects--home .inner-house-effects__door-light {
   opacity: 0.36;
@@ -2292,13 +2363,77 @@
 
 @keyframes innerHouseSoftSweep {
   0% {
-    transform: translateX(-1.2rem);
-    opacity: 0.46;
+    transform: translateX(-5rem);
+    opacity: 0.38;
   }
 
   100% {
-    transform: translateX(1.2rem);
-    opacity: 0.86;
+    transform: translateX(5rem);
+    opacity: 0.9;
+  }
+}
+
+@keyframes innerHouseVoiceOrbitSecurity {
+  0% {
+    transform: translate3d(-2.4rem, -0.8rem, 0) scale(0.88);
+    opacity: 0.34;
+  }
+
+  45% {
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translate3d(3rem, 1.4rem, 0) scale(1.16);
+    opacity: 0.52;
+  }
+}
+
+@keyframes innerHouseVoiceOrbitDrive {
+  0% {
+    transform: translate3d(2rem, -1.4rem, 0) scale(1.08);
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.68;
+  }
+
+  100% {
+    transform: translate3d(-3.4rem, 2rem, 0) scale(0.92);
+    opacity: 0.54;
+  }
+}
+
+@keyframes innerHouseVoiceOrbitTenderness {
+  0% {
+    transform: translate3d(-1.6rem, 2.2rem, 0) scale(0.94);
+    opacity: 0.32;
+  }
+
+  48% {
+    opacity: 0.66;
+  }
+
+  100% {
+    transform: translate3d(3.1rem, -2.3rem, 0) scale(1.14);
+    opacity: 0.5;
+  }
+}
+
+@keyframes innerHouseVoiceOrbitRest {
+  0% {
+    transform: translate3d(2.7rem, 1rem, 0) scale(0.9);
+    opacity: 0.32;
+  }
+
+  52% {
+    opacity: 0.64;
+  }
+
+  100% {
+    transform: translate3d(-2.9rem, -2rem, 0) scale(1.12);
+    opacity: 0.52;
   }
 }
 
@@ -2502,6 +2637,33 @@
   .inner-house-light-mood__beam--two {
     display: none;
   }
+
+  .inner-house-voice-orbit {
+    width: 5.7rem;
+    height: 5.7rem;
+    filter: blur(16px);
+    opacity: 0.44;
+  }
+
+  .inner-house-voice-orbit--security {
+    left: 4%;
+    top: 18%;
+  }
+
+  .inner-house-voice-orbit--drive {
+    right: 3%;
+    top: 30%;
+  }
+
+  .inner-house-voice-orbit--tenderness {
+    left: 7%;
+    bottom: 20%;
+  }
+
+  .inner-house-voice-orbit--rest {
+    right: 6%;
+    bottom: 13%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2516,6 +2678,7 @@
   .inner-house-effects__voice-wave,
   .inner-house-effects__dust i,
   .inner-house-light-mood span,
+  .inner-house-voice-orbit,
   .app--inner-house .intro-copy,
   .app--inner-house .scene-caption,
   .app--inner-house .choice-panel,

@@ -114,6 +114,12 @@ export default function InnerHouseSceneEffects({ sceneId, stepId, resultKey }) {
         <span className="inner-house-light-mood__beam inner-house-light-mood__beam--two" />
         <span className="inner-house-light-mood__beam inner-house-light-mood__beam--three" />
       </div>
+      <div className={`inner-house-voice-orbits inner-house-voice-orbits--${sceneType}`} aria-hidden="true">
+        <span className="inner-house-voice-orbit inner-house-voice-orbit--security" />
+        <span className="inner-house-voice-orbit inner-house-voice-orbit--drive" />
+        <span className="inner-house-voice-orbit inner-house-voice-orbit--tenderness" />
+        <span className="inner-house-voice-orbit inner-house-voice-orbit--rest" />
+      </div>
     </>
   );
 }
