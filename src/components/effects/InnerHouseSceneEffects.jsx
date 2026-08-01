@@ -14,15 +14,44 @@ function sceneTypeFor(stepId, resultKey) {
 }
 
 function makeDust(sceneType) {
-  return Array.from({ length: 30 }, (_, index) => {
-    const seed = sceneType.length * 37 + index * 29;
+  const sceneShift = (sceneType.length % 7) * 0.8;
+  const points = [
+    [9, 18, 2.2, -0.6, -3.2, 0.18],
+    [17, 43, 1.6, 0.9, -4.8, 0.14],
+    [23, 29, 2.8, -1.4, -3.6, 0.2],
+    [31, 68, 1.9, 1.8, -5.2, 0.16],
+    [38, 22, 1.4, 0.5, -3.1, 0.13],
+    [43, 54, 2.5, -1.1, -4.4, 0.19],
+    [49, 37, 1.8, 1.3, -3.7, 0.15],
+    [55, 73, 2.1, -0.7, -5.6, 0.17],
+    [61, 17, 1.5, 1.5, -3.4, 0.14],
+    [67, 48, 2.7, -1.8, -4.9, 0.2],
+    [72, 31, 1.7, 0.6, -3.8, 0.15],
+    [78, 65, 2.3, 1.1, -5.1, 0.18],
+    [84, 24, 1.4, -1.2, -3.3, 0.13],
+    [88, 51, 2.0, 0.8, -4.5, 0.16],
+    [13, 76, 1.3, 1.4, -4.2, 0.12],
+    [27, 12, 2.0, -0.8, -3.5, 0.17],
+    [35, 45, 1.2, 1.6, -4.7, 0.12],
+    [46, 82, 1.7, -1.5, -5.3, 0.15],
+    [58, 60, 1.3, 0.7, -4.1, 0.13],
+    [69, 78, 1.9, -0.9, -5.8, 0.16],
+    [81, 39, 1.1, 1.2, -3.9, 0.12],
+    [92, 70, 1.6, -1.7, -5.4, 0.14],
+  ];
+
+  return points.map(([left, top, size, driftX, driftY, opacity], index) => {
+    const delay = -((index * 3.7 + sceneShift) % 18);
     return {
-      left: 7 + ((seed * 13) % 86),
-      top: 12 + ((seed * 17) % 72),
-      size: 3.2 + ((seed * 5) % 30) / 10,
-      delay: ((seed * 7) % 120) / 10,
-      duration: 14 + ((seed * 11) % 13),
-      opacity: 0.34 + ((seed * 3) % 22) / 100,
+      left: Math.min(94, Math.max(6, left + Math.sin(sceneShift + index) * 1.1)),
+      top: Math.min(86, Math.max(8, top + Math.cos(sceneShift + index * 0.7) * 1.4)),
+      size,
+      delay,
+      duration: 18 + (index % 7) * 2.4,
+      opacity,
+      driftX,
+      driftY,
+      blur: 0.7 + (index % 4) * 0.22,
     };
   });
 }
@@ -56,6 +85,9 @@ export default function InnerHouseSceneEffects({ sceneId, stepId, resultKey }) {
               animationDelay: `${particle.delay}s`,
               animationDuration: `${particle.duration}s`,
               "--dust-opacity": particle.opacity,
+              "--dust-drift-x": `${particle.driftX}rem`,
+              "--dust-drift-y": `${particle.driftY}rem`,
+              "--dust-blur": `${particle.blur}px`,
             }}
           />
         ))}
