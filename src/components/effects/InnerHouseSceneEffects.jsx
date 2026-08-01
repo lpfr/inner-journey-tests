@@ -14,15 +14,15 @@ function sceneTypeFor(stepId, resultKey) {
 }
 
 function makeDust(sceneType) {
-  return Array.from({ length: 18 }, (_, index) => {
+  return Array.from({ length: 30 }, (_, index) => {
     const seed = sceneType.length * 37 + index * 29;
     return {
       left: 7 + ((seed * 13) % 86),
       top: 12 + ((seed * 17) % 72),
-      size: 1.8 + ((seed * 5) % 18) / 10,
+      size: 3.2 + ((seed * 5) % 30) / 10,
       delay: ((seed * 7) % 120) / 10,
-      duration: 18 + ((seed * 11) % 16),
-      opacity: 0.2 + ((seed * 3) % 18) / 100,
+      duration: 14 + ((seed * 11) % 13),
+      opacity: 0.34 + ((seed * 3) % 22) / 100,
     };
   });
 }
