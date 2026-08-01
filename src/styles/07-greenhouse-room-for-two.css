@@ -1770,12 +1770,66 @@
 .app--inner-house .scene-caption,
 .app--inner-house .choice-panel,
 .app--inner-house .result-card,
-.app--inner-house .subtitle-stack--result {
+.app--inner-house .subtitle-stack--result,
+.app--inner-house .unified-result-card {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, rgba(21, 20, 32, 0.68), rgba(8, 8, 17, 0.82));
-  border-color: rgba(244, 197, 128, 0.18);
+  border-color: rgba(244, 197, 128, 0.32);
   box-shadow:
     0 18px 54px rgba(0, 0, 0, 0.34),
-    0 0 36px rgba(244, 197, 128, 0.08);
+    0 0 36px rgba(244, 197, 128, 0.14),
+    inset 0 0 36px rgba(110, 150, 198, 0.08);
+  animation: innerHouseCardAura 7s ease-in-out infinite alternate;
+}
+
+.app--inner-house .intro-copy > *,
+.app--inner-house .scene-caption > *,
+.app--inner-house .choice-panel > *,
+.app--inner-house .result-card > *,
+.app--inner-house .subtitle-stack--result > *,
+.app--inner-house .unified-result-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app--inner-house .intro-copy::before,
+.app--inner-house .scene-caption::before,
+.app--inner-house .choice-panel::before,
+.app--inner-house .result-card::before,
+.app--inner-house .subtitle-stack--result::before,
+.app--inner-house .unified-result-card::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(250, 197, 122, 0.28), transparent 26%),
+    radial-gradient(circle at 78% 28%, rgba(112, 160, 214, 0.24), transparent 26%),
+    radial-gradient(circle at 30% 82%, rgba(180, 132, 210, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 78%, rgba(206, 134, 150, 0.16), transparent 26%);
+  filter: blur(18px);
+  opacity: 0.74;
+  animation: innerHouseFourVoiceGlow 9s ease-in-out infinite alternate;
+}
+
+.app--inner-house .intro-copy::after,
+.app--inner-house .scene-caption::after,
+.app--inner-house .result-card::after,
+.app--inner-house .subtitle-stack--result::after,
+.app--inner-house .unified-result-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(115deg, transparent 0 18%, rgba(255, 230, 180, 0.11) 36%, transparent 54%),
+    linear-gradient(62deg, transparent 0 58%, rgba(142, 178, 220, 0.1) 72%, transparent 90%);
+  opacity: 0.82;
+  animation: innerHouseSoftSweep 8s ease-in-out infinite alternate;
 }
 
 .app--inner-house .intro-scene,
@@ -1821,10 +1875,12 @@
   display: grid;
   align-content: center;
   padding: 1rem;
-  background: rgba(9, 10, 22, 0.64);
-  border: 1px solid rgba(244, 197, 128, 0.18);
+  background: rgba(9, 10, 22, 0.7);
+  border: 1px solid rgba(244, 197, 128, 0.34);
   border-radius: 0.95rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.24),
+    inset 0 0 18px rgba(110, 150, 198, 0.07);
 }
 
 .app--inner-house .choice-card-title {
@@ -2200,6 +2256,52 @@
   }
 }
 
+@keyframes innerHouseCardAura {
+  0% {
+    border-color: rgba(244, 197, 128, 0.28);
+    box-shadow:
+      0 18px 54px rgba(0, 0, 0, 0.34),
+      0 0 30px rgba(244, 197, 128, 0.12),
+      inset 0 0 28px rgba(110, 150, 198, 0.07);
+  }
+
+  100% {
+    border-color: rgba(142, 178, 220, 0.42);
+    box-shadow:
+      0 18px 54px rgba(0, 0, 0, 0.34),
+      0 0 44px rgba(142, 178, 220, 0.18),
+      inset 0 0 42px rgba(244, 197, 128, 0.09);
+  }
+}
+
+@keyframes innerHouseFourVoiceGlow {
+  0% {
+    transform: translate3d(-1.2rem, 0.4rem, 0) scale(0.98);
+    opacity: 0.62;
+  }
+
+  50% {
+    opacity: 0.88;
+  }
+
+  100% {
+    transform: translate3d(1rem, -0.5rem, 0) scale(1.04);
+    opacity: 0.78;
+  }
+}
+
+@keyframes innerHouseSoftSweep {
+  0% {
+    transform: translateX(-1.2rem);
+    opacity: 0.46;
+  }
+
+  100% {
+    transform: translateX(1.2rem);
+    opacity: 0.86;
+  }
+}
+
 @keyframes innerHouseDoorPulse {
   0% {
     transform: scaleY(0.82) translateX(-0.2rem);
@@ -2413,7 +2515,24 @@
   .inner-house-effects__haze,
   .inner-house-effects__voice-wave,
   .inner-house-effects__dust i,
-  .inner-house-light-mood span {
+  .inner-house-light-mood span,
+  .app--inner-house .intro-copy,
+  .app--inner-house .scene-caption,
+  .app--inner-house .choice-panel,
+  .app--inner-house .result-card,
+  .app--inner-house .subtitle-stack--result,
+  .app--inner-house .unified-result-card,
+  .app--inner-house .intro-copy::before,
+  .app--inner-house .scene-caption::before,
+  .app--inner-house .choice-panel::before,
+  .app--inner-house .result-card::before,
+  .app--inner-house .subtitle-stack--result::before,
+  .app--inner-house .unified-result-card::before,
+  .app--inner-house .intro-copy::after,
+  .app--inner-house .scene-caption::after,
+  .app--inner-house .result-card::after,
+  .app--inner-house .subtitle-stack--result::after,
+  .app--inner-house .unified-result-card::after {
     animation: none;
   }
 
